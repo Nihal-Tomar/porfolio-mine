@@ -1,12 +1,769 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nihal Singh | Portfolio</title>
-    <link rel="icon" type="image/png" href="/image/ns1.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nihal Singh Tomar — Full Stack Developer & Problem Solver. Crafting high-performance web experiences with modern technologies." />
+  <meta name="keywords" content="Nihal Singh Tomar, Full Stack Developer, Web Developer, Portfolio, React, Node.js, JavaScript" />
+  <meta name="author" content="Nihal Singh Tomar" />
+  <meta property="og:title" content="Nihal Singh Tomar | Full Stack Developer" />
+  <meta property="og:description" content="Premium portfolio of Nihal Singh Tomar — Full Stack Developer & Problem Solver." />
+  <meta property="og:type" content="website" />
+  <title>Nihal | Full Stack Developer</title>
+  <link rel="icon" type="image/png" href="image/ns1.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- AOS (Scroll Animations) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Devicons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <!-- ─── NAVBAR ──────────────────────────────────────── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>NS<span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+        <a href="#contact" class="btn btn-primary nav-cta">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────────── -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
+        <p class="hero-greeting">Hello, World! 👋</p>
+        <h1 class="hero-name">I'm <span class="gradient-text">Nihal Singh</span><br />Tomar</h1>
+        <div class="hero-typed-wrapper">
+          <span class="typed-prefix">I am a </span>
+          <span id="typed-text" class="typed-highlight"></span>
+          <span class="typed-cursor-custom">|</span>
+        </div>
+        <p class="hero-bio">
+          Passionate about building <strong>scalable web experiences</strong> that blend 
+          performance with pixel-perfect design. I turn complex problems into elegant solutions.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fas fa-rocket"></i> View Projects
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fas fa-paper-plane"></i> Contact Me
+          </a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/" target="_blank" class="social-icon" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/" target="_blank" class="social-icon" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://twitter.com/" target="_blank" class="social-icon" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="mailto:nihal@example.com" class="social-icon" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+        <div class="hero-image-container">
+          <div class="glow-ring"></div>
+          <div class="glow-ring ring-2"></div>
+          <img src="image/Ns2.png" alt="Nihal Singh Tomar" class="hero-photo" loading="eager" />
+        </div>
+        <div class="floating-badge badge-1">
+          <i class="fas fa-code"></i> Full Stack
+        </div>
+        <div class="floating-badge badge-2">
+          <i class="fas fa-star"></i> 2+ Years
+        </div>
+        <div class="floating-badge badge-3">
+          <i class="fas fa-fire"></i> 20+ Projects
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <p>Scroll Down</p>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─────────────────────────────────────────── -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Get To Know</span>
+        <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-image-col" data-aos="fade-right" data-aos-duration="900">
+          <div class="about-image-frame">
+            <img src="image/ns1.png" alt="Nihal Singh Tomar" class="about-photo" loading="lazy" />
+            <div class="about-image-overlay">
+              <div class="tech-float">React · Node · Python</div>
+            </div>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card glass-card">
+              <span class="stat-num" data-target="20">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Projects Done</span>
+            </div>
+            <div class="stat-card glass-card">
+              <span class="stat-num" data-target="2">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Years Exp.</span>
+            </div>
+            <div class="stat-card glass-card">
+              <span class="stat-num" data-target="10">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Technologies</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-text-col" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+          <h3 class="about-heading">Crafting Digital Experiences That <span class="gradient-text">Matter</span></h3>
+          <p class="about-desc">
+            I'm a <strong>Full Stack Developer</strong> with a deep passion for building purposeful, 
+            high-performance web applications. My journey started with curiosity about how the web 
+            works — and evolved into a relentless drive to master it.
+          </p>
+          <p class="about-desc">
+            I specialise in the <strong>MERN stack</strong>, with experience in building RESTful APIs, 
+            designing scalable architectures, and crafting intuitive frontends. I believe great 
+            software is equal parts logic and artistry.
+          </p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Clean, maintainable, well-documented code</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Performance-first development mindset</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Collaborative team player & fast learner</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Driven by curiosity & continuous improvement</span>
+            </div>
+          </div>
+          <div class="about-cta">
+            <a href="#" class="btn btn-primary" id="downloadCV">
+              <i class="fas fa-download"></i> Download CV
+            </a>
+            <a href="#contact" class="btn btn-outline">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SKILLS ───────────────────────────────────────── -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">What I Work With</span>
+        <h2 class="section-title">Tech <span class="gradient-text">Stack</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="skills-categories" data-aos="fade-up" data-aos-delay="100">
+        <button class="skill-cat-btn active" data-cat="all">All</button>
+        <button class="skill-cat-btn" data-cat="frontend">Frontend</button>
+        <button class="skill-cat-btn" data-cat="backend">Backend</button>
+        <button class="skill-cat-btn" data-cat="tools">Tools</button>
+      </div>
+
+      <div class="skills-grid" id="skillsGrid">
+        <!-- Frontend -->
+        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="50">
+          <i class="devicon-html5-plain colored skill-icon"></i>
+          <span class="skill-name">HTML5</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+          <span class="skill-pct">95%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="100">
+          <i class="devicon-css3-plain colored skill-icon"></i>
+          <span class="skill-name">CSS3</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+          <span class="skill-pct">90%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="150">
+          <i class="devicon-javascript-plain colored skill-icon"></i>
+          <span class="skill-name">JavaScript</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+          <span class="skill-pct">88%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="200">
+          <i class="devicon-react-original colored skill-icon"></i>
+          <span class="skill-name">React</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          <span class="skill-pct">85%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="250">
+          <i class="devicon-tailwindcss-plain colored skill-icon"></i>
+          <span class="skill-name">Tailwind</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+          <span class="skill-pct">82%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="300">
+          <i class="devicon-nextjs-original skill-icon"></i>
+          <span class="skill-name">Next.js</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+          <span class="skill-pct">75%</span>
+        </div>
+
+        <!-- Backend -->
+        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="50">
+          <i class="devicon-nodejs-plain colored skill-icon"></i>
+          <span class="skill-name">Node.js</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+          <span class="skill-pct">80%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="100">
+          <i class="devicon-express-original skill-icon"></i>
+          <span class="skill-name">Express</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+          <span class="skill-pct">78%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="150">
+          <i class="devicon-mongodb-plain colored skill-icon"></i>
+          <span class="skill-name">MongoDB</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+          <span class="skill-pct">75%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="200">
+          <i class="devicon-python-plain colored skill-icon"></i>
+          <span class="skill-name">Python</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+          <span class="skill-pct">70%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="250">
+          <i class="devicon-mysql-plain colored skill-icon"></i>
+          <span class="skill-name">MySQL</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
+          <span class="skill-pct">72%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="300">
+          <i class="devicon-firebase-plain colored skill-icon"></i>
+          <span class="skill-name">Firebase</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="68"></div></div>
+          <span class="skill-pct">68%</span>
+        </div>
+
+        <!-- Tools -->
+        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="50">
+          <i class="devicon-git-plain colored skill-icon"></i>
+          <span class="skill-name">Git</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+          <span class="skill-pct">90%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="100">
+          <i class="devicon-github-original skill-icon"></i>
+          <span class="skill-name">GitHub</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+          <span class="skill-pct">88%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="150">
+          <i class="devicon-vscode-plain colored skill-icon"></i>
+          <span class="skill-name">VS Code</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+          <span class="skill-pct">95%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="200">
+          <i class="devicon-figma-plain colored skill-icon"></i>
+          <span class="skill-name">Figma</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+          <span class="skill-pct">65%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="250">
+          <i class="devicon-docker-plain colored skill-icon"></i>
+          <span class="skill-name">Docker</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="60"></div></div>
+          <span class="skill-pct">60%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="300">
+          <i class="devicon-linux-plain skill-icon"></i>
+          <span class="skill-name">Linux</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+          <span class="skill-pct">70%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROJECTS ──────────────────────────────────────── -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">My Work</span>
+        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 — Featured -->
+        <div class="project-card glass-card featured" data-aos="fade-up" data-aos-delay="50">
+          <div class="project-badge">⭐ Featured</div>
+          <div class="project-img-wrapper">
+            <div class="project-img-placeholder p1">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="overlay-btn" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="overlay-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">ApnaKart — E-Commerce Platform</h3>
+            <p class="project-desc">A full-stack e-commerce solution with product listings, cart, auth, payment integration and an admin dashboard with real-time analytics.</p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">Stripe</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-rocket"></i> Live Demo</a>
+              <a href="#" class="btn btn-outline btn-sm"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 — Featured -->
+        <div class="project-card glass-card featured" data-aos="fade-up" data-aos-delay="150">
+          <div class="project-badge">⭐ Featured</div>
+          <div class="project-img-wrapper">
+            <div class="project-img-placeholder p2">
+              <i class="fas fa-comments"></i>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="overlay-btn" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="overlay-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">ChatSphere — Real-Time Chat App</h3>
+            <p class="project-desc">A scalable real-time chat application supporting group chats, private messaging, file sharing, and online status — powered by Socket.IO.</p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Socket.IO</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-rocket"></i> Live Demo</a>
+              <a href="#" class="btn btn-outline btn-sm"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 — Featured -->
+        <div class="project-card glass-card featured" data-aos="fade-up" data-aos-delay="250">
+          <div class="project-badge">⭐ Featured</div>
+          <div class="project-img-wrapper">
+            <div class="project-img-placeholder p3">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="overlay-btn" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="overlay-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">DevAI — AI Code Assistant</h3>
+            <p class="project-desc">An AI-powered coding assistant that reviews code, suggests improvements, detects bugs, and generates boilerplate — integrating OpenAI API.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">OpenAI</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Firebase</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-rocket"></i> Live Demo</a>
+              <a href="#" class="btn btn-outline btn-sm"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-img-wrapper">
+            <div class="project-img-placeholder p4">
+              <i class="fas fa-tasks"></i>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="overlay-btn"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="overlay-btn"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">TaskFlow — Project Manager</h3>
+            <p class="project-desc">A Kanban-style project management app with drag-and-drop boards, team collaboration, and deadline tracking.</p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-rocket"></i> Demo</a>
+              <a href="#" class="btn btn-outline btn-sm"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-img-wrapper">
+            <div class="project-img-placeholder p5">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="overlay-btn"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="overlay-btn"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">FinTrack — Finance Dashboard</h3>
+            <p class="project-desc">A personal finance tracker with expense categorisation, visual charts, budget goals and monthly reports.</p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Chart.js</span>
+              <span class="tech-tag">Firebase</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-rocket"></i> Demo</a>
+              <a href="#" class="btn btn-outline btn-sm"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="project-img-wrapper">
+            <div class="project-img-placeholder p6">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="overlay-btn"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="overlay-btn"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">LearnHub — EdTech Platform</h3>
+            <p class="project-desc">An online learning platform with video courses, quizzes, progress tracking, and certificate generation.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">AWS S3</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-rocket"></i> Demo</a>
+              <a href="#" class="btn btn-outline btn-sm"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="projects-more" data-aos="fade-up">
+        <a href="https://github.com/" target="_blank" class="btn btn-outline btn-lg">
+          <i class="fab fa-github"></i> View All Projects on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCE ────────────────────────────────────── -->
+  <section class="experience section" id="experience">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Journey</span>
+        <h2 class="section-title">Experience & <span class="gradient-text">Education</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="timeline-tabs" data-aos="fade-up" data-aos-delay="100">
+        <button class="timeline-tab active" data-tab="experience">Experience</button>
+        <button class="timeline-tab" data-tab="education">Education</button>
+      </div>
+
+      <!-- Experience Timeline -->
+      <div class="timeline" id="experienceTimeline" data-aos="fade-up" data-aos-delay="150">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-title">Full Stack Developer Intern</h3>
+                <p class="timeline-company"><i class="fas fa-building"></i> TechNova Solutions</p>
+              </div>
+              <span class="timeline-date">Jan 2025 – Present</span>
+            </div>
+            <ul class="timeline-desc">
+              <li>Developed and maintained React-based dashboards serving 10k+ users</li>
+              <li>Built RESTful APIs with Node.js/Express, reducing response time by 40%</li>
+              <li>Implemented CI/CD pipelines using GitHub Actions and Docker</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-title">Frontend Developer</h3>
+                <p class="timeline-company"><i class="fas fa-building"></i> FreelanceHub (Remote)</p>
+              </div>
+              <span class="timeline-date">Jun 2024 – Dec 2024</span>
+            </div>
+            <ul class="timeline-desc">
+              <li>Delivered 8+ responsive web projects for international clients</li>
+              <li>Improved page load scores from 60 → 95 on Lighthouse</li>
+              <li>Integrated third-party APIs (payment, maps, auth)</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Tailwind</span>
+              <span class="tech-tag">Firebase</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-title">Open Source Contributor</h3>
+                <p class="timeline-company"><i class="fab fa-github"></i> GitHub Projects</p>
+              </div>
+              <span class="timeline-date">2023 – Present</span>
+            </div>
+            <ul class="timeline-desc">
+              <li>Contributed bug fixes and features to 5+ open-source repositories</li>
+              <li>Maintained personal OSS library with 200+ GitHub stars</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Python</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education Timeline -->
+      <div class="timeline hidden" id="educationTimeline">
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="50">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-title">B.Tech in Computer Science</h3>
+                <p class="timeline-company"><i class="fas fa-university"></i> Rajasthan Technical University</p>
+              </div>
+              <span class="timeline-date">2022 – 2026</span>
+            </div>
+            <ul class="timeline-desc">
+              <li>CGPA: 8.2 / 10.0</li>
+              <li>Core subjects: Data Structures, OS, DBMS, Computer Networks</li>
+              <li>Technical lead of the college coding club</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tech-tag">DSA</span>
+              <span class="tech-tag">DBMS</span>
+              <span class="tech-tag">OS</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-title">Higher Secondary (PCM + CS)</h3>
+                <p class="timeline-company"><i class="fas fa-school"></i> Delhi Public School, Kota</p>
+              </div>
+              <span class="timeline-date">2020 – 2022</span>
+            </div>
+            <ul class="timeline-desc">
+              <li>Grade: 92.4% — School topper in Computer Science</li>
+              <li>Winner at district-level tech quiz & programming olympiad</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tech-tag">Physics</span>
+              <span class="tech-tag">Math</span>
+              <span class="tech-tag">C++</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ───────────────────────────────────────── -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info" data-aos="fade-right" data-aos-duration="800">
+          <h3 class="contact-heading">Have a project in mind? <br /><span class="gradient-text">Let's build it together.</span></h3>
+          <p class="contact-desc">Whether it's a startup MVP, a freelance project, or just a conversation about technology — I'm always open to exciting opportunities.</p>
+          <div class="contact-details">
+            <div class="contact-detail-item">
+              <div class="contact-icon-wrap"><i class="fas fa-envelope"></i></div>
+              <div>
+                <span class="contact-detail-label">Email</span>
+                <a href="mailto:nihal@example.com" class="contact-detail-value">nihal@example.com</a>
+              </div>
+            </div>
+            <div class="contact-detail-item">
+              <div class="contact-icon-wrap"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <span class="contact-detail-label">Location</span>
+                <span class="contact-detail-value">Rajasthan, India 🇮🇳</span>
+              </div>
+            </div>
+            <div class="contact-detail-item">
+              <div class="contact-icon-wrap"><i class="fas fa-circle" style="color:#22c55e;font-size:0.75rem;"></i></div>
+              <div>
+                <span class="contact-detail-label">Status</span>
+                <span class="contact-detail-value available">Available for opportunities</span>
+              </div>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="https://github.com/" target="_blank" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com/" target="_blank" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+          <form class="contact-form glass-card" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="userName" class="form-label">Your Name</label>
+              <div class="form-input-wrap">
+                <i class="fas fa-user form-icon"></i>
+                <input type="text" id="userName" name="name" class="form-input" placeholder="Nihal Singh" required autocomplete="name" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="userEmail" class="form-label">Email Address</label>
+              <div class="form-input-wrap">
+                <i class="fas fa-envelope form-icon"></i>
+                <input type="email" id="userEmail" name="email" class="form-input" placeholder="nihal@example.com" required autocomplete="email" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="userSubject" class="form-label">Subject</label>
+              <div class="form-input-wrap">
+                <i class="fas fa-tag form-icon"></i>
+                <input type="text" id="userSubject" name="subject" class="form-input" placeholder="Project Collaboration" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="userMessage" class="form-label">Message</label>
+              <div class="form-input-wrap">
+                <i class="fas fa-comment form-icon icon-top"></i>
+                <textarea id="userMessage" name="message" class="form-input form-textarea" placeholder="Tell me about your project..." required rows="5"></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+              <span class="btn-text"><i class="fas fa-paper-plane"></i> Send Message</span>
+              <span class="btn-loading hidden"><i class="fas fa-spinner fa-spin"></i> Sending...</span>
+            </button>
+            <div class="form-status" id="formStatus"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="#hero" class="nav-logo footer-logo">
+          <span class="logo-bracket">&lt;</span>NS<span class="logo-bracket">/&gt;</span>
+        </a>
+        <p class="footer-tagline">Crafting the web, one line at a time.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/" target="_blank" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://twitter.com/" target="_blank" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="mailto:nihal@example.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 <span class="gradient-text">Nihal Singh Tomar</span>. Designed & Built with <span class="heart">♥</span> — All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/dist/typed.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
