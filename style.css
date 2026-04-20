@@ -909,8 +909,13 @@ body:has(button:hover) .cursor-follower {
 
 .project-card {
   overflow: hidden;
-  transition: all var(--transition-med);
-  position: relative;
+  border-radius: var(--radius-lg);
+  position: relative; /* 👈 MISSING (IMPORTANT) */
+  transition: all var(--transition-med); /* keep smooth animation */
+}
+
+.project-img-placeholder {
+  display: none;
 }
 
 .project-card:hover {
@@ -946,15 +951,22 @@ body:has(button:hover) .cursor-follower {
   position: relative;
   overflow: hidden;
   aspect-ratio: 16/9;
+  border-radius: var(--radius-lg); /* 👈 ADD THIS */
 }
 
-.project-img-placeholder {
-  width: 100%; height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
+/* ✅ Real Image Support */
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   transition: transform var(--transition-slow);
+  
+}
+
+/* Replace this hover target */
+.project-card:hover .project-img {
+  transform: scale(1.08);
 }
 
 .p1 { background: linear-gradient(135deg, #1a1040, #0d2060); color: #4f8ef7; }
@@ -964,23 +976,20 @@ body:has(button:hover) .cursor-follower {
 .p5 { background: linear-gradient(135deg, #15200d, #204030); color: #22c55e; }
 .p6 { background: linear-gradient(135deg, #201505, #402010); color: #f59e0b; }
 
-.project-card:hover .project-img-placeholder {
-  transform: scale(1.08);
-}
+
 
 .project-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(5, 7, 20, 0.75);
+  background: rgba(5, 7, 20, 0.65); /* slightly lighter */
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
   opacity: 0;
-  transition: opacity var(--transition-med);
-  backdrop-filter: blur(4px);
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(6px);
 }
-
 .project-card:hover .project-overlay { opacity: 1; }
 
 .overlay-btn {
@@ -1043,6 +1052,7 @@ body:has(button:hover) .cursor-follower {
 .project-links { display: flex; gap: 10px; }
 
 .projects-more { text-align: center; }
+
 
 /* ── EXPERIENCE ────────────────────────────────────────── */
 .experience { background: var(--bg-primary); }
