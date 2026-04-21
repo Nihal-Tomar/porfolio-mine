@@ -1,782 +1,541 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Nihal Singh Tomar — Full Stack Developer & Problem Solver. Crafting high-performance web experiences with modern technologies."
-    />
-    <meta
-      name="keywords"
-      content="Nihal Singh Tomar, Full Stack Developer, Web Developer, Portfolio, React, Node.js, JavaScript"
-    />
-    <meta name="author" content="Nihal Singh Tomar" />
-    <meta
-      property="og:title"
-      content="Nihal Singh Tomar | Full Stack Developer"
-    />
-    <meta
-      property="og:description"
-      content="Premium portfolio of Nihal Singh Tomar — Full Stack Developer & Problem Solver."
-    />
-    <meta property="og:type" content="website" />
-    <title>Nihal | Full Stack Developer</title>
-    <link rel="icon" type="image/png" href="image/ns1.png" />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Nihal Singh Tomar — Full Stack Developer & Problem Solver. Crafting high-performance web experiences with modern technologies." />
+  <meta name="keywords"
+    content="Nihal Singh Tomar, Full Stack Developer, Web Developer, Portfolio, React, Node.js, JavaScript" />
+  <meta name="author" content="Nihal Singh Tomar" />
+  <meta property="og:title" content="Nihal Singh Tomar | Full Stack Developer" />
+  <meta property="og:description"
+    content="Premium portfolio of Nihal Singh Tomar — Full Stack Developer & Problem Solver." />
+  <meta property="og:type" content="website" />
+  <title>Nihal | Full Stack Developer</title>
+  <link rel="icon" type="image/png" href="image/ns1.png" />
 
-    <!-- AOS (Scroll Animations) -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
-    />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
 
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+  <!-- AOS (Scroll Animations) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 
-    <!-- Devicons -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Custom Cursor -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-follower" id="cursorFollower"></div>
+  <!-- Devicons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
-    <!-- Particles Background -->
-    <div id="particles-js"></div>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <!-- ─── NAVBAR ──────────────────────────────────────── -->
-    <nav class="navbar" id="navbar">
-      <div class="nav-container">
-        <a href="#hero" class="nav-logo">
-          <span class="logo-bracket">&lt;</span>NS<span class="logo-bracket"
-            >/&gt;</span
-          >
-        </a>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#experience" class="nav-link">Experience</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-        <div class="nav-actions">
-          <button
-            class="theme-toggle"
-            id="themeToggle"
-            aria-label="Toggle theme"
-          >
-            <i class="fas fa-moon" id="themeIcon"></i>
-          </button>
-          <a href="#contact" class="btn btn-primary nav-cta">Hire Me</a>
-          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-          </button>
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <!-- ─── NAVBAR ──────────────────────────────────────── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>NS<span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+        <a href="#contact" class="btn btn-primary nav-cta">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────────── -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
+        <p class="hero-greeting">Hello, World! 👋</p>
+        <h1 class="hero-name">
+          I'm <span class="gradient-text">Nihal Singh</span><br />Tomar
+        </h1>
+        <div class="hero-typed-wrapper">
+          <span class="typed-prefix">I am a </span>
+          <span id="typed-text" class="typed-highlight"></span>
+          <span class="typed-cursor-custom">|</span>
+        </div>
+        <p class="hero-bio">
+          Passionate about building
+          <strong>scalable web experiences</strong> that blend performance
+          with pixel-perfect design. I turn complex problems into elegant
+          solutions.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fas fa-rocket"></i> View Projects
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fas fa-paper-plane"></i> Contact Me
+          </a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/Nihal-Tomar" target="_blank" class="social-icon" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="www.linkedin.com/in/nihal-singh-tomar-5385462ba" target="_blank" class="social-icon"
+            aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://instagram.com/Nihal.tomarr" target="_blank" class="social-icon" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+
+          <a href="https://x.com/Nihal_tomarr" target="_blank" class="social-icon" aria-label="Twitter">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          <a href="mailto:nihaltomar95@gmail.com" class="social-icon" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
         </div>
       </div>
-    </nav>
+      <div class="hero-image-wrapper" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+        <div class="hero-image-container">
+          <div class="glow-ring"></div>
+          <div class="glow-ring ring-2"></div>
+          <img src="image/Ns4.png" alt="Nihal Singh Tomar" class="hero-photo" loading="eager" />
+        </div>
+        <div class="floating-badge badge-1">
+          <i class="fas fa-code"></i> Full Stack
+        </div>
+        <div class="floating-badge badge-2">
+          <i class="fas fa-star"></i> 2+ Years
+        </div>
+        <div class="floating-badge badge-3">
+          <i class="fas fa-fire"></i> 8+ Projects
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <p>Scroll Down</p>
+    </div>
+  </section>
 
-    <!-- ─── HERO ─────────────────────────────────────────── -->
-    <section class="hero" id="hero">
-      <div class="hero-content">
-        <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
-          <p class="hero-greeting">Hello, World! 👋</p>
-          <h1 class="hero-name">
-            I'm <span class="gradient-text">Nihal Singh</span><br />Tomar
-          </h1>
-          <div class="hero-typed-wrapper">
-            <span class="typed-prefix">I am a </span>
-            <span id="typed-text" class="typed-highlight"></span>
-            <span class="typed-cursor-custom">|</span>
+  <!-- ─── ABOUT ─────────────────────────────────────────── -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Get To Know</span>
+        <h2 class="section-title">
+          About <span class="gradient-text">Me</span>
+        </h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-image-col" data-aos="fade-right" data-aos-duration="900">
+          <div class="about-image-frame">
+            <img src="image/Ns2.png" alt="Nihal Singh Tomar" class="about-photo" loading="lazy" />
+            <div class="about-image-overlay">
+              <div class="tech-float">React · Node · Python</div>
+            </div>
           </div>
-          <p class="hero-bio">
-            Passionate about building
-            <strong>scalable web experiences</strong> that blend performance
-            with pixel-perfect design. I turn complex problems into elegant
-            solutions.
+          <div class="about-stats">
+            <div class="stat-card glass-card">
+              <span class="stat-num" data-target="8">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Projects Done</span>
+            </div>
+            <div class="stat-card glass-card">
+              <span class="stat-num" data-target="2">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Years Exp.</span>
+            </div>
+            <div class="stat-card glass-card">
+              <span class="stat-num" data-target="7">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Technologies</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-text-col" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+          <h3 class="about-heading">
+            Crafting Digital Experiences That
+            <span class="gradient-text">Matter</span>
+          </h3>
+          <p class="about-desc">
+            I'm a <strong>Full Stack Developer</strong> with a deep passion
+            for building purposeful, high-performance web applications. My
+            journey started with curiosity about how the web works — and
+            evolved into a relentless drive to master it.
           </p>
-          <div class="hero-cta">
-            <a href="#projects" class="btn btn-primary">
-              <i class="fas fa-rocket"></i> View Projects
-            </a>
-            <a href="#contact" class="btn btn-outline">
-              <i class="fas fa-paper-plane"></i> Contact Me
-            </a>
+          <p class="about-desc">
+            I specialise in the <strong>MERN stack</strong>, with experience
+            in building RESTful APIs, designing scalable architectures, and
+            crafting intuitive frontends. I believe great software is equal
+            parts logic and artistry.
+          </p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Clean, maintainable, well-documented code</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Performance-first development mindset</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Collaborative team player & fast learner</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Driven by curiosity & continuous improvement</span>
+            </div>
           </div>
-          <div class="hero-socials">
-            <a
-              href="https://github.com/Nihal-Tomar"
-              target="_blank"
-              class="social-icon"
-              aria-label="GitHub"
-            >
-              <i class="fab fa-github"></i>
+          <div class="about-cta">
+            <a href="#" class="btn btn-primary" id="downloadCV">
+              <i class="fas fa-download"></i> Download CV
             </a>
-            <a
-              href="www.linkedin.com/in/nihal-singh-tomar-5385462ba"
-              target="_blank"
-              class="social-icon"
-              aria-label="LinkedIn"
-            >
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a
-              href="https://instagram.com/Nihal.tomarr"
-              target="_blank"
-              class="social-icon"
-              aria-label="Instagram"
-            >
-              <i class="fab fa-instagram"></i>
-            </a>
-
-            <a
-              href="https://x.com/Nihal_tomarr"
-              target="_blank"
-              class="social-icon"
-              aria-label="Twitter"
-            >
-              <i class="fab fa-x-twitter"></i>
-            </a>
-            <a
-              href="mailto:nihaltomar95@gmail.com"
-              class="social-icon"
-              aria-label="Email"
-            >
-              <i class="fas fa-envelope"></i>
-            </a>
-          </div>
-        </div>
-        <div
-          class="hero-image-wrapper"
-          data-aos="fade-left"
-          data-aos-duration="1000"
-          data-aos-delay="200"
-        >
-          <div class="hero-image-container">
-            <div class="glow-ring"></div>
-            <div class="glow-ring ring-2"></div>
-            <img
-              src="image/Ns4.png"
-              alt="Nihal Singh Tomar"
-              class="hero-photo"
-              loading="eager"
-            />
-          </div>
-          <div class="floating-badge badge-1">
-            <i class="fas fa-code"></i> Full Stack
-          </div>
-          <div class="floating-badge badge-2">
-            <i class="fas fa-star"></i> 2+ Years
-          </div>
-          <div class="floating-badge badge-3">
-            <i class="fas fa-fire"></i> 8+ Projects
+            <a href="#contact" class="btn btn-outline">Let's Talk</a>
           </div>
         </div>
       </div>
-      <div class="scroll-indicator">
-        <div class="scroll-mouse">
-          <div class="scroll-wheel"></div>
-        </div>
-        <p>Scroll Down</p>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ─── ABOUT ─────────────────────────────────────────── -->
-    <section class="about section" id="about">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-tag">Get To Know</span>
-          <h2 class="section-title">
-            About <span class="gradient-text">Me</span>
-          </h2>
-          <div class="section-line"></div>
+  <!-- ─── SKILLS ───────────────────────────────────────── -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">What I Work With</span>
+        <h2 class="section-title">
+          Tech <span class="gradient-text">Stack</span>
+        </h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="skills-categories" data-aos="fade-up" data-aos-delay="100">
+        <button class="skill-cat-btn active" data-cat="all">All</button>
+        <button class="skill-cat-btn" data-cat="frontend">Frontend</button>
+        <button class="skill-cat-btn" data-cat="backend">Backend</button>
+        <button class="skill-cat-btn" data-cat="tools">Tools</button>
+      </div>
+
+      <div class="skills-grid" id="skillsGrid">
+        <!-- Frontend -->
+        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="50">
+          <i class="devicon-html5-plain colored skill-icon"></i>
+          <span class="skill-name">HTML5</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="95"></div>
+          </div>
+          <span class="skill-pct">95%</span>
         </div>
-        <div class="about-grid">
-          <div
-            class="about-image-col"
-            data-aos="fade-right"
-            data-aos-duration="900"
-          >
-            <div class="about-image-frame">
-              <img
-                src="image/Ns2.png"
-                alt="Nihal Singh Tomar"
-                class="about-photo"
-                loading="lazy"
-              />
-              <div class="about-image-overlay">
-                <div class="tech-float">React · Node · Python</div>
-              </div>
-            </div>
-            <div class="about-stats">
-              <div class="stat-card glass-card">
-                <span class="stat-num" data-target="8">0</span
-                ><span class="stat-suffix">+</span>
-                <span class="stat-label">Projects Done</span>
-              </div>
-              <div class="stat-card glass-card">
-                <span class="stat-num" data-target="2">0</span
-                ><span class="stat-suffix">+</span>
-                <span class="stat-label">Years Exp.</span>
-              </div>
-              <div class="stat-card glass-card">
-                <span class="stat-num" data-target="7">0</span
-                ><span class="stat-suffix">+</span>
-                <span class="stat-label">Technologies</span>
-              </div>
+        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="100">
+          <i class="devicon-css3-plain colored skill-icon"></i>
+          <span class="skill-name">CSS3</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="90"></div>
+          </div>
+          <span class="skill-pct">90%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="150">
+          <i class="devicon-javascript-plain colored skill-icon"></i>
+          <span class="skill-name">JavaScript</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="88"></div>
+          </div>
+          <span class="skill-pct">88%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="200">
+          <i class="devicon-react-original colored skill-icon"></i>
+          <span class="skill-name">React</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="85"></div>
+          </div>
+          <span class="skill-pct">85%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="250">
+          <i class="devicon-tailwindcss-plain colored skill-icon"></i>
+          <span class="skill-name">Tailwind</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="82"></div>
+          </div>
+          <span class="skill-pct">82%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="300">
+          <i class="devicon-nextjs-plain skill-icon"></i>
+          <span class="skill-name">Next.js</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="75"></div>
+          </div>
+          <span class="skill-pct">75%</span>
+        </div>
+
+        <!-- Backend -->
+        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="50">
+          <i class="devicon-nodejs-plain colored skill-icon"></i>
+          <span class="skill-name">Node.js</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="80"></div>
+          </div>
+          <span class="skill-pct">80%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="100">
+          <i class="devicon-express-original skill-icon"></i>
+          <span class="skill-name">Express</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="78"></div>
+          </div>
+          <span class="skill-pct">78%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="150">
+          <i class="devicon-mongodb-plain colored skill-icon"></i>
+          <span class="skill-name">MongoDB</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="75"></div>
+          </div>
+          <span class="skill-pct">75%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="200">
+          <i class="devicon-python-plain colored skill-icon"></i>
+          <span class="skill-name">Python</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="70"></div>
+          </div>
+          <span class="skill-pct">70%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="250">
+          <i class="devicon-mysql-plain colored skill-icon"></i>
+          <span class="skill-name">MySQL</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="72"></div>
+          </div>
+          <span class="skill-pct">72%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="300">
+          <i class="devicon-firebase-plain colored skill-icon"></i>
+          <span class="skill-name">Firebase</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="68"></div>
+          </div>
+          <span class="skill-pct">68%</span>
+        </div>
+
+        <!-- Tools -->
+        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="50">
+          <i class="devicon-git-plain colored skill-icon"></i>
+          <span class="skill-name">Git</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="90"></div>
+          </div>
+          <span class="skill-pct">90%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="100">
+          <i class="devicon-github-original skill-icon"></i>
+          <span class="skill-name">GitHub</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="88"></div>
+          </div>
+          <span class="skill-pct">88%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="150">
+          <i class="devicon-vscode-plain colored skill-icon"></i>
+          <span class="skill-name">VS Code</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="95"></div>
+          </div>
+          <span class="skill-pct">95%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="200">
+          <i class="devicon-figma-plain colored skill-icon"></i>
+          <span class="skill-name">Figma</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="65"></div>
+          </div>
+          <span class="skill-pct">65%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="250">
+          <i class="devicon-docker-plain colored skill-icon"></i>
+          <span class="skill-name">Docker</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="60"></div>
+          </div>
+          <span class="skill-pct">60%</span>
+        </div>
+        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="300">
+          <i class="devicon-linux-plain skill-icon"></i>
+          <span class="skill-name">Linux</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="70"></div>
+          </div>
+          <span class="skill-pct">70%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROJECTS ──────────────────────────────────────── -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">My Work</span>
+        <h2 class="section-title">
+          Featured <span class="gradient-text">Projects</span>
+        </h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 — Featured -->
+        <div class="project-card glass-card featured" data-aos="fade-up" data-aos-delay="50">
+          <div class="project-badge">⭐ Featured</div>
+          <div class="project-img-wrapper">
+            <img src="image/apnakartpreview.png" alt="ApnaKart — E-Commerce Platform" class="project-img" />
+            <div class="project-overlay">
+              <a href="https://apnakart-pi.vercel.app/" class="overlay-btn" aria-label="Live Demo"><i
+                  class="fas fa-external-link-alt"></i></a>
+              <a href="https://github.com/Nihal-Tomar/apnakart" class="overlay-btn" aria-label="GitHub"><i
+                  class="fab fa-github"></i></a>
             </div>
           </div>
-          <div
-            class="about-text-col"
-            data-aos="fade-left"
-            data-aos-duration="900"
-            data-aos-delay="100"
-          >
-            <h3 class="about-heading">
-              Crafting Digital Experiences That
-              <span class="gradient-text">Matter</span>
-            </h3>
-            <p class="about-desc">
-              I'm a <strong>Full Stack Developer</strong> with a deep passion
-              for building purposeful, high-performance web applications. My
-              journey started with curiosity about how the web works — and
-              evolved into a relentless drive to master it.
+          <div class="project-info">
+            <h3 class="project-title">ApnaKart — E-Commerce Platform</h3>
+            <p class="project-desc">
+              A full-stack e-commerce solution with product listings, cart,
+              auth, payment integration and an admin dashboard with real-time
+              analytics.
             </p>
-            <p class="about-desc">
-              I specialise in the <strong>MERN stack</strong>, with experience
-              in building RESTful APIs, designing scalable architectures, and
-              crafting intuitive frontends. I believe great software is equal
-              parts logic and artistry.
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">Stripe</span>
+            </div>
+            <div class="project-links">
+              <a href="https://apnakart-pi.vercel.app/" class="btn btn-primary btn-sm"><i class="fas fa-rocket"></i>
+                Live Demo</a>
+              <a href="https://github.com/Nihal-Tomar/apnakart" class="btn btn-outline btn-sm"><i
+                  class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 2 -->
+        <div class="project-card glass-card featured" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-badge">⭐ Featured</div>
+          <div class="project-img-wrapper">
+            <img src="image/studentportal.png" alt="Student Manager" class="project-img" />
+            <div class="project-overlay">
+              <a href="https://nihal-tomar.github.io/student-portal/" class="overlay-btn" aria-label="Live Demo"><i
+                  class="fas fa-external-link-alt"></i></a>
+              <a href="https://github.com/Nihal-Tomar/student-portal" class="overlay-btn" aria-label="GitHub"><i
+                  class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Student Manager</h3>
+            <p class="project-desc">
+              A web-based system to manage student records, including add,
+              update, delete, and search functionalities with a clean UI and
+              efficient data handling.
             </p>
-            <div class="about-highlights">
-              <div class="highlight-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Clean, maintainable, well-documented code</span>
-              </div>
-              <div class="highlight-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Performance-first development mindset</span>
-              </div>
-              <div class="highlight-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Collaborative team player & fast learner</span>
-              </div>
-              <div class="highlight-item">
-                <i class="fas fa-check-circle"></i>
-                <span>Driven by curiosity & continuous improvement</span>
-              </div>
+            <div class="project-tech">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
             </div>
-            <div class="about-cta">
-              <a href="#" class="btn btn-primary" id="downloadCV">
-                <i class="fas fa-download"></i> Download CV
-              </a>
-              <a href="#contact" class="btn btn-outline">Let's Talk</a>
+            <div class="project-links">
+              <a href="https://nihal-tomar.github.io/student-portal/" class="btn btn-primary btn-sm"><i
+                  class="fas fa-rocket"></i> Live Demo</a>
+              <a href="https://github.com/Nihal-Tomar/student-portal" class="btn btn-outline btn-sm"><i
+                  class="fab fa-github"></i> GitHub</a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ─── SKILLS ───────────────────────────────────────── -->
-    <section class="skills section" id="skills">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-tag">What I Work With</span>
-          <h2 class="section-title">
-            Tech <span class="gradient-text">Stack</span>
-          </h2>
-          <div class="section-line"></div>
+        <!-- PROJECT 3 -->
+        <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="project-img-wrapper">
+            <img src="image/todolist.png" alt="TaskFlow" class="project-img" />
+            <div class="project-overlay">
+              <a href="https://nihal-tomar.github.io/TODO-List/" class="overlay-btn" aria-label="Live Demo"><i
+                  class="fas fa-external-link-alt"></i></a>
+              <a href="https://github.com/Nihal-Tomar/TODO-List" class="overlay-btn" aria-label="GitHub"><i
+                  class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">TaskFlow – Smart ToDo App</h3>
+            <p class="project-desc">
+              A lightweight task management app with persistent storage using
+              LocalStorage, allowing users to add, delete, and track daily
+              tasks efficiently.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">LocalStorage</span>
+              <span class="tech-tag">CSS</span>
+            </div>
+            <div class="project-links">
+              <a href="https://nihal-tomar.github.io/TODO-List/" class="btn btn-primary btn-sm"><i
+                  class="fas fa-rocket"></i> Live Demo</a>
+              <a href="https://github.com/Nihal-Tomar/TODO-List" class="btn btn-outline btn-sm"><i
+                  class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
         </div>
 
-        <div class="skills-categories" data-aos="fade-up" data-aos-delay="100">
-          <button class="skill-cat-btn active" data-cat="all">All</button>
-          <button class="skill-cat-btn" data-cat="frontend">Frontend</button>
-          <button class="skill-cat-btn" data-cat="backend">Backend</button>
-          <button class="skill-cat-btn" data-cat="tools">Tools</button>
-        </div>
-
-        <div class="skills-grid" id="skillsGrid">
-          <!-- Frontend -->
-          <div
-            class="skill-card glass-card"
-            data-cat="frontend"
-            data-aos="zoom-in"
-            data-aos-delay="50"
-          >
-            <i class="devicon-html5-plain colored skill-icon"></i>
-            <span class="skill-name">HTML5</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="95"></div>
+        <!-- PROJECT 4 -->
+        <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-img-wrapper">
+            <img src="image/weather.png" alt="Weather App" class="project-img" />
+            <div class="project-overlay">
+              <a href="https://nihal-tomar.github.io/weather/" class="overlay-btn" aria-label="Live Demo"><i
+                  class="fas fa-external-link-alt"></i></a>
+              <a href="https://github.com/Nihal-Tomar/weather" class="overlay-btn" aria-label="GitHub"><i
+                  class="fab fa-github"></i></a>
             </div>
-            <span class="skill-pct">95%</span>
           </div>
-          <div
-            class="skill-card glass-card"
-            data-cat="frontend"
-            data-aos="zoom-in"
-            data-aos-delay="100"
-          >
-            <i class="devicon-css3-plain colored skill-icon"></i>
-            <span class="skill-name">CSS3</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="90"></div>
+          <div class="project-info">
+            <h3 class="project-title">Weather Web App</h3>
+            <p class="project-desc">
+              A real-time weather application that fetches live data from a
+              weather API, displaying temperature, conditions, and
+              location-based forecasts.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">API</span>
+              <span class="tech-tag">HTML/CSS</span>
             </div>
-            <span class="skill-pct">90%</span>
-          </div>
-          <div
-            class="skill-card glass-card"
-            data-cat="frontend"
-            data-aos="zoom-in"
-            data-aos-delay="150"
-          >
-            <i class="devicon-javascript-plain colored skill-icon"></i>
-            <span class="skill-name">JavaScript</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="88"></div>
+            <div class="project-links">
+              <a href="https://nihal-tomar.github.io/weather/" class="btn btn-primary btn-sm"><i
+                  class="fas fa-rocket"></i> Live Demo</a>
+              <a href="https://github.com/Nihal-Tomar/weather" class="btn btn-outline btn-sm"><i
+                  class="fab fa-github"></i> GitHub</a>
             </div>
-            <span class="skill-pct">88%</span>
-          </div>
-          <div
-            class="skill-card glass-card"
-            data-cat="frontend"
-            data-aos="zoom-in"
-            data-aos-delay="200"
-          >
-            <i class="devicon-react-original colored skill-icon"></i>
-            <span class="skill-name">React</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="85"></div>
-            </div>
-            <span class="skill-pct">85%</span>
-          </div>
-          <div
-            class="skill-card glass-card"
-            data-cat="frontend"
-            data-aos="zoom-in"
-            data-aos-delay="250"
-          >
-            <i class="devicon-tailwindcss-plain colored skill-icon"></i>
-            <span class="skill-name">Tailwind</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="82"></div>
-            </div>
-            <span class="skill-pct">82%</span>
-          </div>
-          <div
-            class="skill-card glass-card"
-            data-cat="frontend"
-            data-aos="zoom-in"
-            data-aos-delay="300"
-          >
-            <i class="devicon-nextjs-plain skill-icon"></i>
-            <span class="skill-name">Next.js</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="75"></div>
-            </div>
-            <span class="skill-pct">75%</span>
-          </div>
-
-          <!-- Backend -->
-          <div
-            class="skill-card glass-card"
-            data-cat="backend"
-            data-aos="zoom-in"
-            data-aos-delay="50"
-          >
-            <i class="devicon-nodejs-plain colored skill-icon"></i>
-            <span class="skill-name">Node.js</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="80"></div>
-            </div>
-            <span class="skill-pct">80%</span>
-          </div>
-          <div
-            class="skill-card glass-card"
-            data-cat="backend"
-            data-aos="zoom-in"
-            data-aos-delay="100"
-          >
-            <i class="devicon-express-original skill-icon"></i>
-            <span class="skill-name">Express</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="78"></div>
-            </div>
-            <span class="skill-pct">78%</span>
-          </div>
-          <div
-            class="skill-card glass-card"
-            data-cat="backend"
-            data-aos="zoom-in"
-            data-aos-delay="150"
-          >
-            <i class="devicon-mongodb-plain colored skill-icon"></i>
-            <span class="skill-name">MongoDB</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="75"></div>
-            </div>
-            <span class="skill-pct">75%</span>
-          </div>
-          <div
-            class="skill-card glass-card"
-            data-cat="backend"
-            data-aos="zoom-in"
-            data-aos-delay="200"
-          >
-            <i class="devicon-python-plain colored skill-icon"></i>
-            <span class="skill-name">Python</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="70"></div>
-            </div>
-            <span class="skill-pct">70%</span>
-          </div>
-          <div
-            class="skill-card glass-card"
-            data-cat="backend"
-            data-aos="zoom-in"
-            data-aos-delay="250"
-          >
-            <i class="devicon-mysql-plain colored skill-icon"></i>
-            <span class="skill-name">MySQL</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="72"></div>
-            </div>
-            <span class="skill-pct">72%</span>
-          </div>
-          <div
-            class="skill-card glass-card"
-            data-cat="backend"
-            data-aos="zoom-in"
-            data-aos-delay="300"
-          >
-            <i class="devicon-firebase-plain colored skill-icon"></i>
-            <span class="skill-name">Firebase</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="68"></div>
-            </div>
-            <span class="skill-pct">68%</span>
-          </div>
-
-          <!-- Tools -->
-          <div
-            class="skill-card glass-card"
-            data-cat="tools"
-            data-aos="zoom-in"
-            data-aos-delay="50"
-          >
-            <i class="devicon-git-plain colored skill-icon"></i>
-            <span class="skill-name">Git</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="90"></div>
-            </div>
-            <span class="skill-pct">90%</span>
-          </div>
-          <div
-            class="skill-card glass-card"
-            data-cat="tools"
-            data-aos="zoom-in"
-            data-aos-delay="100"
-          >
-            <i class="devicon-github-original skill-icon"></i>
-            <span class="skill-name">GitHub</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="88"></div>
-            </div>
-            <span class="skill-pct">88%</span>
-          </div>
-          <div
-            class="skill-card glass-card"
-            data-cat="tools"
-            data-aos="zoom-in"
-            data-aos-delay="150"
-          >
-            <i class="devicon-vscode-plain colored skill-icon"></i>
-            <span class="skill-name">VS Code</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="95"></div>
-            </div>
-            <span class="skill-pct">95%</span>
-          </div>
-          <div
-            class="skill-card glass-card"
-            data-cat="tools"
-            data-aos="zoom-in"
-            data-aos-delay="200"
-          >
-            <i class="devicon-figma-plain colored skill-icon"></i>
-            <span class="skill-name">Figma</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="65"></div>
-            </div>
-            <span class="skill-pct">65%</span>
-          </div>
-          <div
-            class="skill-card glass-card"
-            data-cat="tools"
-            data-aos="zoom-in"
-            data-aos-delay="250"
-          >
-            <i class="devicon-docker-plain colored skill-icon"></i>
-            <span class="skill-name">Docker</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="60"></div>
-            </div>
-            <span class="skill-pct">60%</span>
-          </div>
-          <div
-            class="skill-card glass-card"
-            data-cat="tools"
-            data-aos="zoom-in"
-            data-aos-delay="300"
-          >
-            <i class="devicon-linux-plain skill-icon"></i>
-            <span class="skill-name">Linux</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-width="70"></div>
-            </div>
-            <span class="skill-pct">70%</span>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ─── PROJECTS ──────────────────────────────────────── -->
-    <section class="projects section" id="projects">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-tag">My Work</span>
-          <h2 class="section-title">
-            Featured <span class="gradient-text">Projects</span>
-          </h2>
-          <div class="section-line"></div>
-        </div>
-
-        <div class="projects-grid">
-          <!-- Project 1 — Featured -->
-          <div
-            class="project-card glass-card featured"
-            data-aos="fade-up"
-            data-aos-delay="50"
-          >
-            <div class="project-badge">⭐ Featured</div>
-            <div class="project-img-wrapper">
-              <img
-                src="image/apnakartpreview.png"
-                alt="ApnaKart — E-Commerce Platform"
-                class="project-img"
-              />
-              <div class="project-overlay">
-                <a href="#" class="overlay-btn" aria-label="Live Demo"
-                  ><i class="fas fa-external-link-alt"></i
-                ></a>
-                <a href="#" class="overlay-btn" aria-label="GitHub"
-                  ><i class="fab fa-github"></i
-                ></a>
-              </div>
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">ApnaKart — E-Commerce Platform</h3>
-              <p class="project-desc">
-                A full-stack e-commerce solution with product listings, cart,
-                auth, payment integration and an admin dashboard with real-time
-                analytics.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">MongoDB</span>
-                <span class="tech-tag">Stripe</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="btn btn-primary btn-sm"
-                  ><i class="fas fa-rocket"></i> Live Demo</a
-                >
-                <a href="#" class="btn btn-outline btn-sm"
-                  ><i class="fab fa-github"></i> GitHub</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- PROJECT 2 -->
-          <div
-            class="project-card glass-card featured"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <div class="project-badge">⭐ Featured</div>
-            <div class="project-img-wrapper">
-              <img
-                src="image/studentportal.png"
-                alt="Student Manager"
-                class="project-img"
-              />
-              <div class="project-overlay">
-                <a
-                  href="https://nihal-tomar.github.io/student-portal/"
-                  class="overlay-btn"
-                  aria-label="Live Demo"
-                  ><i class="fas fa-external-link-alt"></i
-                ></a>
-                <a
-                  href="https://github.com/Nihal-Tomar/student-portal"
-                  class="overlay-btn"
-                  aria-label="GitHub"
-                  ><i class="fab fa-github"></i
-                ></a>
-              </div>
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">Student Manager</h3>
-              <p class="project-desc">
-                A web-based system to manage student records, including add,
-                update, delete, and search functionalities with a clean UI and
-                efficient data handling.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">HTML</span>
-                <span class="tech-tag">CSS</span>
-                <span class="tech-tag">JavaScript</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://nihal-tomar.github.io/student-portal/"
-                  class="btn btn-primary btn-sm"
-                  ><i class="fas fa-rocket"></i> Live Demo</a
-                >
-                <a
-                  href="https://github.com/Nihal-Tomar/student-portal"
-                  class="btn btn-outline btn-sm"
-                  ><i class="fab fa-github"></i> GitHub</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- PROJECT 3 -->
-          <div
-            class="project-card glass-card"
-            data-aos="fade-up"
-            data-aos-delay="150"
-          >
-            <div class="project-img-wrapper">
-              <img
-                src="image/todolist.png"
-                alt="TaskFlow"
-                class="project-img"
-              />
-              <div class="project-overlay">
-                <a
-                  href="https://nihal-tomar.github.io/TODO-List/"
-                  class="overlay-btn"
-                  aria-label="Live Demo"
-                  ><i class="fas fa-external-link-alt"></i
-                ></a>
-                <a
-                  href="https://github.com/Nihal-Tomar/TODO-List"
-                  class="overlay-btn"
-                  aria-label="GitHub"
-                  ><i class="fab fa-github"></i
-                ></a>
-              </div>
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">TaskFlow – Smart ToDo App</h3>
-              <p class="project-desc">
-                A lightweight task management app with persistent storage using
-                LocalStorage, allowing users to add, delete, and track daily
-                tasks efficiently.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">LocalStorage</span>
-                <span class="tech-tag">CSS</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://nihal-tomar.github.io/TODO-List/"
-                  class="btn btn-primary btn-sm"
-                  ><i class="fas fa-rocket"></i> Live Demo</a
-                >
-                <a
-                  href="https://github.com/Nihal-Tomar/TODO-List"
-                  class="btn btn-outline btn-sm"
-                  ><i class="fab fa-github"></i> GitHub</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- PROJECT 4 -->
-          <div
-            class="project-card glass-card"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <div class="project-img-wrapper">
-              <img
-                src="image/weather.png"
-                alt="Weather App"
-                class="project-img"
-              />
-              <div class="project-overlay">
-                <a
-                  href="https://nihal-tomar.github.io/weather/"
-                  class="overlay-btn"
-                  aria-label="Live Demo"
-                  ><i class="fas fa-external-link-alt"></i
-                ></a>
-                <a
-                  href="https://github.com/Nihal-Tomar/weather"
-                  class="overlay-btn"
-                  aria-label="GitHub"
-                  ><i class="fab fa-github"></i
-                ></a>
-              </div>
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">Weather Web App</h3>
-              <p class="project-desc">
-                A real-time weather application that fetches live data from a
-                weather API, displaying temperature, conditions, and
-                location-based forecasts.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">API</span>
-                <span class="tech-tag">HTML/CSS</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://nihal-tomar.github.io/weather/"
-                  class="btn btn-primary btn-sm"
-                  ><i class="fas fa-rocket"></i> Live Demo</a
-                >
-                <a
-                  href="https://github.com/Nihal-Tomar/weather"
-                  class="btn btn-outline btn-sm"
-                  ><i class="fab fa-github"></i> GitHub</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 2 — Featured -->
-          <!-- <div class="project-card glass-card featured" data-aos="fade-up" data-aos-delay="150">
+        <!-- Project 2 — Featured -->
+        <!-- <div class="project-card glass-card featured" data-aos="fade-up" data-aos-delay="150">
           <div class="project-badge">⭐ Featured</div>
           <div class="project-img-wrapper">
             <div class="project-img-placeholder p2">
@@ -804,7 +563,7 @@
         </div>
 
         <!-- Project 3 — Featured -->
-          <!-- <div class="project-card glass-card featured" data-aos="fade-up" data-aos-delay="250">
+        <!-- <div class="project-card glass-card featured" data-aos="fade-up" data-aos-delay="250">
           <div class="project-badge">⭐ Featured</div>
           <div class="project-img-wrapper">
             <div class="project-img-placeholder p3">
@@ -831,8 +590,8 @@
           </div>
         </div> -->
 
-          <!-- Project 4 -->
-          <!-- <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="100">
+        <!-- Project 4 -->
+        <!-- <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="100">
           <div class="project-img-wrapper">
             <div class="project-img-placeholder p4">
               <i class="fas fa-tasks"></i>
@@ -857,8 +616,8 @@
           </div>
         </div> -->
 
-          <!-- Project 5 -->
-          <!-- <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="200">
+        <!-- Project 5 -->
+        <!-- <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="200">
           <div class="project-img-wrapper">
             <div class="project-img-placeholder p5">
               <i class="fas fa-chart-line"></i>
@@ -883,8 +642,8 @@
           </div>
         </div> -->
 
-          <!-- Project 6 -->
-          <!-- <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="300">
+        <!-- Project 6 -->
+        <!-- <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="300">
           <div class="project-img-wrapper">
             <div class="project-img-placeholder p6">
               <i class="fas fa-graduation-cap"></i>
@@ -907,417 +666,312 @@
               <a href="#" class="btn btn-outline btn-sm"><i class="fab fa-github"></i> Code</a>
             </div>
           </div> -->
-          <!-- </div> -->
-        </div>
-
-        <div class="projects-more" data-aos="fade-up">
-          <a
-            href="https://github.com/Nihal-Tomar"
-            target="_blank"
-            class="btn btn-outline btn-lg"
-          >
-            <i class="fab fa-github"></i> View All Projects on GitHub
-          </a>
-        </div>
+        <!-- </div> -->
       </div>
-    </section>
 
-    <!-- ─── EXPERIENCE ────────────────────────────────────── -->
-    <section class="experience section" id="experience">
-      <div class="container">
-        <!-- Section Header -->
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-tag">Journey</span>
-          <h2 class="section-title">
-            Experience & <span class="gradient-text">Education</span>
-          </h2>
-          <div class="section-line"></div>
-        </div>
+      <div class="projects-more" data-aos="fade-up">
+        <a href="https://github.com/Nihal-Tomar" target="_blank" class="btn btn-outline btn-lg">
+          <i class="fab fa-github"></i> View All Projects on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
 
-        <!-- Tabs -->
-        <div class="timeline-tabs" data-aos="fade-up" data-aos-delay="100">
-          <button class="timeline-tab" data-tab="experience">Experience</button>
-          <button class="timeline-tab active" data-tab="education">
-            Education
-          </button>
-        </div>
+  <!-- ─── EXPERIENCE ────────────────────────────────────── -->
+  <section class="experience section" id="experience">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Journey</span>
+        <h2 class="section-title">
+          Experience & <span class="gradient-text">Education</span>
+        </h2>
+        <div class="section-line"></div>
+      </div>
 
-        <!-- Experience Timeline (Hidden by Default) -->
-        <div
-          class="timeline hidden"
-          id="experienceTimeline"
-          data-aos="fade-up"
-          data-aos-delay="150"
-        >
-          <div class="timeline-item">
-            <div class="timeline-dot pulse"></div>
+      <!-- Tabs -->
+      <div class="timeline-tabs" data-aos="fade-up" data-aos-delay="100">
+        <button class="timeline-tab" data-tab="experience">Experience</button>
+        <button class="timeline-tab active" data-tab="education">
+          Education
+        </button>
+      </div>
 
-            <div class="timeline-card glass-card coming-soon-card">
-              <div class="timeline-header">
-                <div>
-                  <h3 class="timeline-title">
-                    <span class="alpha-badge">Alpha</span>
-                  </h3>
-                  <p class="timeline-company">
-                    <i class="fas fa-rocket"></i> Coming Soon
-                  </p>
-                </div>
-                <span class="timeline-date">In Progress</span>
+      <!-- Experience Timeline (Hidden by Default) -->
+      <div class="timeline hidden" id="experienceTimeline" data-aos="fade-up" data-aos-delay="150">
+        <div class="timeline-item">
+          <div class="timeline-dot pulse"></div>
+
+          <div class="timeline-card glass-card coming-soon-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-title">
+                  <span class="alpha-badge">Alpha</span>
+                </h3>
+                <p class="timeline-company">
+                  <i class="fas fa-rocket"></i> Coming Soon
+                </p>
               </div>
-
-              <ul class="timeline-desc">
-                <li>Currently building real-world MERN stack projects</li>
-                <li>Preparing for internships & freelance opportunities</li>
-                <li>Actively learning system design & scalable architecture</li>
-              </ul>
-
-              <div class="timeline-tags">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">MongoDB</span>
-              </div>
+              <span class="timeline-date">In Progress</span>
             </div>
-          </div>
-        </div>
 
-        <!-- Education Timeline (Visible by Default) -->
-        <div class="timeline" id="educationTimeline">
-          <!-- B.Tech -->
-          <div class="timeline-item" data-aos="fade-up" data-aos-delay="50">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card glass-card">
-              <div class="timeline-header">
-                <div>
-                  <h3 class="timeline-title">
-                    B.Tech in Computer Science & Engineering
-                  </h3>
-                  <p class="timeline-company">
-                    <i class="fas fa-university"></i> Raj Kumar Goel Institute
-                    of Technology, Ghaziabad
-                  </p>
-                </div>
-                <span class="timeline-date">2024 – Present</span>
-              </div>
-              <ul class="timeline-desc">
-                <li>CGPA: 8.93 (till 3rd semester)</li>
-                <li>Core subjects: Data Structures, DBMS, Operating Systems</li>
-                <li>Building real-world projects using MERN stack</li>
-              </ul>
-              <div class="timeline-tags">
-                <span class="tech-tag">DSA</span>
-                <span class="tech-tag">DBMS</span>
-                <span class="tech-tag">OS</span>
-              </div>
-            </div>
-          </div>
+            <ul class="timeline-desc">
+              <li>Currently building real-world MERN stack projects</li>
+              <li>Preparing for internships & freelance opportunities</li>
+              <li>Actively learning system design & scalable architecture</li>
+            </ul>
 
-          <!-- Intermediate -->
-          <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card glass-card">
-              <div class="timeline-header">
-                <div>
-                  <h3 class="timeline-title">Intermediate Degree (PCM)</h3>
-                  <p class="timeline-company">
-                    <i class="fas fa-school"></i> Uma Shankar VidyaPeeth,
-                    Korari, Gorakhpur
-                  </p>
-                </div>
-                <span class="timeline-date">2022 - 2024</span>
-              </div>
-              <ul class="timeline-desc">
-                <li>Percentage: 90%</li>
-                <li>Focused on Mathematics & Physics</li>
-              </ul>
-              <div class="timeline-tags">
-                <span class="tech-tag">Physics</span>
-                <span class="tech-tag">Math</span>
-                <!-- <span class="tech-tag">CS</span> -->
-              </div>
-            </div>
-          </div>
-
-          <!-- High School -->
-          <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card glass-card">
-              <div class="timeline-header">
-                <div>
-                  <h3 class="timeline-title">High School Degree</h3>
-                  <p class="timeline-company">
-                    <i class="fas fa-school"></i> Uma Shankar VidyaPeeth,
-                    Korari, Gorakhpur
-                  </p>
-                </div>
-                <span class="timeline-date">2020 - 2022</span>
-              </div>
-              <ul class="timeline-desc">
-                <li>Percentage: 92%</li>
-                <li>Strong foundation in Science & Mathematics</li>
-              </ul>
-              <div class="timeline-tags">
-                <span class="tech-tag">Science</span>
-                <span class="tech-tag">Math</span>
-                <span class="tech-tag">Computer Applications</span>
-              </div>
+            <div class="timeline-tags">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">MongoDB</span>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- ─── CONTACT ───────────────────────────────────────── -->
-    <section class="contact section" id="contact">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-tag">Get In Touch</span>
-          <h2 class="section-title">
-            Let's <span class="gradient-text">Connect</span>
-          </h2>
-          <div class="section-line"></div>
-        </div>
-        <div class="contact-grid">
-          <div
-            class="contact-info"
-            data-aos="fade-right"
-            data-aos-duration="800"
-          >
-            <h3 class="contact-heading">
-              Have a project in mind? <br /><span class="gradient-text"
-                >Let's build it together.</span
-              >
-            </h3>
-            <p class="contact-desc">
-              Whether it's a startup MVP, a freelance project, or just a
-              conversation about technology — I'm always open to exciting
-              opportunities.
-            </p>
-            <div class="contact-details">
-              <div class="contact-detail-item">
-                <div class="contact-icon-wrap">
-                  <i class="fas fa-envelope"></i>
-                </div>
-                <div>
-                  <span class="contact-detail-label">Email</span>
-                  <a
-                    href="mailto:nihaltomar95@gmail.com"
-                    class="contact-detail-value"
-                    >nihaltomar95@gmail.com</a
-                  >
-                </div>
+
+      <!-- Education Timeline (Visible by Default) -->
+      <div class="timeline" id="educationTimeline">
+        <!-- B.Tech -->
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="50">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-title">
+                  B.Tech in Computer Science & Engineering
+                </h3>
+                <p class="timeline-company">
+                  <i class="fas fa-university"></i> Raj Kumar Goel Institute
+                  of Technology, Ghaziabad
+                </p>
               </div>
-              <div class="contact-detail-item">
-                <div class="contact-icon-wrap">
-                  <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div>
-                  <span class="contact-detail-label">Location</span>
-                  <span class="contact-detail-value">Delhi, India</span>
-                </div>
-              </div>
-              <div class="contact-detail-item">
-                <div class="contact-icon-wrap">
-                  <i
-                    class="fas fa-circle"
-                    style="color: #22c55e; font-size: 0.75rem"
-                  ></i>
-                </div>
-                <div>
-                  <span class="contact-detail-label">Status</span>
-                  <span class="contact-detail-value available"
-                    >Available for opportunities</span
-                  >
-                </div>
-              </div>
+              <span class="timeline-date">2024 – Present</span>
             </div>
-            <div class="contact-socials">
-              <a
-                href="https://github.com/Nihal-Tomar"
-                target="_blank"
-                class="social-icon"
-                aria-label="GitHub"
-                ><i class="fab fa-github"></i
-              ></a>
-              <a
-                href="www.linkedin.com/in/nihal-singh-tomar-5385462ba"
-                target="_blank"
-                class="social-icon"
-                aria-label="LinkedIn"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-              <a
-                href="https://instagram.com/Nihal.tomarr"
-                target="_blank"
-                class="social-icon"
-                aria-label="Instagram"
-              >
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a
-                href="https://x.com/Nihal_tomarr"
-                target="_blank"
-                class="social-icon"
-                aria-label="Twitter"
-                ><i class="fab fa-x-twitter"></i
-              ></a>
+            <ul class="timeline-desc">
+              <li>CGPA: 8.93 (till 3rd semester)</li>
+              <li>Core subjects: Data Structures, DBMS, Operating Systems</li>
+              <li>Building real-world projects using MERN stack</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tech-tag">DSA</span>
+              <span class="tech-tag">DBMS</span>
+              <span class="tech-tag">OS</span>
             </div>
           </div>
+        </div>
 
-          <div
-            class="contact-form-wrapper"
-            data-aos="fade-left"
-            data-aos-duration="800"
-            data-aos-delay="100"
-          >
-            <form class="contact-form glass-card" id="contactForm" novalidate>
-              <div class="form-group">
-                <label for="userName" class="form-label">Your Name</label>
-                <div class="form-input-wrap">
-                  <i class="fas fa-user form-icon"></i>
-                  <input
-                    type="text"
-                    id="userName"
-                    name="name"
-                    class="form-input"
-                    placeholder="Your Name"
-                    required
-                    autocomplete="name"
-                  />
-                </div>
+        <!-- Intermediate -->
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-title">Intermediate Degree (PCM)</h3>
+                <p class="timeline-company">
+                  <i class="fas fa-school"></i> Uma Shankar VidyaPeeth,
+                  Korari, Gorakhpur
+                </p>
               </div>
-              <div class="form-group">
-                <label for="userEmail" class="form-label">Email Address</label>
-                <div class="form-input-wrap">
-                  <i class="fas fa-envelope form-icon"></i>
-                  <input
-                    type="email"
-                    id="userEmail"
-                    name="email"
-                    class="form-input"
-                    placeholder="Your Email"
-                    required
-                    autocomplete="email"
-                  />
-                </div>
+              <span class="timeline-date">2022 - 2024</span>
+            </div>
+            <ul class="timeline-desc">
+              <li>Percentage: 90%</li>
+              <li>Focused on Mathematics & Physics</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tech-tag">Physics</span>
+              <span class="tech-tag">Math</span>
+              <!-- <span class="tech-tag">CS</span> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- High School -->
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-title">High School Degree</h3>
+                <p class="timeline-company">
+                  <i class="fas fa-school"></i> Uma Shankar VidyaPeeth,
+                  Korari, Gorakhpur
+                </p>
               </div>
-              <div class="form-group">
-                <label for="userSubject" class="form-label">Subject</label>
-                <div class="form-input-wrap">
-                  <i class="fas fa-tag form-icon"></i>
-                  <input
-                    type="text"
-                    id="userSubject"
-                    name="subject"
-                    class="form-input"
-                    placeholder="Project Collaboration"
-                  />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="userMessage" class="form-label">Message</label>
-                <div class="form-input-wrap">
-                  <i class="fas fa-comment form-icon icon-top"></i>
-                  <textarea
-                    id="userMessage"
-                    name="message"
-                    class="form-input form-textarea"
-                    placeholder="Tell me about your project..."
-                    required
-                    rows="5"
-                  ></textarea>
-                </div>
-              </div>
-              <button
-                type="submit"
-                class="btn btn-primary btn-full"
-                id="submitBtn"
-              >
-                <span class="btn-text"
-                  ><i class="fas fa-paper-plane"></i> Send Message</span
-                >
-                <span class="btn-loading hidden"
-                  ><i class="fas fa-spinner fa-spin"></i> Sending...</span
-                >
-              </button>
-              <div class="form-status" id="formStatus"></div>
-            </form>
+              <span class="timeline-date">2020 - 2022</span>
+            </div>
+            <ul class="timeline-desc">
+              <li>Percentage: 92%</li>
+              <li>Strong foundation in Science & Mathematics</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tech-tag">Science</span>
+              <span class="tech-tag">Math</span>
+              <span class="tech-tag">Computer Applications</span>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+  <!-- ─── CONTACT ───────────────────────────────────────── -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">
+          Let's <span class="gradient-text">Connect</span>
+        </h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info" data-aos="fade-right" data-aos-duration="800">
+          <h3 class="contact-heading">
+            Have a project in mind? <br /><span class="gradient-text">Let's build it together.</span>
+          </h3>
+          <p class="contact-desc">
+            Whether it's a startup MVP, a freelance project, or just a
+            conversation about technology — I'm always open to exciting
+            opportunities.
+          </p>
+          <div class="contact-details">
+            <div class="contact-detail-item">
+              <div class="contact-icon-wrap">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <span class="contact-detail-label">Email</span>
+                <a href="mailto:nihaltomar95@gmail.com" class="contact-detail-value">nihaltomar95@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-detail-item">
+              <div class="contact-icon-wrap">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <span class="contact-detail-label">Location</span>
+                <span class="contact-detail-value">Delhi, India</span>
+              </div>
+            </div>
+            <div class="contact-detail-item">
+              <div class="contact-icon-wrap">
+                <i class="fas fa-circle" style="color: #22c55e; font-size: 0.75rem"></i>
+              </div>
+              <div>
+                <span class="contact-detail-label">Status</span>
+                <span class="contact-detail-value available">Available for opportunities</span>
+              </div>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="https://github.com/Nihal-Tomar" target="_blank" class="social-icon" aria-label="GitHub"><i
+                class="fab fa-github"></i></a>
+            <a href="www.linkedin.com/in/nihal-singh-tomar-5385462ba" target="_blank" class="social-icon"
+              aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/Nihal.tomarr" target="_blank" class="social-icon" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com/Nihal_tomarr" target="_blank" class="social-icon" aria-label="Twitter"><i
+                class="fab fa-x-twitter"></i></a>
+          </div>
+        </div>
 
-    <!-- ─── FOOTER ────────────────────────────────────────── -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-top">
-          <!-- <a href="#hero" class="nav-logo footer-logo">
+        <div class="contact-form-wrapper" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+          <form class="contact-form glass-card" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="userName" class="form-label">Your Name</label>
+              <div class="form-input-wrap">
+                <i class="fas fa-user form-icon"></i>
+                <input type="text" id="userName" name="name" class="form-input" placeholder="Your Name" required
+                  autocomplete="name" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="userEmail" class="form-label">Email Address</label>
+              <div class="form-input-wrap">
+                <i class="fas fa-envelope form-icon"></i>
+                <input type="email" id="userEmail" name="email" class="form-input" placeholder="Your Email" required
+                  autocomplete="email" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="userSubject" class="form-label">Subject</label>
+              <div class="form-input-wrap">
+                <i class="fas fa-tag form-icon"></i>
+                <input type="text" id="userSubject" name="subject" class="form-input"
+                  placeholder="Project Collaboration" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="userMessage" class="form-label">Message</label>
+              <div class="form-input-wrap">
+                <i class="fas fa-comment form-icon icon-top"></i>
+                <textarea id="userMessage" name="message" class="form-input form-textarea"
+                  placeholder="Tell me about your project..." required rows="5"></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+              <span class="btn-text"><i class="fas fa-paper-plane"></i> Send Message</span>
+              <span class="btn-loading hidden"><i class="fas fa-spinner fa-spin"></i> Sending...</span>
+            </button>
+            <div class="form-status" id="formStatus"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- <a href="#hero" class="nav-logo footer-logo">
           <span class="logo-bracket">&lt;</span>NS<span class="logo-bracket">/&gt;</span>
         </a> -->
-          <p class="nav-logo">
-            Turning bold ideas into blazing web experiences.
-          </p>
-          <div class="footer-socials">
-            <a
-              href="https://github.com/Nihal-Tomar"
-              target="_blank"
-              class="social-icon"
-              aria-label="GitHub"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a
-              href="www.linkedin.com/in/nihal-singh-tomar-5385462ba"
-              target="_blank"
-              class="social-icon"
-              aria-label="LinkedIn"
-              ><i class="fab fa-linkedin-in"></i
-            ></a>
-            <a
-              href="https://instagram.com/Nihal.tomarr"
-              target="_blank"
-              class="social-icon"
-              aria-label="Instagram"
-              ><i class="fab fa-instagram"></i
-            ></a>
-            <a
-              href="https://x.com/Nihal_tomarr"
-              target="_blank"
-              class="social-icon"
-              aria-label="Twitter"
-              ><i class="fab fa-twitter"></i
-            ></a>
-            <a
-              href="mailto:nihaltomar95@gmail.com"
-              class="social-icon"
-              aria-label="Email"
-              ><i class="fas fa-envelope"></i
-            ></a>
-          </div>
-        </div>
-        <div class="footer-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class="footer-bottom">
-          <p>
-            © 2026 <span class="gradient-text">Nihal Singh Tomar</span>.
-            Designed & Built with <span class="heart">♥</span> — All rights
-            reserved.
-          </p>
+        <p class="nav-logo">
+          Turning bold ideas into blazing web experiences.
+        </p>
+        <div class="footer-socials">
+          <a href="https://github.com/Nihal-Tomar" target="_blank" class="social-icon" aria-label="GitHub"><i
+              class="fab fa-github"></i></a>
+          <a href="www.linkedin.com/in/nihal-singh-tomar-5385462ba" target="_blank" class="social-icon"
+            aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://instagram.com/Nihal.tomarr" target="_blank" class="social-icon" aria-label="Instagram"><i
+              class="fab fa-instagram"></i></a>
+          <a href="https://x.com/Nihal_tomarr" target="_blank" class="social-icon" aria-label="Twitter"><i
+              class="fab fa-twitter"></i></a>
+          <a href="mailto:nihaltomar95@gmail.com" class="social-icon" aria-label="Email"><i
+              class="fas fa-envelope"></i></a>
         </div>
       </div>
-    </footer>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          © 2026 <span class="gradient-text">Nihal Singh Tomar</span>.
+          Designed & Built with <span class="heart">♥</span> — All rights
+          reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Back to top -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-      <i class="fas fa-chevron-up"></i>
-    </button>
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>
