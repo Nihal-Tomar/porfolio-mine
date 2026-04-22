@@ -5,16 +5,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Nihal Singh Tomar — Full Stack Developer & Problem Solver. Crafting high-performance web experiences with modern technologies." />
+    content="Nihal Singh Tomar — Full Stack Developer specialising in MERN stack. Crafting scalable, high-performance web experiences with modern technologies." />
   <meta name="keywords"
-    content="Nihal Singh Tomar, Full Stack Developer, Web Developer, Portfolio, React, Node.js, JavaScript" />
+    content="Nihal Singh Tomar, Full Stack Developer, MERN Stack, Web Developer, Portfolio, React, Node.js, JavaScript, Next.js" />
   <meta name="author" content="Nihal Singh Tomar" />
-  <meta property="og:title" content="Nihal Singh Tomar | Full Stack Developer" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Nihal Singh Tomar | Crafting Scalable Web Experiences" />
   <meta property="og:description"
-    content="Premium portfolio of Nihal Singh Tomar — Full Stack Developer & Problem Solver." />
+    content="Full Stack Developer & Problem Solver — building fast, scalable, pixel-perfect web apps with the MERN stack." />
   <meta property="og:type" content="website" />
-  <title>Nihal | Full Stack Developer</title>
-  <link rel="icon" type="image/png" href="image/ns1.png" />
+  <meta property="og:image" content="image/ns1.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Nihal Singh Tomar | Crafting Scalable Web Experiences" />
+  <meta name="twitter:description" content="Full Stack Developer building fast, scalable web apps." />
+
+  <!-- Mobile browser accent color -->
+  <meta name="theme-color" content="#4f8ef7" />
+
+  <title>Nihal Singh Tomar | Crafting Scalable Web Experiences</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="image/ns1.png" />
+  <link rel="apple-touch-icon" href="image/ns1.png" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -36,6 +51,12 @@
 </head>
 
 <body>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Side Dot Navigator (populated by JS) -->
+  <nav id="side-nav" aria-label="Section navigation"></nav>
+
   <!-- Custom Cursor -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-follower" id="cursorFollower"></div>
@@ -54,6 +75,7 @@
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
       <div class="nav-actions">
@@ -815,6 +837,89 @@
       </div>
     </div>
   </section>
+  <!-- ─── SERVICES ──────────────────────────────────────── -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">What I Offer</span>
+        <h2 class="section-title">
+          My <span class="gradient-text">Services</span>
+        </h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- Service 1 -->
+        <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="50">
+          <div class="service-icon-wrap service-icon--blue">
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <h3 class="service-title">Full Stack Web Development</h3>
+          <p class="service-desc">End-to-end web applications built with the MERN stack — from database design to
+            pixel-perfect frontends, production-ready and scalable.</p>
+          <div class="service-glow service-glow--blue"></div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon-wrap service-icon--purple">
+            <i class="fas fa-shopping-bag"></i>
+          </div>
+          <h3 class="service-title">E-Commerce Solutions</h3>
+          <p class="service-desc">Feature-rich online stores with product management, secure cart flows, payment gateway
+            integration, and real-time admin dashboards.</p>
+          <div class="service-glow service-glow--purple"></div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="service-icon-wrap service-icon--cyan">
+            <i class="fas fa-plug"></i>
+          </div>
+          <h3 class="service-title">API & Backend Development</h3>
+          <p class="service-desc">Robust RESTful APIs and server-side logic with Node.js & Express — built for speed,
+            security, and seamless third-party integrations.</p>
+          <div class="service-glow service-glow--cyan"></div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon-wrap service-icon--pink">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3 class="service-title">Modern UI/UX Interfaces</h3>
+          <p class="service-desc">Visually stunning, responsive interfaces designed with glassmorphism, fluid
+            animations, and a mobile-first approach for every device.</p>
+          <div class="service-glow service-glow--pink"></div>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="service-icon-wrap service-icon--blue">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3 class="service-title">Dashboard & Admin Panels</h3>
+          <p class="service-desc">Interactive dashboards with live data, charts, role-based access control, and clean UX
+            — making data management effortless.</p>
+          <div class="service-glow service-glow--blue"></div>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon-wrap service-icon--purple">
+            <i class="fas fa-tachometer-alt"></i>
+          </div>
+          <h3 class="service-title">Performance & Optimization</h3>
+          <p class="service-desc">In-depth audits and code-level optimizations to boost Core Web Vitals, reduce load
+            times, and deliver lightning-fast user experiences.</p>
+          <div class="service-glow service-glow--purple"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ─── CONTACT ───────────────────────────────────────── -->
   <section class="contact section" id="contact">
     <div class="container">
@@ -860,8 +965,22 @@
               </div>
               <div>
                 <span class="contact-detail-label">Status</span>
-                <span class="contact-detail-value available">Available for opportunities</span>
+                <span class="contact-detail-value available">Available for freelance & full-time roles</span>
               </div>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="contact-detail-item whatsapp-row">
+              <a href="https://wa.me/919935891260" target="_blank" rel="noopener noreferrer" class="whatsapp-btn"
+                aria-label="Chat on WhatsApp">
+                <span class="whatsapp-btn__icon">
+                  <i class="fab fa-whatsapp"></i>
+                </span>
+                <span class="whatsapp-btn__text">
+                  <span class="whatsapp-btn__title">Chat on WhatsApp</span>
+                  <span class="whatsapp-btn__sub">Fastest way to reach me</span>
+                </span>
+              </a>
             </div>
           </div>
           <div class="contact-socials">
@@ -924,32 +1043,54 @@
 
   <!-- ─── FOOTER ────────────────────────────────────────── -->
   <footer class="footer">
+    <!-- Radial glow background blobs -->
+    <div class="footer-glow footer-glow--left" aria-hidden="true"></div>
+    <div class="footer-glow footer-glow--right" aria-hidden="true"></div>
+
     <div class="container">
+
+      <!-- CTA Block -->
+      <div class="footer-cta" data-aos="fade-up">
+        <h2 class="footer-cta__heading">
+          Let's build something <span class="gradient-text">amazing</span> together
+        </h2>
+        <a href="#contact" class="btn btn-primary footer-cta__btn">
+          <i class="fas fa-rocket"></i> Start a Project
+        </a>
+      </div>
+
+      <!-- Gradient divider -->
+      <div class="footer-divider" aria-hidden="true"></div>
+
+      <!-- Footer top: tagline + socials -->
       <div class="footer-top">
-        <!-- <a href="#hero" class="nav-logo footer-logo">
-          <span class="logo-bracket">&lt;</span>NS<span class="logo-bracket">/&gt;</span>
-        </a> -->
-        <p class="nav-logo">
-          Turning bold ideas into blazing web experiences.
-        </p>
+        <div class="footer-brand">
+          <a href="#hero" class="nav-logo footer-logo">
+            <span class="logo-bracket">&lt;</span>NS<span class="logo-bracket">/&gt;</span>
+          </a>
+          <p class="footer-tagline-text">Turning ideas into scalable digital products.</p>
+        </div>
         <div class="footer-socials">
-          <a href="https://github.com/Nihal-Tomar" target="_blank" class="social-icon" aria-label="GitHub"><i
-              class="fab fa-github"></i></a>
-          <a href="www.linkedin.com/in/nihal-singh-tomar-5385462ba" target="_blank" class="social-icon"
-            aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://instagram.com/Nihal.tomarr" target="_blank" class="social-icon" aria-label="Instagram"><i
-              class="fab fa-instagram"></i></a>
-          <a href="https://x.com/Nihal_tomarr" target="_blank" class="social-icon" aria-label="Twitter"><i
-              class="fab fa-twitter"></i></a>
-          <a href="mailto:nihaltomar95@gmail.com" class="social-icon" aria-label="Email"><i
+          <a href="https://github.com/Nihal-Tomar" target="_blank" class="social-icon footer-social"
+            aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/nihal-singh-tomar-5385462ba" target="_blank"
+            class="social-icon footer-social" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://instagram.com/Nihal.tomarr" target="_blank" class="social-icon footer-social"
+            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://x.com/Nihal_tomarr" target="_blank" class="social-icon footer-social" aria-label="Twitter"><i
+              class="fab fa-x-twitter"></i></a>
+          <a href="mailto:nihaltomar95@gmail.com" class="social-icon footer-social" aria-label="Email"><i
               class="fas fa-envelope"></i></a>
         </div>
       </div>
+
+      <!-- Footer nav links -->
       <div class="footer-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
+        <a href="#services">Services</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="footer-bottom">
@@ -958,6 +1099,7 @@
           Designed & Built with <span class="heart">♥</span> — All rights
           reserved.
         </p>
+        <p class="footer-trust">Built with performance &amp; scalability in mind.</p>
       </div>
     </div>
   </footer>

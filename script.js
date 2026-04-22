@@ -23,6 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
   initBackToTop();
   initTiltEffect();
   initLazyLoading();
+  /* ── Premium UX additions ── */
+  initScrollProgress();
+  initSideNav();
+  initSectionReveal();
 });
 
 /* ─── 1. PARTICLES.JS ─────────────────────────────────── */
@@ -543,3 +547,110 @@ document.getElementById("downloadCV")?.addEventListener("click", (e) => {
 
 /* ─── 17. Navbar active highlight on page load ───────── */
 window.dispatchEvent(new Event("scroll"));
+
+/* ═══════════════════════════════════════════════════════════
+   PREMIUM UX — Scroll Progress · Side Nav · Section Reveal
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── 18. SCROLL PROGRESS BAR ──────────────────────────── */
+function initScrollProgress() {
+  const bar = document.getElementById("scroll-progress");
+  if (!bar) return;
+
+  function update() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = pct + "%";
+  }
+
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+}
+
+/* ─── 19. SIDE DOT NAVIGATOR ────────────────────────────── */
+function initSideNav() {
+  const nav = document.getElementById("side-nav");
+  if (!nav) return;
+
+  const SECTIONS = [
+    { id: "hero",       label: "Home"       },
+    { id: "about",      label: "About"      },
+    { id: "skills",     label: "Skills"     },
+    { id: "projects",   label: "Projects"   },
+    { id: "experience", label: "Experience" },
+    { id: "services",   label: "Services"   },
+    { id: "contact",    label: "Contact"    },
+  ];
+
+  /* Build dots */
+  SECTIONS.forEach(({ id, label }) => {
+    const sec = document.getElementById(id);
+    if (!sec) return;
+
+    const dot = document.createElement("button");
+    dot.className = "side-dot";
+    dot.setAttribute("data-target", id);
+    dot.setAttribute("data-label", label);
+    dot.setAttribute("aria-label", `Go to ${label}`);
+    dot.addEventListener("click", () => {
+      sec.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    nav.appendChild(dot);
+  });
+
+  const dots = nav.querySelectorAll(".side-dot");
+
+  /* Show nav after hero passes */
+  function updateNav() {
+    const scrollY = window.scrollY;
+    const heroEl  = document.getElementById("hero");
+    const heroBottom = heroEl ? heroEl.offsetTop + heroEl.offsetHeight * 0.5 : 300;
+
+    nav.classList.toggle("visible", scrollY > heroBottom);
+
+    /* Highlight active dot */
+    const midY = scrollY + window.innerHeight / 2;
+    let activeId = null;
+
+    SECTIONS.forEach(({ id }) => {
+      const sec = document.getElementById(id);
+      if (!sec) return;
+      if (sec.offsetTop <= midY) activeId = id;
+    });
+
+    dots.forEach((dot) => {
+      dot.classList.toggle("active", dot.getAttribute("data-target") === activeId);
+    });
+  }
+
+  window.addEventListener("scroll", updateNav, { passive: true });
+  updateNav();
+}
+
+/* ─── 20. SECTION REVEAL (Intersection Observer) ────────── */
+function initSectionReveal() {
+  const sections = document.querySelectorAll(".section");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target); /* animate once */
+        }
+      });
+    },
+    {
+      threshold: 0.08,      /* trigger when 8% visible */
+      rootMargin: "0px 0px -40px 0px",
+    }
+  );
+
+  sections.forEach((sec) => {
+    /* Skip hero — it's always visible at load */
+    if (sec.id === "hero") return;
+    sec.classList.add("section-reveal");
+    observer.observe(sec);
+  });
+}
