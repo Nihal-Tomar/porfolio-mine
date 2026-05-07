@@ -48,6 +48,18 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
   <link rel="stylesheet" href="style.css" />
+
+  <!-- ── Theme initialisation (MUST be inline & blocking to prevent flicker) ── -->
+  <script>
+    (function () {
+      var theme = localStorage.getItem('portfolio-theme') || 'dark';
+      // Always default to dark — never follow system preference
+      if (theme !== 'light' && theme !== 'dark') theme = 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      // Persist so the JS toggle picks it up consistently
+      localStorage.setItem('portfolio-theme', theme);
+    })();
+  </script>
 </head>
 
 <body>
