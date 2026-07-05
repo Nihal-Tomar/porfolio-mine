@@ -1,0 +1,533 @@
+﻿/* ═══════════════════════════════════════════════════════════
+   PRELOADER
+   ═══════════════════════════════════════════════════════════ */
+
+
+#pl {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #050714;
+  /* --bg-primary hardcoded for instant paint */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* Exit transition: cinematic blur + scale + opacity */
+  transition:
+    opacity 0.65s cubic-bezier(0.76, 0, 0.24, 1),
+    filter 0.65s cubic-bezier(0.76, 0, 0.24, 1),
+    transform 0.65s cubic-bezier(0.76, 0, 0.24, 1);
+  will-change: opacity, filter, transform;
+}
+
+#pl.pl-exit {
+  opacity: 0;
+  filter: blur(12px);
+  transform: scale(1.04);
+  pointer-events: none;
+}
+
+/* ────────────────────────────────────────────────────────────
+   PARTICLES CANVAS
+   ──────────────────────────────────────────────────────────── */
+#pl-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+/* ────────────────────────────────────────────────────────────
+   AMBIENT GLOW BLOBS  (pure CSS, no extra JS)
+   ──────────────────────────────────────────────────────────── */
+.pl-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  animation: pl-drift 8s ease-in-out infinite alternate;
+}
+
+.pl-glow-1 {
+  width: 420px;
+  height: 420px;
+  top: -120px;
+  left: -120px;
+  background: radial-gradient(circle, rgba(79, 142, 247, 0.14) 0%, transparent 70%);
+  animation-duration: 9s;
+}
+
+.pl-glow-2 {
+  width: 380px;
+  height: 380px;
+  bottom: -100px;
+  right: -80px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.13) 0%, transparent 70%);
+  animation-duration: 11s;
+  animation-direction: alternate-reverse;
+}
+
+.pl-glow-3 {
+  width: 280px;
+  height: 280px;
+  top: 40%;
+  left: 60%;
+  background: radial-gradient(circle, rgba(6, 214, 199, 0.09) 0%, transparent 70%);
+  animation-duration: 7s;
+}
+
+@keyframes pl-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate(30px, -25px) scale(1.08);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   CENTRE STAGE  (all visible content stacked here)
+   ──────────────────────────────────────────────────────────── */
+.pl-stage {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  /* subtle float */
+  animation: pl-float 4s ease-in-out infinite;
+}
+
+@keyframes pl-float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   SVG LOGO RING
+   ──────────────────────────────────────────────────────────── */
+.pl-ring-wrap {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 32px;
+}
+
+.pl-ring-svg {
+  width: 140px;
+  height: 140px;
+  display: block;
+  /* spin the outer deco ring */
+}
+
+/* Deco ring — slowly rotates */
+.pl-deco-ring {
+  fill: none;
+  stroke: rgba(79, 142, 247, 0.12);
+  stroke-width: 1;
+  stroke-dasharray: 6 10;
+  animation: pl-spin-deco 20s linear infinite;
+  transform-origin: 70px 70px;
+}
+
+@keyframes pl-spin-deco {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Track arc */
+.pl-track {
+  fill: none;
+  stroke: rgba(79, 142, 247, 0.12);
+  stroke-width: 2.5;
+}
+
+/* Progress arc — JS drives stroke-dashoffset */
+.pl-arc {
+  fill: none;
+  stroke: url(#pl-grad);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Inner glow pulse on the arc endpoint */
+.pl-dot {
+  fill: #4f8ef7;
+  filter: url(#pl-dot-glow);
+  animation: pl-dot-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pl-dot-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    r: 4;
+  }
+
+  50% {
+    opacity: 0.5;
+    r: 5.5;
+  }
+}
+
+/* SVG logo path — drawn via stroke-dashoffset animation */
+.pl-logo-path {
+  fill: none;
+  stroke: url(#pl-grad);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ────────────────────────────────────────────────────────────
+   NAME  "NIHAL.DEV"
+   ──────────────────────────────────────────────────────────── */
+.pl-name {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  /* gradient fill matching --gradient-main */
+  background: linear-gradient(135deg, #4f8ef7 0%, #8b5cf6 50%, #06d6c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: pl-name-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+  margin-bottom: 6px;
+}
+
+@keyframes pl-name-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tagline beneath the name */
+.pl-tagline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.55);
+  opacity: 0;
+  animation: pl-name-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+  margin-bottom: 48px;
+}
+
+/* ────────────────────────────────────────────────────────────
+   PROGRESS BAR AREA
+   ──────────────────────────────────────────────────────────── */
+.pl-progress-wrap {
+  width: clamp(220px, 36vw, 320px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  animation: pl-name-in 0.6s ease 0.8s forwards;
+}
+
+/* Bar track */
+.pl-bar-track {
+  width: 100%;
+  height: 2px;
+  background: rgba(79, 142, 247, 0.1);
+  border-radius: 99px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Bar fill */
+.pl-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #4f8ef7, #8b5cf6, #06d6c7);
+  border-radius: 99px;
+  transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* Shimmer on the bar */
+.pl-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  animation: pl-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes pl-shimmer {
+  0% {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 0;
+  }
+}
+
+/* Bottom row: message + percentage */
+.pl-bar-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Loading message */
+.pl-msg {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: rgba(148, 163, 184, 0.65);
+  min-height: 1.2em;
+  /* messages swap via JS by changing textContent */
+  transition: opacity 0.3s ease;
+}
+
+/* Blinking terminal cursor after the message */
+.pl-msg::after {
+  content: '_';
+  animation: pl-blink 0.9s step-end infinite;
+  color: #4f8ef7;
+  margin-left: 2px;
+}
+
+@keyframes pl-blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Percentage counter */
+.pl-pct {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #4f8ef7;
+  font-variant-numeric: tabular-nums;
+  min-width: 4.5ch;
+  text-align: right;
+}
+
+/* ────────────────────────────────────────────────────────────
+   CORNER  DECORATIONS  (top-left / bottom-right brackets)
+   ──────────────────────────────────────────────────────────── */
+.pl-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  opacity: 0.35;
+}
+
+.pl-corner--tl {
+  top: 28px;
+  left: 28px;
+  border-top: 1.5px solid #4f8ef7;
+  border-left: 1.5px solid #4f8ef7;
+}
+
+.pl-corner--tr {
+  top: 28px;
+  right: 28px;
+  border-top: 1.5px solid #8b5cf6;
+  border-right: 1.5px solid #8b5cf6;
+}
+
+.pl-corner--bl {
+  bottom: 28px;
+  left: 28px;
+  border-bottom: 1.5px solid #8b5cf6;
+  border-left: 1.5px solid #8b5cf6;
+}
+
+.pl-corner--br {
+  bottom: 28px;
+  right: 28px;
+  border-bottom: 1.5px solid #06d6c7;
+  border-right: 1.5px solid #06d6c7;
+}
+
+/* ────────────────────────────────────────────────────────────
+   HORIZONTAL SCAN LINE  (subtle, very low opacity)
+   ──────────────────────────────────────────────────────────── */
+.pl-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(79, 142, 247, 0.18) 50%, transparent 100%);
+  animation: pl-scan-move 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pl-scan-move {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   PORTFOLIO CONTENT  — hidden until preloader exits
+   ──────────────────────────────────────────────────────────── */
+.pl-hidden-until-ready {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Staggered reveal classes applied by JS after preloader exits */
+.pl-reveal-navbar {
+  animation: pl-reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+}
+
+.pl-reveal-hero {
+  animation: pl-reveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+.pl-reveal-particles {
+  animation: pl-reveal 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+.pl-reveal-scroll {
+  animation: pl-reveal 0.6s ease 0.5s both;
+}
+
+@keyframes pl-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   PREFERS-REDUCED-MOTION
+   Skip all motion; just a fast opacity fade.
+   ──────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  #pl {
+    transition: opacity 0.25s linear !important;
+  }
+
+  #pl.pl-exit {
+    filter: none !important;
+    transform: none !important;
+  }
+
+  .pl-stage,
+  .pl-glow,
+  .pl-scan,
+  .pl-dot {
+    animation: none !important;
+  }
+
+  .pl-arc {
+    transition: none !important;
+  }
+
+  .pl-reveal-navbar,
+  .pl-reveal-hero,
+  .pl-reveal-particles,
+  .pl-reveal-scroll {
+    animation: none !important;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   RESPONSIVE TWEAKS
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .pl-ring-wrap {
+    width: 110px;
+    height: 110px;
+  }
+
+  .pl-ring-svg {
+    width: 110px;
+    height: 110px;
+  }
+
+  .pl-name {
+    font-size: 1.35rem;
+  }
+
+  .pl-corner {
+    width: 16px;
+    height: 16px;
+  }
+
+  .pl-corner--tl,
+  .pl-corner--tr {
+    top: 16px;
+  }
+
+  .pl-corner--bl,
+  .pl-corner--br {
+    bottom: 16px;
+  }
+
+  .pl-corner--tl,
+  .pl-corner--bl {
+    left: 16px;
+  }
+
+  .pl-corner--tr,
+  .pl-corner--br {
+    right: 16px;
+  }
+}

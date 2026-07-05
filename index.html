@@ -47,6 +47,9 @@
   <!-- Devicons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
+  <!-- Preloader CSS — loaded first so the dark overlay paints before content -->
+  <link rel="stylesheet" href="css/preloader.css" />
+
   <link rel="stylesheet" href="style.css" />
 
   <!-- ── Theme initialisation (MUST be inline & blocking to prevent flicker) ── -->
@@ -63,6 +66,128 @@
 </head>
 
 <body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PRELOADER  #pl
+       position:fixed → removed from layout flow → zero CLS.
+       role=status + aria-live=polite → accessible live region.
+       All content inside is aria-hidden; #pl itself carries
+       the aria-label that SR reads on progress update.
+       ═══════════════════════════════════════════════════════ -->
+  <div id="pl" role="status" aria-live="polite" aria-label="Loading 0%">
+
+    <!-- Particle canvas: lightweight ambient dots (canvas 2d, no lib) -->
+    <canvas id="pl-canvas" aria-hidden="true"></canvas>
+
+    <!-- Ambient glow blobs -->
+    <div class="pl-glow pl-glow-1" aria-hidden="true"></div>
+    <div class="pl-glow pl-glow-2" aria-hidden="true"></div>
+    <div class="pl-glow pl-glow-3" aria-hidden="true"></div>
+
+    <!-- Scan line -->
+    <div class="pl-scan" aria-hidden="true"></div>
+
+    <!-- Corner bracket decorations -->
+    <div class="pl-corner pl-corner--tl" aria-hidden="true"></div>
+    <div class="pl-corner pl-corner--tr" aria-hidden="true"></div>
+    <div class="pl-corner pl-corner--bl" aria-hidden="true"></div>
+    <div class="pl-corner pl-corner--br" aria-hidden="true"></div>
+
+    <!-- Centre stage: ring + name + progress -->
+    <div class="pl-stage" aria-hidden="true">
+
+      <!-- SVG logo ring -->
+      <div class="pl-ring-wrap">
+        <svg class="pl-ring-svg" viewBox="0 0 140 140"
+             xmlns="http://www.w3.org/2000/svg"
+             aria-hidden="true" focusable="false">
+          <defs>
+            <!-- Main gradient — mirrors --gradient-main in style.css -->
+            <linearGradient id="pl-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%"   stop-color="#4f8ef7" />
+              <stop offset="50%"  stop-color="#8b5cf6" />
+              <stop offset="100%" stop-color="#06d6c7" />
+            </linearGradient>
+            <!-- Glow filter for the progress dot -->
+            <filter id="pl-dot-glow" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- Outer decorative dashed ring (CSS spins it) -->
+          <circle class="pl-deco-ring" cx="70" cy="70" r="68" />
+
+          <!-- Track ring -->
+          <circle class="pl-track" cx="70" cy="70" r="60" />
+
+          <!--
+            Progress arc.
+            stroke-dasharray & stroke-dashoffset set by JS.
+            r=60 → circumference ≈ 376.99.
+            rotate(-90) so it starts at 12 o'clock.
+          -->
+          <circle class="pl-arc"
+                  cx="70" cy="70" r="60"
+                  transform="rotate(-90 70 70)" />
+
+          <!--
+            Glowing dot at the arc's leading edge.
+            cx/cy are updated by JS on every render tick.
+          -->
+          <circle class="pl-dot" cx="70" cy="10" r="4" />
+
+          <!--
+            Animated logo paths: two diagonal strokes that form
+            a stylised "N" inside the ring.
+            stroke-dashoffset draws them on via CSS.
+          -->
+          <g transform="translate(70,70)">
+            <!-- Stylised N: left vertical -->
+            <line class="pl-logo-path" x1="-14" y1="-18" x2="-14" y2="18"
+                  style="stroke-dasharray:36;stroke-dashoffset:36;
+                         animation:pl-draw-path 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s forwards;" />
+            <!-- Stylised N: diagonal -->
+            <line class="pl-logo-path" x1="-14" y1="-18" x2="14" y2="18"
+                  style="stroke-dasharray:46;stroke-dashoffset:46;
+                         animation:pl-draw-path 0.7s cubic-bezier(0.22,1,0.36,1) 0.45s forwards;" />
+            <!-- Stylised N: right vertical -->
+            <line class="pl-logo-path" x1="14" y1="-18" x2="14" y2="18"
+                  style="stroke-dasharray:36;stroke-dashoffset:36;
+                         animation:pl-draw-path 0.7s cubic-bezier(0.22,1,0.36,1) 0.7s forwards;" />
+          </g>
+        </svg>
+      </div>
+      <!-- /ring -->
+
+      <!-- Name -->
+      <p class="pl-name">NIHAL.DEV</p>
+
+      <!-- Tagline -->
+      <p class="pl-tagline">Full Stack Engineer</p>
+
+      <!-- Progress area -->
+      <div class="pl-progress-wrap">
+        <!-- Thin gradient bar -->
+        <div class="pl-bar-track">
+          <div class="pl-bar-fill"></div>
+        </div>
+        <!-- Message + percentage -->
+        <div class="pl-bar-meta">
+          <span class="pl-msg">Initializing Portfolio...</span>
+          <span class="pl-pct">0%</span>
+        </div>
+      </div>
+      <!-- /progress -->
+
+    </div>
+    <!-- /stage -->
+
+  </div>
+  <!-- ═══ /PRELOADER ═══════════════════════════════════════ -->
   <!-- Scroll Progress Bar -->
   <div id="scroll-progress"></div>
 
@@ -1131,6 +1256,17 @@
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
     <i class="fas fa-chevron-up"></i>
   </button>
+
+  <!-- Inline keyframe for the SVG logo-path draw animation.
+       Kept inline so it's available immediately — no extra round-trip. -->
+  <style>
+    @keyframes pl-draw-path {
+      to { stroke-dashoffset: 0; }
+    }
+  </style>
+
+  <!-- Preloader: runs first (defer = after HTML parsed, before DOMContentLoaded) -->
+  <script src="js/preloader.js" defer></script>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
