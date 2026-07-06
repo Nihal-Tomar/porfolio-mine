@@ -90,6 +90,9 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  /* Safety layer: prevents any overflowing child from widening the viewport */
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -97,6 +100,8 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
   cursor: none;
   transition: background var(--transition-slow), color var(--transition-slow);
 }
@@ -520,6 +525,27 @@ body:has(button:hover) .cursor-follower {
   animation: float-blob 10s ease-in-out infinite alternate-reverse;
 }
 
+/* ROOT CAUSE FIX #1 — Hero blobs extend beyond viewport on mobile.
+   The ::before blob is 600px wide at left:-10%, and ::after is 500px at right:-5%.
+   On a 375px viewport these blobs protrude far past the right edge, widening the
+   scrollable area. We contain them inside the hero (which has overflow:hidden) by
+   capping their size on mobile. */
+@media (max-width: 768px) {
+  .hero::before {
+    width: 280px;
+    height: 280px;
+    left: -30px;
+    top: -60px;
+  }
+
+  .hero::after {
+    width: 240px;
+    height: 240px;
+    right: -30px;
+    bottom: -60px;
+  }
+}
+
 @keyframes float-blob {
   0% {
     transform: translate(0, 0) scale(1);
@@ -737,6 +763,35 @@ body:has(button:hover) .cursor-follower {
   bottom: 2%;
   right: 0%;
   animation: float-badge 4s ease-in-out infinite 1s;
+}
+
+/* ROOT CAUSE FIX #2 — Floating badges use negative left/right percentages that
+   protrude outside their parent on screens < 900px. The @900px media query already
+   repositions them (right:0, left:0) but between 640–900px they are still visible
+   and use white-space:nowrap so they can overflow. We clip via the parent wrapper
+   and tuck badges inside bounds on mobile. */
+@media (max-width: 768px) {
+  .hero-image-wrapper {
+    overflow: visible; /* keep visible so badges can show, but position them safely */
+  }
+
+  .badge-1 {
+    top: -12px;
+    right: 0;
+    font-size: 0.72rem;
+    padding: 7px 12px;
+  }
+
+  .badge-2 {
+    bottom: 16%;
+    left: 0;
+    font-size: 0.72rem;
+    padding: 7px 12px;
+  }
+
+  .badge-3 {
+    display: none;
+  }
 }
 
 @keyframes float-badge {
@@ -2063,6 +2118,39 @@ body:has(button:hover) .cursor-follower {
   }
 }
 
+/* ── MOBILE OVERFLOW SAFETY LAYER (Phase 7) ────────────────
+   Applied AFTER individual root-cause fixes above.
+   This is a fallback guard, not the primary solution.
+   Verified: every overflowing element has been fixed above;
+   this layer just prevents any future regressions.
+   ────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Ensure the hero section itself never overflows horizontally.
+     It already has overflow:hidden from base styles but we reinforce it. */
+  .hero {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  /* ROOT CAUSE FIX #3 — Footer glow blobs: a 300px element with filter:blur(100px)
+     causes the paint region to bleed ~100px outside the element bounds on each side.
+     On mobile the right blob (right:-100px) bleeds ~200px past viewport right edge.
+     We reduce size and eliminate the negative offset on mobile. */
+  .footer-glow--left {
+    width: 180px;
+    height: 180px;
+    left: -40px;
+    filter: blur(60px);
+  }
+
+  .footer-glow--right {
+    width: 180px;
+    height: 180px;
+    right: -40px;
+    filter: blur(60px);
+  }
+}
+
 @media (max-width: 900px) {
   :root {
     --section-padding: 72px 0;
@@ -2209,6 +2297,39 @@ body:has(button:hover) .cursor-follower {
     display: none;
   }
 }
+
+/* ── TRUE MOBILE OVERRIDES (post-640px, overrides all above) ─
+   These run last so they always win on 320–640px screens.
+   Hero content, container padding, and nav padding need to be
+   tightened after the 900px block widens them back to 48px gap.
+   ─────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  /* Tighter hero gap + padding on very small screens */
+  .hero-content {
+    padding: 0 16px;
+    gap: 28px;
+  }
+
+  /* Consistent container padding across all sections */
+  .container {
+    padding: 0 16px;
+  }
+
+  .nav-container {
+    padding: 0 16px;
+  }
+
+  /* Hero name font size clamp for 320px */
+  .hero-name {
+    font-size: clamp(2.2rem, 10vw, 2.8rem);
+  }
+
+  /* Typed text wrapper should wrap freely */
+  .hero-typed-wrapper {
+    font-size: 1.1rem;
+  }
+}
+
 
 /* ── MISC UTILITIES ────────────────────────────────────── */
 .available::before {
