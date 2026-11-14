@@ -1,323 +1,177 @@
-﻿
+/* ══════════════════════════════════════════════════════════════════
+   PRELOADER CONTROLLER — NIHAL SINGH TOMAR (<NS/>)
+   Smooth timing, mathematical clamping (0% to 100%),
+   and editorial curtain exit transition.
+   ══════════════════════════════════════════════════════════════════ */
+
 (function () {
   'use strict';
 
-  /* ── Reduced-motion check ─────────────────────────────────── */
+  /* ── Reduced motion check ─────────────────────────────────── */
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ── DOM refs ─────────────────────────────────────────────── */
-  const pl = document.getElementById('pl');
-  const arcEl = pl && pl.querySelector('.pl-arc');
-  const dotEl = pl && pl.querySelector('.pl-dot');
-  const fillEl = pl && pl.querySelector('.pl-bar-fill');
-  const pctEl = pl && pl.querySelector('.pl-pct');
-  const msgEl = pl && pl.querySelector('.pl-msg');
-  const canvas = pl && pl.querySelector('#pl-canvas');
+  /* ── DOM Elements ─────────────────────────────────────────── */
+  const pl = document.getElementById('preloader') || document.getElementById('pl');
+  if (!pl) return;
 
-  if (!pl || !arcEl || !fillEl || !pctEl || !msgEl) return;
+  const arcEl = pl.querySelector('.pl-ring-arc') || pl.querySelector('.pl-arc');
+  const dotEl = pl.querySelector('.pl-ring-dot') || pl.querySelector('.pl-dot');
+  const fillEl = pl.querySelector('.pl-bar-fill');
+  const pctEl = pl.querySelector('.pl-pct-num') || pl.querySelector('.pl-pct');
+  const msgEl = pl.querySelector('.pl-welcome-msg') || pl.querySelector('.pl-msg');
 
-  /* ── Arc geometry (r=60 in the 140×140 SVG, track r=60) ───── */
-  const R = 60;
-  const CIRC = 2 * Math.PI * R;   // ≈ 376.99
-  arcEl.style.strokeDasharray = CIRC;
-  arcEl.style.strokeDashoffset = CIRC;   // 0% filled initially
-
-  /* ── Progress weights ─────────────────────────────────────── */
-  const W_IMG = 0.60;
-  const W_FONT = 0.20;
-  const W_LOAD = 0.20;
-
-  let imgProg = 0;
-  let fontProg = 0;
-  let loadProg = 0;
-  let finished = false;
-  let displayedPct = 0;   // for smooth counter animation
-
-  /* ── Loading messages ─────────────────────────────────────── */
-  const MESSAGES = [
-    'Initializing Portfolio...',
-    'Loading Components...',
-    'Optimizing Assets...',
-    'Preparing Projects...',
-    'Connecting Experience...',
-    'Welcome.'
-  ];
-  let msgIndex = 0;
-
-  function nextMessage() {
-    if (msgIndex >= MESSAGES.length - 1) return;
-    msgIndex++;
-    msgEl.style.opacity = '0';
-    setTimeout(function () {
-      msgEl.textContent = MESSAGES[msgIndex];
-      msgEl.style.opacity = '1';
-    }, 160);
+  /* ── Arc Geometry: r=58 in 124x124 SVG, Circumference ≈ 364.42 */
+  const R = 58;
+  const CIRC = 2 * Math.PI * R;
+  if (arcEl) {
+    arcEl.style.strokeDasharray = CIRC;
+    arcEl.style.strokeDashoffset = CIRC;
   }
 
-  /* Advance messages proportional to progress */
-  function syncMessage(pct) {
-    // Each message covers roughly 100/MESSAGES.length % of progress
-    const step = Math.floor(pct / (100 / MESSAGES.length));
-    const target = Math.min(step, MESSAGES.length - 1);
-    if (target > msgIndex) {
-      msgIndex = target - 1;   // nextMessage will increment
-      nextMessage();
-    }
+  /* ── State variables ──────────────────────────────────────── */
+  let currentPct = 0;
+  let targetPct = 0;
+  let isExiting = false;
+  let counterRaf = null;
+
+  /* Helper to clamp numbers strictly between 0 and 100 */
+  function clamp(val) {
+    if (isNaN(val)) return 0;
+    return Math.max(0, Math.min(100, Math.round(val)));
   }
 
-  /* ── Render (called on every progress update) ─────────────── */
-  function render() {
-    const combined = Math.min(
-      imgProg * W_IMG +
-      fontProg * W_FONT +
-      loadProg * W_LOAD,
-      1
-    );
-    const targetPct = Math.round(combined * 100);
+  /* ── Update Visual State ──────────────────────────────────── */
+  function updateVisuals(pct) {
+    const safePct = clamp(pct);
 
-    /* Animate the percentage counter smoothly */
-    if (targetPct > displayedPct) {
-      animateCounter(targetPct);
+    /* Text percentage */
+    if (pctEl) {
+      pctEl.textContent = safePct + '%';
     }
-
-    /* Arc stroke */
-    arcEl.style.strokeDashoffset = CIRC * (1 - combined);
 
     /* Bar fill */
-    fillEl.style.width = (combined * 100).toFixed(1) + '%';
+    if (fillEl) {
+      fillEl.style.width = safePct + '%';
+    }
 
-    /* Aria label update */
-    pl.setAttribute('aria-label', 'Loading ' + targetPct + '%');
+    /* SVG Circular Progress Arc */
+    if (arcEl) {
+      const offset = CIRC * (1 - (safePct / 100));
+      arcEl.style.strokeDashoffset = Math.max(0, Math.min(CIRC, offset));
+    }
 
-    /* Sync dot position on the arc endpoint */
+    /* Leading dot position on the arc endpoint */
     if (dotEl) {
-      const angle = -Math.PI / 2 + combined * 2 * Math.PI;
-      const cx = 70 + R * Math.cos(angle);
-      const cy = 70 + R * Math.sin(angle);
-      dotEl.setAttribute('cx', cx.toFixed(2));
-      dotEl.setAttribute('cy', cy.toFixed(2));
-      dotEl.style.display = combined < 0.01 ? 'none' : '';
-    }
-
-    syncMessage(targetPct);
-  }
-
-  /* ── Counter animation (rAF-based) ────────────────────────── */
-  let counterRaf = null;
-  function animateCounter(target) {
-    if (counterRaf) cancelAnimationFrame(counterRaf);
-    const start = displayedPct;
-    const duration = reducedMotion ? 0 : 280;   // ms
-    const startTime = performance.now();
-
-    function tick(now) {
-      const elapsed = now - startTime;
-      const t = duration === 0 ? 1 : Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - t, 3);   // ease-out-cubic
-      displayedPct = Math.round(start + (target - start) * eased);
-      pctEl.textContent = displayedPct + '%';
-      if (t < 1) {
-        counterRaf = requestAnimationFrame(tick);
+      if (safePct <= 0) {
+        dotEl.style.opacity = '0';
       } else {
-        displayedPct = target;
-        pctEl.textContent = target + '%';
+        dotEl.style.opacity = '1';
+        const angle = -Math.PI / 2 + (safePct / 100) * 2 * Math.PI;
+        const cx = 62 + R * Math.cos(angle);
+        const cy = 62 + R * Math.sin(angle);
+        dotEl.setAttribute('cx', cx.toFixed(2));
+        dotEl.setAttribute('cy', cy.toFixed(2));
       }
     }
-    counterRaf = requestAnimationFrame(tick);
+
+    /* Accessibility ARIA update */
+    pl.setAttribute('aria-label', 'Loading ' + safePct + '%');
   }
 
-  /* ── Dismiss ──────────────────────────────────────────────── */
-  function dismiss() {
-    if (finished) return;
-    finished = true;
+  /* ── Smooth Counter Animation Loop (rAF) ──────────────────── */
+  function animateProgress() {
+    if (isExiting) return;
 
-    /* Snap to 100 */
-    imgProg = fontProg = loadProg = 1;
-    render();
+    if (currentPct < targetPct) {
+      // Smooth incremental step
+      const diff = targetPct - currentPct;
+      const step = Math.max(0.5, diff * 0.14);
+      currentPct = Math.min(targetPct, currentPct + step);
+      updateVisuals(currentPct);
+    }
 
-    const delay = reducedMotion ? 0 : 280;
+    if (currentPct >= 100) {
+      triggerExit();
+      return;
+    }
 
+    counterRaf = requestAnimationFrame(animateProgress);
+  }
+
+  /* ── Natural Progress Simulation (~1.1s - 1.4s) ───────────── */
+  const startTime = performance.now();
+  const DURATION = reducedMotion ? 400 : 1200; // ms to reach ~95% naturally
+
+  function simulate() {
+    const elapsed = performance.now() - startTime;
+    const progressRatio = Math.min(1, elapsed / DURATION);
+
+    // Ease-out cubic curve up to 96%
+    const naturalTarget = 15 + Math.round((1 - Math.pow(1 - progressRatio, 2.5)) * 81);
+    targetPct = Math.max(targetPct, clamp(naturalTarget));
+
+    if (progressRatio < 1 && !windowLoaded) {
+      setTimeout(simulate, 60);
+    }
+  }
+
+  let windowLoaded = false;
+  simulate();
+  animateProgress();
+
+  /* ── Complete when window.onload fires ────────────────────── */
+  function onComplete() {
+    windowLoaded = true;
+    targetPct = 100;
+  }
+
+  if (document.readyState === 'complete') {
+    onComplete();
+  } else {
+    window.addEventListener('load', onComplete, { once: true });
+    // Safety fallback timeout
+    setTimeout(onComplete, 2400);
+  }
+
+  /* ── Curtain Exit Animation ───────────────────────────────── */
+  function triggerExit() {
+    if (isExiting) return;
+    isExiting = true;
+    if (counterRaf) cancelAnimationFrame(counterRaf);
+
+    // Ensure 100% is displayed
+    updateVisuals(100);
+
+    // Pause 150ms at 100% for satisfaction before lifting curtain
     setTimeout(function () {
-      requestAnimationFrame(function () {
-        pl.classList.add('pl-exit');
+      pl.classList.add('pl-exit');
 
-        /* Remove from DOM after transition */
-        function onEnd(e) {
-          if (e.target !== pl) return;
-          pl.removeEventListener('transitionend', onEnd);
-          removePl();
+      // Unhide and reveal page content
+      revealPortfolio();
+
+      function cleanup() {
+        if (pl.parentNode) {
+          pl.parentNode.removeChild(pl);
+        } else {
+          pl.style.display = 'none';
         }
-        pl.addEventListener('transitionend', onEnd);
-
-        /* Fallback */
-        setTimeout(removePl, reducedMotion ? 300 : 900);
-
-        /* Reveal portfolio content with staggered animations */
-        revealContent();
-      });
-    }, delay);
-  }
-
-  function removePl() {
-    if (pl.parentNode) pl.parentNode.removeChild(pl);
-    /* Stop particle loop */
-    if (particleLoop) cancelAnimationFrame(particleLoop);
-  }
-
-  /* ── Staggered portfolio reveal ───────────────────────────── */
-  function revealContent() {
-    const targets = [
-      { sel: '.navbar', cls: 'pl-reveal-navbar' },
-      { sel: '.hero', cls: 'pl-reveal-hero' },
-      { sel: '#particles-js', cls: 'pl-reveal-particles' },
-      { sel: '#scroll-progress', cls: 'pl-reveal-scroll' },
-      { sel: '#side-nav', cls: 'pl-reveal-scroll' },
-    ];
-
-    targets.forEach(function (t) {
-      const el = document.querySelector(t.sel);
-      if (!el) return;
-      el.classList.remove('pl-hidden-until-ready');
-      if (!reducedMotion) {
-        el.classList.add(t.cls);
-      }
-    });
-  }
-
-  /* ── Safety cap (4 s) ─────────────────────────────────────── */
-  const safetyCap = setTimeout(dismiss, 4000);
-
-  /* ── Signal: window.load ──────────────────────────────────── */
-  window.addEventListener('load', function () {
-    loadProg = 1;
-    render();
-    clearTimeout(safetyCap);
-    /* Small grace period so bar visibly hits 100 */
-    setTimeout(dismiss, reducedMotion ? 50 : 220);
-  }, { once: true });
-
-  /* ── Signal: fonts.ready ──────────────────────────────────── */
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(function () {
-      fontProg = 1;
-      render();
-    });
-  } else {
-    fontProg = 1;
-  }
-
-  /* ── Signal: images ───────────────────────────────────────── */
-  (function trackImages() {
-    function attach(imgs) {
-      const list = Array.from(imgs);
-      const total = list.length;
-      if (total === 0) { imgProg = 1; render(); return; }
-
-      let done = 0;
-      function settle() {
-        done = Math.min(done + 1, total);
-        imgProg = done / total;
-        render();
+        document.body.style.overflow = '';
       }
 
-      list.forEach(function (img) {
-        if (img.complete) { settle(); }
-        else {
-          img.addEventListener('load', settle, { once: true });
-          img.addEventListener('error', settle, { once: true });
-        }
-      });
-    }
-
-    attach(document.images);
-
-    document.addEventListener('DOMContentLoaded', function () {
-      if (!finished) attach(document.images);
-    }, { once: true });
-  })();
-
-  /* Initial paint */
-  render();
-
-  /* ── Message interval (independent of progress) ───────────── */
-  if (!reducedMotion) {
-    const msgInterval = setInterval(function () {
-      if (finished) { clearInterval(msgInterval); return; }
-      if (msgIndex < MESSAGES.length - 1) nextMessage();
-      else clearInterval(msgInterval);
-    }, 480);
-  } else {
-    /* Reduced motion: jump straight to last message */
-    msgEl.textContent = MESSAGES[MESSAGES.length - 1];
+      pl.addEventListener('transitionend', cleanup, { once: true });
+      setTimeout(cleanup, 650); // Fallback
+    }, reducedMotion ? 50 : 150);
   }
 
-  /* ────────────────────────────────────────────────────────────
-     LIGHTWEIGHT PARTICLE SYSTEM  (canvas, no library)
-     ~30 dots, very low opacity — purely cosmetic, no perf cost
-     ──────────────────────────────────────────────────────────── */
-  var particleLoop = null;
-
-  (function initParticles() {
-    if (!canvas || reducedMotion) return;
-
-    const ctx = canvas.getContext('2d');
-    const COLORS = ['#4f8ef7', '#8b5cf6', '#06d6c7'];
-    let W, H, particles;
-
-    function resize() {
-      W = canvas.width = window.innerWidth;
-      H = canvas.height = window.innerHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    function rand(a, b) { return a + Math.random() * (b - a); }
-
-    function createParticles() {
-      particles = [];
-      const count = Math.min(Math.floor(W * H / 22000), 40);
-      for (var i = 0; i < count; i++) {
-        particles.push({
-          x: rand(0, W),
-          y: rand(0, H),
-          r: rand(0.8, 2.2),
-          vx: rand(-0.18, 0.18),
-          vy: rand(-0.18, 0.18),
-          a: rand(0.04, 0.18),
-          c: COLORS[Math.floor(Math.random() * COLORS.length)]
-        });
-      }
-    }
-    createParticles();
-
-    function draw() {
-      ctx.clearRect(0, 0, W, H);
-      particles.forEach(function (p) {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = p.c;
-        ctx.globalAlpha = p.a;
-        ctx.fill();
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < -4) p.x = W + 4;
-        if (p.x > W + 4) p.x = -4;
-        if (p.y < -4) p.y = H + 4;
-        if (p.y > H + 4) p.y = -4;
-      });
-      ctx.globalAlpha = 1;
-      particleLoop = requestAnimationFrame(draw);
-    }
-    draw();
-  })();
-
-  /* ── Hide portfolio content until preloader exits ─────────── */
-  (function hideUntilReady() {
-    const toHide = ['.navbar', '.hero', '#particles-js', '#scroll-progress', '#side-nav'];
-    toHide.forEach(function (sel) {
+  /* Reveal portfolio content cleanly */
+  function revealPortfolio() {
+    const elements = ['.navbar', '.hero', '#particles-js', '#scroll-progress', '#side-nav'];
+    elements.forEach(function (sel) {
       const el = document.querySelector(sel);
-      if (el) el.classList.add('pl-hidden-until-ready');
+      if (el) {
+        el.classList.remove('pl-hidden-until-ready');
+      }
     });
-  })();
+  }
 
 })();

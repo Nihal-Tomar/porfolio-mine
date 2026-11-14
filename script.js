@@ -34,29 +34,29 @@ function initParticles() {
   if (typeof particlesJS === "undefined") return;
   particlesJS("particles-js", {
     particles: {
-      number: { value: 70, density: { enable: true, value_area: 900 } },
-      color: { value: ["#4f8ef7", "#8b5cf6", "#06d6c7"] },
+      number: { value: 30, density: { enable: true, value_area: 1000 } },
+      color: { value: ["#243B80", "#C9B8FF"] },
       shape: { type: "circle" },
       opacity: {
-        value: 0.35,
+        value: 0.18,
         random: true,
         anim: { enable: true, speed: 0.6, opacity_min: 0.05, sync: false },
       },
       size: {
-        value: 2.5,
+        value: 2,
         random: true,
-        anim: { enable: true, speed: 2, size_min: 0.5, sync: false },
+        anim: { enable: true, speed: 1.5, size_min: 0.5, sync: false },
       },
       line_linked: {
         enable: true,
-        distance: 160,
-        color: "#4f8ef7",
-        opacity: 0.08,
+        distance: 140,
+        color: "#243B80",
+        opacity: 0.04,
         width: 1,
       },
       move: {
         enable: true,
-        speed: 0.8,
+        speed: 0.6,
         direction: "none",
         random: true,
         straight: false,
@@ -72,7 +72,7 @@ function initParticles() {
         resize: true,
       },
       modes: {
-        repulse: { distance: 80, duration: 0.4 },
+        repulse: { distance: 70, duration: 0.4 },
         push: { particles_nb: 2 },
       },
     },
@@ -93,16 +93,16 @@ function initTyped() {
     "Frontend Developer",
   ];
 
-  const TYPE_SPEED_MIN  = 80;   // ms per character (minimum)
-  const TYPE_SPEED_MAX  = 120;  // ms per character (maximum)
-  const DELETE_SPEED    = 50;   // ms per character while deleting
-  const PAUSE_AFTER     = 1200; // ms pause after full word is typed
-  const PAUSE_BEFORE    = 300;  // ms pause before starting to delete
+  const TYPE_SPEED_MIN = 80;   // ms per character (minimum)
+  const TYPE_SPEED_MAX = 120;  // ms per character (maximum)
+  const DELETE_SPEED = 50;   // ms per character while deleting
+  const PAUSE_AFTER = 1200; // ms pause after full word is typed
+  const PAUSE_BEFORE = 300;  // ms pause before starting to delete
 
-  let roleIndex   = 0;  // which role we are currently showing
-  let charIndex   = 0;  // how many characters are currently rendered
-  let isDeleting  = false;
-  let timer       = null;
+  let roleIndex = 0;  // which role we are currently showing
+  let charIndex = 0;  // how many characters are currently rendered
+  let isDeleting = false;
+  let timer = null;
 
   function tick() {
     const current = roles[roleIndex];
@@ -130,8 +130,8 @@ function initTyped() {
 
       if (charIndex === 0) {
         // Finished deleting — move to next role
-        isDeleting  = false;
-        roleIndex   = (roleIndex + 1) % roles.length;
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
         timer = setTimeout(tick, TYPE_SPEED_MIN);
         return;
       }
@@ -182,19 +182,19 @@ function initCustomCursor() {
   animateFollower();
 
   // Scale on hover over interactive elements
-  const interactives = document.querySelectorAll("a, button, .skill-card, .project-card");
+  const interactives = document.querySelectorAll("a, button, .skill-card, .project-card, .stat-card, .timeline-card, .service-card");
   interactives.forEach((el) => {
     el.addEventListener("mouseenter", () => {
-      cursor.style.transform = "translate(-50%, -50%) scale(2)";
-      cursor.style.background = "var(--accent-purple)";
-      follower.style.transform = "translate(-50%, -50%) scale(1.5)";
-      follower.style.borderColor = "var(--accent-purple)";
+      cursor.style.transform = "translate(-50%, -50%) scale(1.6)";
+      cursor.style.background = "var(--brand-primary)";
+      follower.style.transform = "translate(-50%, -50%) scale(1.3)";
+      follower.style.borderColor = "var(--brand-primary)";
     });
     el.addEventListener("mouseleave", () => {
       cursor.style.transform = "translate(-50%, -50%) scale(1)";
-      cursor.style.background = "var(--accent-blue)";
+      cursor.style.background = "var(--brand-primary)";
       follower.style.transform = "translate(-50%, -50%) scale(1)";
-      follower.style.borderColor = "rgba(79,142,247,0.5)";
+      follower.style.borderColor = "rgba(36, 59, 128, 0.35)";
     });
   });
 
@@ -263,8 +263,8 @@ function initThemeToggle() {
   const icon = document.getElementById("themeIcon");
   const html = document.documentElement;
 
-  // Restore saved theme
-  const saved = localStorage.getItem("portfolio-theme") || "dark";
+  // Restore saved theme (Default is light editorial)
+  const saved = localStorage.getItem("portfolio-theme") || "light";
   html.setAttribute("data-theme", saved);
   updateThemeIcon(saved);
 
@@ -278,7 +278,7 @@ function initThemeToggle() {
 
   function updateThemeIcon(theme) {
     if (!icon) return;
-    icon.className = theme === "dark" ? "fas fa-moon" : "fas fa-sun";
+    icon.className = theme === "dark" ? "fas fa-sun" : "fas fa-moon";
     btn.setAttribute("title", theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode");
   }
 }
@@ -574,13 +574,13 @@ function initSideNav() {
   if (!nav) return;
 
   const SECTIONS = [
-    { id: "hero",       label: "Home"       },
-    { id: "about",      label: "About"      },
-    { id: "skills",     label: "Skills"     },
-    { id: "projects",   label: "Projects"   },
+    { id: "hero", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "skills", label: "Skills" },
+    { id: "projects", label: "Projects" },
     { id: "experience", label: "Experience" },
-    { id: "services",   label: "Services"   },
-    { id: "contact",    label: "Contact"    },
+    { id: "services", label: "Services" },
+    { id: "contact", label: "Contact" },
   ];
 
   /* Build dots */
@@ -604,7 +604,7 @@ function initSideNav() {
   /* Show nav after hero passes */
   function updateNav() {
     const scrollY = window.scrollY;
-    const heroEl  = document.getElementById("hero");
+    const heroEl = document.getElementById("hero");
     const heroBottom = heroEl ? heroEl.offsetTop + heroEl.offsetHeight * 0.5 : 300;
 
     nav.classList.toggle("visible", scrollY > heroBottom);

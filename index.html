@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="UTF-8" />
@@ -23,7 +23,7 @@
   <meta name="twitter:description" content="Full Stack Developer building fast, scalable web apps." />
 
   <!-- Mobile browser accent color -->
-  <meta name="theme-color" content="#4f8ef7" />
+  <meta name="theme-color" content="#243B80" />
 
   <title>My, Myself & I | Nihal</title>
 
@@ -31,11 +31,11 @@
   <link rel="icon" type="image/png" sizes="32x32" href="image/ns1.png" />
   <link rel="apple-touch-icon" href="image/ns1.png" />
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Instrument Serif + DM Sans + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500;1,9..40,600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
 
   <!-- AOS (Scroll Animations) -->
@@ -55,11 +55,10 @@
   <!-- ── Theme initialisation (MUST be inline & blocking to prevent flicker) ── -->
   <script>
     (function () {
-      var theme = localStorage.getItem('portfolio-theme') || 'dark';
-      // Always default to dark — never follow system preference
-      if (theme !== 'light' && theme !== 'dark') theme = 'dark';
+      var theme = localStorage.getItem('portfolio-theme') || 'light';
+      // Default to light editorial theme
+      if (theme !== 'light' && theme !== 'dark') theme = 'light';
       document.documentElement.setAttribute('data-theme', theme);
-      // Persist so the JS toggle picks it up consistently
       localStorage.setItem('portfolio-theme', theme);
     })();
   </script>
@@ -68,126 +67,66 @@
 <body>
 
   <!-- ═══════════════════════════════════════════════════════
-       PRELOADER  #pl
-       position:fixed → removed from layout flow → zero CLS.
-       role=status + aria-live=polite → accessible live region.
-       All content inside is aria-hidden; #pl itself carries
-       the aria-label that SR reads on progress update.
+       PRELOADER #preloader
+       Editorial Architectural Aesthetic matching Hero DNA
        ═══════════════════════════════════════════════════════ -->
-  <div id="pl" role="status" aria-live="polite" aria-label="Loading 0%">
+  <div id="preloader" role="status" aria-live="polite" aria-label="Loading 0%">
 
-    <!-- Particle canvas: lightweight ambient dots (canvas 2d, no lib) -->
-    <canvas id="pl-canvas" aria-hidden="true"></canvas>
+    <!-- Soft Radial Lavender Glow Layer Behind Loader -->
+    <div class="pl-ambient-glow" aria-hidden="true"></div>
 
-    <!-- Ambient glow blobs -->
-    <div class="pl-glow pl-glow-1" aria-hidden="true"></div>
-    <div class="pl-glow pl-glow-2" aria-hidden="true"></div>
-    <div class="pl-glow pl-glow-3" aria-hidden="true"></div>
+    <!-- Four Corner Registration Brackets -->
+    <div class="pl-bracket pl-bracket--tl" aria-hidden="true"></div>
+    <div class="pl-bracket pl-bracket--tr" aria-hidden="true"></div>
+    <div class="pl-bracket pl-bracket--bl" aria-hidden="true"></div>
+    <div class="pl-bracket pl-bracket--br" aria-hidden="true"></div>
 
-    <!-- Scan line -->
-    <div class="pl-scan" aria-hidden="true"></div>
+    <!-- Centre Stage -->
+    <div class="pl-stage">
 
-    <!-- Corner bracket decorations -->
-    <div class="pl-corner pl-corner--tl" aria-hidden="true"></div>
-    <div class="pl-corner pl-corner--tr" aria-hidden="true"></div>
-    <div class="pl-corner pl-corner--bl" aria-hidden="true"></div>
-    <div class="pl-corner pl-corner--br" aria-hidden="true"></div>
-
-    <!-- Centre stage: ring + name + progress -->
-    <div class="pl-stage" aria-hidden="true">
-
-      <!-- SVG logo ring -->
-      <div class="pl-ring-wrap">
-        <svg class="pl-ring-svg" viewBox="0 0 140 140"
-             xmlns="http://www.w3.org/2000/svg"
-             aria-hidden="true" focusable="false">
-          <defs>
-            <!-- Main gradient — mirrors --gradient-main in style.css -->
-            <linearGradient id="pl-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%"   stop-color="#4f8ef7" />
-              <stop offset="50%"  stop-color="#8b5cf6" />
-              <stop offset="100%" stop-color="#06d6c7" />
-            </linearGradient>
-            <!-- Glow filter for the progress dot -->
-            <filter id="pl-dot-glow" x="-80%" y="-80%" width="260%" height="260%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-
-          <!-- Outer decorative dashed ring (CSS spins it) -->
-          <circle class="pl-deco-ring" cx="70" cy="70" r="68" />
-
-          <!-- Track ring -->
-          <circle class="pl-track" cx="70" cy="70" r="60" />
-
-          <!--
-            Progress arc.
-            stroke-dasharray & stroke-dashoffset set by JS.
-            r=60 → circumference ≈ 376.99.
-            rotate(-90) so it starts at 12 o'clock.
-          -->
-          <circle class="pl-arc"
-                  cx="70" cy="70" r="60"
-                  transform="rotate(-90 70 70)" />
-
-          <!--
-            Glowing dot at the arc's leading edge.
-            cx/cy are updated by JS on every render tick.
-          -->
-          <circle class="pl-dot" cx="70" cy="10" r="4" />
-
-          <!--
-            Animated logo paths: two diagonal strokes that form
-            a stylised "N" inside the ring.
-            stroke-dashoffset draws them on via CSS.
-          -->
-          <g transform="translate(70,70)">
-            <!-- Stylised N: left vertical -->
-            <line class="pl-logo-path" x1="-14" y1="-18" x2="-14" y2="18"
-                  style="stroke-dasharray:36;stroke-dashoffset:36;
-                         animation:pl-draw-path 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s forwards;" />
-            <!-- Stylised N: diagonal -->
-            <line class="pl-logo-path" x1="-14" y1="-18" x2="14" y2="18"
-                  style="stroke-dasharray:46;stroke-dashoffset:46;
-                         animation:pl-draw-path 0.7s cubic-bezier(0.22,1,0.36,1) 0.45s forwards;" />
-            <!-- Stylised N: right vertical -->
-            <line class="pl-logo-path" x1="14" y1="-18" x2="14" y2="18"
-                  style="stroke-dasharray:36;stroke-dashoffset:36;
-                         animation:pl-draw-path 0.7s cubic-bezier(0.22,1,0.36,1) 0.7s forwards;" />
-          </g>
+      <!-- Central Orbital <NS/> Emblem (180px × 180px) -->
+      <div class="pl-emblem-wrap">
+        <!-- Two Tilted Elliptical Orbits SVG (210px × 210px) -->
+        <svg class="pl-orbits-svg" viewBox="0 0 210 210" width="210" height="210" aria-hidden="true">
+          <ellipse class="pl-orbit-1" cx="105" cy="105" rx="96" ry="56" fill="none" stroke="rgba(139, 124, 200, 0.55)" stroke-width="1" transform="rotate(-28 105 105)" />
+          <ellipse class="pl-orbit-2" cx="105" cy="105" rx="96" ry="56" fill="none" stroke="rgba(36, 33, 42, 0.40)" stroke-width="1" transform="rotate(24 105 105)" />
         </svg>
+
+        <!-- SVG Circular Progress Ring (124px × 124px) -->
+        <svg class="pl-ring-svg" viewBox="0 0 124 124" width="124" height="124" aria-hidden="true">
+          <circle class="pl-ring-track" cx="62" cy="62" r="58" />
+          <circle class="pl-ring-arc" cx="62" cy="62" r="58" transform="rotate(-90 62 62)" />
+          <circle class="pl-ring-dot" cx="62" cy="4" r="4.5" />
+        </svg>
+
+        <!-- Soft Pearl Core Circle (116px × 116px) -->
+        <div class="pl-core-circle">
+          <span class="pl-logo-text">&lt;NS/&gt;</span>
+        </div>
       </div>
-      <!-- /ring -->
 
-      <!-- Name -->
-      <p class="pl-name">NIHAL.DEV</p>
+      <!-- Brand Headline -->
+      <h2 class="pl-brand-headline">
+        Nihal <span class="pl-italic-accent">Singh</span> Tomar
+      </h2>
 
-      <!-- Tagline -->
-      <p class="pl-tagline">Full Stack Engineer</p>
+      <!-- Role Eyebrow -->
+      <p class="pl-role-eyebrow">FULL STACK ENGINEER</p>
 
-      <!-- Progress area -->
-      <div class="pl-progress-wrap">
-        <!-- Thin gradient bar -->
+      <!-- Minimalist Progress Bar -->
+      <div class="pl-bar-container">
         <div class="pl-bar-track">
           <div class="pl-bar-fill"></div>
         </div>
-        <!-- Message + percentage -->
-        <div class="pl-bar-meta">
-          <span class="pl-msg">Initializing Portfolio...</span>
-          <span class="pl-pct">0%</span>
+        <div class="pl-meta-row">
+          <span class="pl-welcome-msg">Welcome.</span>
+          <span class="pl-pct-num">0%</span>
         </div>
       </div>
-      <!-- /progress -->
 
     </div>
-    <!-- /stage -->
-
   </div>
-  <!-- ═══ /PRELOADER ═══════════════════════════════════════ -->
+  <!-- ═══ /PRELOADER ═════════════════════════════════════════ -->
   <!-- Scroll Progress Bar -->
   <div id="scroll-progress"></div>
 
@@ -214,11 +153,13 @@
         <li><a href="#experience" class="nav-link">Experience</a></li>
         <li><a href="#services" class="nav-link">Services</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li class="nav-theme-li">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <i class="fas fa-moon" id="themeIcon"></i>
+          </button>
+        </li>
       </ul>
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          <i class="fas fa-moon" id="themeIcon"></i>
-        </button>
         <a href="#contact" class="btn btn-primary nav-cta">Hire Me</a>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu">
           <span></span><span></span><span></span>
@@ -231,13 +172,13 @@
   <section class="hero" id="hero">
     <div class="hero-content">
       <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
-        <p class="hero-greeting">Hello, World! 👋</p>
+        <p class="hero-greeting">HELLO, WORLD! 👋</p>
         <h1 class="hero-name">
-          I'm <span class="gradient-text">Nihal Singh</span><br />Tomar
+          I’m Nihal <span class="italic-emphasis">Singh</span><br />Tomar
         </h1>
         <div class="hero-typed-wrapper">
           <span class="typed-prefix">I am a </span>
-          <span id="typed-text" class="typed-highlight"></span>
+          <span class="typed-highlight"><span id="typed-text">MERN Stack Developer</span></span>
           <span class="typed-cursor-custom">|</span>
         </div>
         <p class="hero-bio">
@@ -248,7 +189,7 @@
         </p>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary">
-            <i class="fas fa-rocket"></i> View Projects
+            <i class="fas fa-folder-open"></i> View Projects
           </a>
           <a href="#contact" class="btn btn-outline">
             <i class="fas fa-paper-plane"></i> Contact Me
@@ -258,14 +199,13 @@
           <a href="https://github.com/Nihal-Tomar" target="_blank" class="social-icon" aria-label="GitHub">
             <i class="fab fa-github"></i>
           </a>
-          <a href="www.linkedin.com/in/nihal-singh-tomar-5385462ba" target="_blank" class="social-icon"
+          <a href="https://www.linkedin.com/in/nihal-singh-tomar-5385462ba" target="_blank" class="social-icon"
             aria-label="LinkedIn">
             <i class="fab fa-linkedin-in"></i>
           </a>
           <a href="https://instagram.com/Nihal.tomarr" target="_blank" class="social-icon" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
-
           <a href="https://x.com/Nihal_tomarr" target="_blank" class="social-icon" aria-label="Twitter">
             <i class="fab fa-x-twitter"></i>
           </a>
@@ -275,19 +215,34 @@
         </div>
       </div>
       <div class="hero-image-wrapper" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-        <div class="hero-image-container">
-          <div class="glow-ring"></div>
-          <div class="glow-ring ring-2"></div>
-          <img src="image/Ns4.png" alt="Nihal Singh Tomar" class="hero-photo" loading="eager" />
+        <!-- Ambient Glow Aura -->
+        <div class="hero-ambient-glow" aria-hidden="true"></div>
+
+        <!-- Wide Pearl Mat Ring (430px x 430px) -->
+        <div class="hero-pearl-mat">
+          <!-- Inner Monochrome Portrait (305px x 305px) -->
+          <div class="hero-image-container">
+            <img src="image/Ns4.png" alt="Nihal Singh Tomar" class="hero-photo" loading="eager" />
+          </div>
         </div>
-        <div class="floating-badge badge-1">
-          <i class="fas fa-code"></i> Full Stack
-        </div>
-        <div class="floating-badge badge-2">
+
+        <!-- Two Tilted SVG Orbital Ellipses (520px x 520px) -->
+        <svg class="hero-orbit-svg" viewBox="0 0 520 520" width="520" height="520" aria-hidden="true">
+          <!-- Ellipse 1 rotated -28deg (Lavender) -->
+          <ellipse cx="260" cy="260" rx="250" ry="160" fill="none" stroke="rgba(139, 124, 200, 0.6)" stroke-width="1" transform="rotate(-28 260 260)" />
+          <!-- Ellipse 2 rotated +24deg (Charcoal) -->
+          <ellipse cx="260" cy="260" rx="250" ry="160" fill="none" stroke="rgba(36, 33, 42, 0.35)" stroke-width="1" transform="rotate(24 260 260)" />
+        </svg>
+
+        <!-- Three Floating Pill Badges (Strictly Outside Inner Portrait) -->
+        <div class="floating-badge badge-years">
           <i class="fas fa-star"></i> 2+ Years
         </div>
-        <div class="floating-badge badge-3">
-          <i class="fas fa-fire"></i> 8+ Projects
+        <div class="floating-badge badge-stack">
+          <i class="fas fa-code"></i> Full Stack
+        </div>
+        <div class="floating-badge badge-projects">
+          <i class="fas fa-globe"></i> 8+ Projects
         </div>
       </div>
     </div>
@@ -305,9 +260,8 @@
       <div class="section-header" data-aos="fade-up">
         <span class="section-tag">Get To Know</span>
         <h2 class="section-title">
-          My, Myself & <span class="gradient-text">I</span>
+          My, Myself & <span class="italic-emphasis">I</span>
         </h2>
-        <div class="section-line"></div>
       </div>
       <div class="about-grid">
         <div class="about-image-col" data-aos="fade-right" data-aos-duration="900">
@@ -335,7 +289,7 @@
         <div class="about-text-col" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
           <h3 class="about-heading">
             Crafting Digital Experiences That
-            <span class="gradient-text">Matter</span>
+            <span class="italic-emphasis">Matter</span>
           </h3>
           <p class="about-desc">
             I'm a <strong>Full Stack Developer</strong> with a deep passion
@@ -351,19 +305,19 @@
           </p>
           <div class="about-highlights">
             <div class="highlight-item">
-              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-check"></i>
               <span>Clean, maintainable, well-documented code</span>
             </div>
             <div class="highlight-item">
-              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-check"></i>
               <span>Performance-first development mindset</span>
             </div>
             <div class="highlight-item">
-              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-check"></i>
               <span>Collaborative team player & fast learner</span>
             </div>
             <div class="highlight-item">
-              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-check"></i>
               <span>Driven by curiosity & continuous improvement</span>
             </div>
           </div>
@@ -385,9 +339,8 @@
       <div class="section-header" data-aos="fade-up">
         <span class="section-tag">What I Work With</span>
         <h2 class="section-title">
-          Tech <span class="gradient-text">Stack</span>
+          Tech <span class="italic-emphasis">Stack</span>
         </h2>
-        <div class="section-line"></div>
       </div>
 
       <div class="skills-categories" data-aos="fade-up" data-aos-delay="100">
@@ -557,9 +510,8 @@
       <div class="section-header" data-aos="fade-up">
         <span class="section-tag">My Work</span>
         <h2 class="section-title">
-          Featured <span class="gradient-text">Projects</span>
+          Featured <span class="italic-emphasis dark-italic">Projects</span>
         </h2>
-        <div class="section-line"></div>
       </div>
 
       <div class="projects-grid">
@@ -854,9 +806,8 @@
       <div class="section-header" data-aos="fade-up">
         <span class="section-tag">Journey</span>
         <h2 class="section-title">
-          Experience & <span class="gradient-text">Education</span>
+          Experience &amp; <span class="italic-emphasis">Education</span>
         </h2>
-        <div class="section-line"></div>
       </div>
 
       <!-- Tabs -->
@@ -991,9 +942,8 @@
       <div class="section-header" data-aos="fade-up">
         <span class="section-tag">What I Offer</span>
         <h2 class="section-title">
-          My <span class="gradient-text">Services</span>
+          My <span class="italic-emphasis">Services</span>
         </h2>
-        <div class="section-line"></div>
       </div>
 
       <div class="services-grid">
@@ -1074,14 +1024,13 @@
       <div class="section-header" data-aos="fade-up">
         <span class="section-tag">Get In Touch</span>
         <h2 class="section-title">
-          Let's <span class="gradient-text">Connect</span>
+          Let’s Build Something <span class="italic-emphasis">Together</span>
         </h2>
-        <div class="section-line"></div>
       </div>
       <div class="contact-grid">
         <div class="contact-info" data-aos="fade-right" data-aos-duration="800">
           <h3 class="contact-heading">
-            Have a project in mind? <br /><span class="gradient-text">Let's build it together.</span>
+            Have a project in mind? <br />Let's build something <span class="italic-emphasis">together</span>.
           </h3>
           <p class="contact-desc">
             Whether it's a startup MVP, a freelance project, or just a
@@ -1109,7 +1058,7 @@
             </div>
             <div class="contact-detail-item">
               <div class="contact-icon-wrap">
-                <i class="fas fa-circle" style="color: #22c55e; font-size: 0.75rem"></i>
+                <i class="fas fa-circle" style="color: #2FB87A; font-size: 0.75rem"></i>
               </div>
               <div>
                 <span class="contact-detail-label">Status</span>
@@ -1134,7 +1083,7 @@
           <div class="contact-socials">
             <a href="https://github.com/Nihal-Tomar" target="_blank" class="social-icon" aria-label="GitHub"><i
                 class="fab fa-github"></i></a>
-            <a href="www.linkedin.com/in/nihal-singh-tomar-5385462ba" target="_blank" class="social-icon"
+            <a href="https://www.linkedin.com/in/nihal-singh-tomar-5385462ba" target="_blank" class="social-icon"
               aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://instagram.com/Nihal.tomarr" target="_blank" class="social-icon" aria-label="Instagram">
               <i class="fab fa-instagram"></i>
@@ -1200,7 +1149,7 @@
       <!-- CTA Block -->
       <div class="footer-cta" data-aos="fade-up">
         <h2 class="footer-cta__heading">
-          Let's build something <span class="gradient-text">amazing</span> together
+          Let's build something <span class="italic-emphasis dark-italic">amazing</span> together
         </h2>
         <a href="#contact" class="btn btn-primary footer-cta__btn">
           <i class="fas fa-rocket"></i> Start a Project
@@ -1243,8 +1192,8 @@
       </div>
       <div class="footer-bottom">
         <p>
-          © 2026 <span class="gradient-text">Nihal Singh Tomar</span>.
-          Designed & Built with <span class="heart">♥</span> — All rights
+          © 2026 <strong>Nihal Singh Tomar</strong>.
+          Designed &amp; Built with <span class="heart">♥</span> — All rights
           reserved.
         </p>
         <p class="footer-trust">Built with performance &amp; scalability in mind.</p>
