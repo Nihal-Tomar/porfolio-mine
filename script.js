@@ -263,16 +263,15 @@ function initThemeToggle() {
   const icon = document.getElementById("themeIcon");
   const html = document.documentElement;
 
-  // Restore saved theme (Default is light editorial)
-  const saved = localStorage.getItem("portfolio-theme") || "light";
-  html.setAttribute("data-theme", saved);
-  updateThemeIcon(saved);
+  // Always start in light mode — clear any old stored dark preference
+  localStorage.removeItem("portfolio-theme");
+  html.setAttribute("data-theme", "light");
+  updateThemeIcon("light");
 
   btn?.addEventListener("click", () => {
     const current = html.getAttribute("data-theme");
     const next = current === "dark" ? "light" : "dark";
     html.setAttribute("data-theme", next);
-    localStorage.setItem("portfolio-theme", next);
     updateThemeIcon(next);
   });
 

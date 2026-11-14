@@ -55,11 +55,9 @@
   <!-- ── Theme initialisation (MUST be inline & blocking to prevent flicker) ── -->
   <script>
     (function () {
-      var theme = localStorage.getItem('portfolio-theme') || 'light';
-      // Default to light editorial theme
-      if (theme !== 'light' && theme !== 'dark') theme = 'light';
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('portfolio-theme', theme);
+      /* Always open in Light Editorial mode by default.
+         The toggle saves preference only for the current session. */
+      document.documentElement.setAttribute('data-theme', 'light');
     })();
   </script>
 </head>
