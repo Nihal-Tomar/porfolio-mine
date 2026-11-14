@@ -282,54 +282,16 @@ function initThemeToggle() {
   }
 }
 
-/* ─── 7. SKILL FILTER ─────────────────────────────────── */
+/* ─── 7. SKILL FILTER — no-op (category cards replaced filter tabs) ── */
 function initSkillFilter() {
-  const catBtns = document.querySelectorAll(".skill-cat-btn");
-  const skillCards = document.querySelectorAll(".skill-card");
-
-  catBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      catBtns.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      const cat = btn.getAttribute("data-cat");
-      skillCards.forEach((card) => {
-        const cardCat = card.getAttribute("data-cat");
-        const show = cat === "all" || cardCat === cat;
-        card.style.display = show ? "" : "none";
-        // Re-trigger animation
-        if (show) {
-          card.style.animation = "none";
-          card.offsetHeight; // reflow
-          card.style.animation = "";
-        }
-      });
-    });
-  });
+  /* Filter tabs removed — skills now use 6 category cards. */
 }
 
-/* ─── 8. SKILL BAR ANIMATIONS ─────────────────────────── */
+/* ─── 8. SKILL BARS — no-op (progress bars replaced with badges) ── */
 function initSkillBars() {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const fills = entry.target.querySelectorAll(".skill-fill");
-        fills.forEach((fill) => {
-          const width = fill.getAttribute("data-width") + "%";
-          setTimeout(() => {
-            fill.style.width = width;
-          }, 200);
-        });
-        observer.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  const skillsGrid = document.getElementById("skillsGrid");
-  if (skillsGrid) observer.observe(skillsGrid);
+  /* Percentage bars removed — skills now use pill badges. */
 }
+
 
 /* ─── 9. TIMELINE TABS ─────────────────────────────────── */
 function initTimeline() {

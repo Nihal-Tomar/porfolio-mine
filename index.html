@@ -86,8 +86,10 @@
       <div class="pl-emblem-wrap">
         <!-- Two Tilted Elliptical Orbits SVG (210px × 210px) -->
         <svg class="pl-orbits-svg" viewBox="0 0 210 210" width="210" height="210" aria-hidden="true">
-          <ellipse class="pl-orbit-1" cx="105" cy="105" rx="96" ry="56" fill="none" stroke="rgba(139, 124, 200, 0.55)" stroke-width="1" transform="rotate(-28 105 105)" />
-          <ellipse class="pl-orbit-2" cx="105" cy="105" rx="96" ry="56" fill="none" stroke="rgba(36, 33, 42, 0.40)" stroke-width="1" transform="rotate(24 105 105)" />
+          <ellipse class="pl-orbit-1" cx="105" cy="105" rx="96" ry="56" fill="none" stroke="rgba(139, 124, 200, 0.55)"
+            stroke-width="1" transform="rotate(-28 105 105)" />
+          <ellipse class="pl-orbit-2" cx="105" cy="105" rx="96" ry="56" fill="none" stroke="rgba(36, 33, 42, 0.40)"
+            stroke-width="1" transform="rotate(24 105 105)" />
         </svg>
 
         <!-- SVG Circular Progress Ring (124px × 124px) -->
@@ -227,9 +229,11 @@
         <!-- Two Tilted SVG Orbital Ellipses (520px x 520px) -->
         <svg class="hero-orbit-svg" viewBox="0 0 520 520" width="520" height="520" aria-hidden="true">
           <!-- Ellipse 1 rotated -28deg (Lavender) -->
-          <ellipse cx="260" cy="260" rx="250" ry="160" fill="none" stroke="rgba(139, 124, 200, 0.6)" stroke-width="1" transform="rotate(-28 260 260)" />
+          <ellipse cx="260" cy="260" rx="250" ry="160" fill="none" stroke="rgba(139, 124, 200, 0.6)" stroke-width="1"
+            transform="rotate(-28 260 260)" />
           <!-- Ellipse 2 rotated +24deg (Charcoal) -->
-          <ellipse cx="260" cy="260" rx="250" ry="160" fill="none" stroke="rgba(36, 33, 42, 0.35)" stroke-width="1" transform="rotate(24 260 260)" />
+          <ellipse cx="260" cy="260" rx="250" ry="160" fill="none" stroke="rgba(36, 33, 42, 0.35)" stroke-width="1"
+            transform="rotate(24 260 260)" />
         </svg>
 
         <!-- Three Floating Pill Badges (Strictly Outside Inner Portrait) -->
@@ -341,163 +345,98 @@
         </h2>
       </div>
 
-      <div class="skills-categories" data-aos="fade-up" data-aos-delay="100">
-        <button class="skill-cat-btn active" data-cat="all">All</button>
-        <button class="skill-cat-btn" data-cat="frontend">Frontend</button>
-        <button class="skill-cat-btn" data-cat="backend">Backend</button>
-        <button class="skill-cat-btn" data-cat="tools">Tools</button>
-      </div>
+      <div class="skill-categories-grid" id="skillsGrid">
 
-      <div class="skills-grid" id="skillsGrid">
-        <!-- Frontend -->
-        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="50">
-          <i class="devicon-html5-plain colored skill-icon"></i>
-          <span class="skill-name">HTML5</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="95"></div>
+        <!-- 1. Languages -->
+        <div class="skill-category-card" data-aos="fade-up" data-aos-delay="50">
+          <h3 class="skill-cat-heading skill-cat--languages">
+            <i class="fas fa-code"></i> Languages
+          </h3>
+          <div class="skill-badges">
+            <span class="skill-badge">Java</span>
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">JavaScript</span>
+            <span class="skill-badge">TypeScript</span>
+            <span class="skill-badge">C</span>
+            <span class="skill-badge">GoLang</span>
           </div>
-          <span class="skill-pct">95%</span>
-        </div>
-        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="100">
-          <i class="devicon-css3-plain colored skill-icon"></i>
-          <span class="skill-name">CSS3</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="90"></div>
-          </div>
-          <span class="skill-pct">90%</span>
-        </div>
-        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="150">
-          <i class="devicon-javascript-plain colored skill-icon"></i>
-          <span class="skill-name">JavaScript</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="88"></div>
-          </div>
-          <span class="skill-pct">88%</span>
-        </div>
-        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="200">
-          <i class="devicon-react-original colored skill-icon"></i>
-          <span class="skill-name">React</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="85"></div>
-          </div>
-          <span class="skill-pct">85%</span>
-        </div>
-        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="250">
-          <i class="devicon-tailwindcss-plain colored skill-icon"></i>
-          <span class="skill-name">Tailwind</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="82"></div>
-          </div>
-          <span class="skill-pct">82%</span>
-        </div>
-        <div class="skill-card glass-card" data-cat="frontend" data-aos="zoom-in" data-aos-delay="300">
-          <i class="devicon-nextjs-plain skill-icon"></i>
-          <span class="skill-name">Next.js</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="75"></div>
-          </div>
-          <span class="skill-pct">75%</span>
         </div>
 
-        <!-- Backend -->
-        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="50">
-          <i class="devicon-nodejs-plain colored skill-icon"></i>
-          <span class="skill-name">Node.js</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="80"></div>
+        <!-- 2. Frontend -->
+        <div class="skill-category-card" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="skill-cat-heading skill-cat--frontend">
+            <i class="fas fa-laptop-code"></i> Frontend
+          </h3>
+          <div class="skill-badges">
+            <span class="skill-badge">React.js</span>
+            <span class="skill-badge">HTML/CSS</span>
+            <span class="skill-badge">Tailwind CSS</span>
           </div>
-          <span class="skill-pct">80%</span>
-        </div>
-        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="100">
-          <i class="devicon-express-original skill-icon"></i>
-          <span class="skill-name">Express</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="78"></div>
-          </div>
-          <span class="skill-pct">78%</span>
-        </div>
-        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="150">
-          <i class="devicon-mongodb-plain colored skill-icon"></i>
-          <span class="skill-name">MongoDB</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="75"></div>
-          </div>
-          <span class="skill-pct">75%</span>
-        </div>
-        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="200">
-          <i class="devicon-python-plain colored skill-icon"></i>
-          <span class="skill-name">Python</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="70"></div>
-          </div>
-          <span class="skill-pct">70%</span>
-        </div>
-        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="250">
-          <i class="devicon-mysql-plain colored skill-icon"></i>
-          <span class="skill-name">MySQL</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="72"></div>
-          </div>
-          <span class="skill-pct">72%</span>
-        </div>
-        <div class="skill-card glass-card" data-cat="backend" data-aos="zoom-in" data-aos-delay="300">
-          <i class="devicon-firebase-plain colored skill-icon"></i>
-          <span class="skill-name">Firebase</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="68"></div>
-          </div>
-          <span class="skill-pct">68%</span>
         </div>
 
-        <!-- Tools -->
-        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="50">
-          <i class="devicon-git-plain colored skill-icon"></i>
-          <span class="skill-name">Git</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="90"></div>
+        <!-- 3. Backend -->
+        <div class="skill-category-card" data-aos="fade-up" data-aos-delay="150">
+          <h3 class="skill-cat-heading skill-cat--backend">
+            <i class="fas fa-server"></i> Backend
+          </h3>
+          <div class="skill-badges">
+            <span class="skill-badge">Node.js</span>
+            <span class="skill-badge">Express.js</span>
+            <span class="skill-badge">FastAPI</span>
+            <span class="skill-badge">Flask</span>
+            <span class="skill-badge">REST APIs</span>
+            <span class="skill-badge">WebSockets</span>
+            <span class="skill-badge">JWT Authentication</span>
+            <span class="skill-badge">Microservices</span>
           </div>
-          <span class="skill-pct">90%</span>
         </div>
-        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="100">
-          <i class="devicon-github-original skill-icon"></i>
-          <span class="skill-name">GitHub</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="88"></div>
+
+        <!-- 4. Databases -->
+        <div class="skill-category-card" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="skill-cat-heading skill-cat--databases">
+            <i class="fas fa-database"></i> Databases
+          </h3>
+          <div class="skill-badges">
+            <span class="skill-badge">MongoDB</span>
+            <span class="skill-badge">PostgreSQL</span>
+            <span class="skill-badge">MySQL</span>
           </div>
-          <span class="skill-pct">88%</span>
         </div>
-        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="150">
-          <i class="devicon-vscode-plain colored skill-icon"></i>
-          <span class="skill-name">VS Code</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="95"></div>
+
+        <!-- 5. AI / ML -->
+        <div class="skill-category-card" data-aos="fade-up" data-aos-delay="250">
+          <h3 class="skill-cat-heading skill-cat--aiml">
+            <i class="fas fa-brain"></i> AI / ML
+          </h3>
+          <div class="skill-badges">
+            <span class="skill-badge">Agentic AI Systems</span>
+            <span class="skill-badge">Generative AI (LLMs)</span>
+            <span class="skill-badge">Prompt Engineering</span>
+            <span class="skill-badge">PyTorch</span>
+            <span class="skill-badge">Hugging Face</span>
+            <span class="skill-badge">scikit-fuzzy</span>
+            <span class="skill-badge">NLP</span>
+            <span class="skill-badge">Data Processing</span>
           </div>
-          <span class="skill-pct">95%</span>
         </div>
-        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="200">
-          <i class="devicon-figma-plain colored skill-icon"></i>
-          <span class="skill-name">Figma</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="65"></div>
+
+        <!-- 6. Developer Tools -->
+        <div class="skill-category-card" data-aos="fade-up" data-aos-delay="300">
+          <h3 class="skill-cat-heading skill-cat--tools">
+            <i class="fas fa-tools"></i> Developer Tools
+          </h3>
+          <div class="skill-badges">
+            <span class="skill-badge">Git</span>
+            <span class="skill-badge">GitHub</span>
+            <span class="skill-badge">Docker</span>
+            <span class="skill-badge">Postman</span>
+            <span class="skill-badge">Linux</span>
+            <span class="skill-badge">Vite</span>
+            <span class="skill-badge">Google Cloud Platform (GCP)</span>
+            <span class="skill-badge">AWS</span>
           </div>
-          <span class="skill-pct">65%</span>
         </div>
-        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="250">
-          <i class="devicon-docker-plain colored skill-icon"></i>
-          <span class="skill-name">Docker</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="60"></div>
-          </div>
-          <span class="skill-pct">60%</span>
-        </div>
-        <div class="skill-card glass-card" data-cat="tools" data-aos="zoom-in" data-aos-delay="300">
-          <i class="devicon-linux-plain skill-icon"></i>
-          <span class="skill-name">Linux</span>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="70"></div>
-          </div>
-          <span class="skill-pct">70%</span>
-        </div>
+
       </div>
     </div>
   </section>
@@ -1208,7 +1147,9 @@
        Kept inline so it's available immediately — no extra round-trip. -->
   <style>
     @keyframes pl-draw-path {
-      to { stroke-dashoffset: 0; }
+      to {
+        stroke-dashoffset: 0;
+      }
     }
   </style>
 
