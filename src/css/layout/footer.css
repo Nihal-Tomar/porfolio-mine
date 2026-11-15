@@ -1,6 +1,11 @@
 /* ─── 14. FOOTER (Deep Navy Closing Rhythm Band) ──────────────── */
 .footer {
-  background: var(--bg-dark-band);
+  background-color: var(--bg-footer);
+  background-image:
+    linear-gradient(to right, var(--grid-line-dark) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-dark) 1px, transparent 1px);
+  background-size: 72px 72px;
+  background-position: center top;
   color: #FFFFFF;
   padding: 80px 0 40px 0;
   position: relative;

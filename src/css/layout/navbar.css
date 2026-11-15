@@ -9,6 +9,10 @@
   transition: all var(--transition-smooth);
 }
 
+.navbar.scrolled {
+  top: 14px;
+}
+
 .nav-container {
   max-width: 1280px;
   margin: 0 auto;
@@ -25,16 +29,33 @@
   font-size: 22px;
   font-weight: 800;
   letter-spacing: -0.03em;
-  color: var(--brand-primary) !important;
+  color: var(--brand-primary);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 2px;
+  transition: color var(--transition-smooth);
 }
 
 .nav-logo .logo-bracket {
   color: var(--brand-primary);
   opacity: 0.9;
+  transition: color var(--transition-smooth);
+}
+
+/* High contrast over dark sections and in dark mode */
+.navbar.navbar-on-dark .nav-logo,
+[data-theme="dark"] .nav-logo {
+  color: #FFFFFF !important;
+}
+
+.navbar.navbar-on-dark .nav-logo .logo-bracket,
+[data-theme="dark"] .nav-logo .logo-bracket {
+  color: var(--accent-lavender) !important;
+}
+
+.navbar.navbar-on-dark .hamburger span {
+  background: #FFFFFF;
 }
 
 /* Single Unified Floating Pill (Center) */

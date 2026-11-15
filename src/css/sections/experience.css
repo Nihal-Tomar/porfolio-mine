@@ -1,6 +1,24 @@
 /* ─── 11. EXPERIENCE & EDUCATION SECTION ──────────────────────── */
 .experience {
-  background: var(--bg-primary);
+  background-color: var(--bg-experience);
+  background-image:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201, 184, 255, 0.14) 0%, transparent 70%),
+    linear-gradient(to right, var(--grid-line-light) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-light) 1px, transparent 1px);
+  background-size: 100% 100%, 72px 72px, 72px 72px;
+  background-position: center top, center top, center top;
+  padding: 88px 0 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .experience {
+  background-color: var(--bg-experience);
+  background-image:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(139, 92, 246, 0.08) 0%, transparent 70%),
+    linear-gradient(to right, var(--grid-line-dark) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-dark) 1px, transparent 1px);
+  padding: 88px 0 96px 0;
 }
 
 .timeline-tabs {

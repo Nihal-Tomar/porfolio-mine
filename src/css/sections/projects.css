@@ -1,6 +1,12 @@
 /* ─── 10. FEATURED PROJECTS (Deep Navy Rhythm Band #161D3D) ───── */
 .projects {
-  background: radial-gradient(circle at 50% 0%, rgba(36, 59, 128, 0.45) 0%, transparent 65%), var(--bg-dark-band);
+  background-color: var(--bg-projects);
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(36, 59, 128, 0.45) 0%, transparent 65%),
+    linear-gradient(to right, var(--grid-line-dark) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-dark) 1px, transparent 1px);
+  background-size: 100% 100%, 72px 72px, 72px 72px;
+  background-position: center top, center top, center top;
   color: #FFFFFF;
   position: relative;
   overflow: hidden;
@@ -47,6 +53,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  height: 100%;
   transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
 }
 

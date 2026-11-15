@@ -1,4 +1,39 @@
 /* ─── 13. CONTACT SECTION ─────────────────────────────────────── */
+.contact {
+  background-color: var(--bg-contact);
+  background-image:
+    radial-gradient(ellipse 55% 45% at 50% 0%, rgba(201, 184, 255, 0.18) 0%, transparent 65%),
+    linear-gradient(to right, var(--grid-line-light) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-light) 1px, transparent 1px);
+  background-size: 100% 100%, 72px 72px, 72px 72px;
+  background-position: center top, center top, center top;
+  padding: 80px 0 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle top accent to visually signal new section */
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(139, 124, 200, 0.45), rgba(36, 59, 128, 0.35), rgba(139, 124, 200, 0.45), transparent);
+  pointer-events: none;
+  z-index: 2;
+}
+
+[data-theme="dark"] .contact {
+  background-color: var(--bg-contact);
+  background-image:
+    radial-gradient(ellipse 55% 45% at 50% 0%, rgba(139, 92, 246, 0.1) 0%, transparent 65%),
+    linear-gradient(to right, var(--grid-line-dark) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-dark) 1px, transparent 1px);
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;

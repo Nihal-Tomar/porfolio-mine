@@ -9,6 +9,19 @@
   z-index: 1;
   box-sizing: border-box;
   overflow-x: clip;
+  background-color: var(--bg-hero);
+  background-image:
+    linear-gradient(to right, var(--grid-line-light) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-light) 1px, transparent 1px);
+  background-size: 72px 72px;
+  background-position: center top;
+}
+
+[data-theme="dark"] .hero {
+  background-color: var(--bg-hero);
+  background-image:
+    linear-gradient(to right, var(--grid-line-dark) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-dark) 1px, transparent 1px);
 }
 
 .hero-content {

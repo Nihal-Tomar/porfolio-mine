@@ -56,6 +56,16 @@
   opacity: 1;
 }
 
+#side-nav.on-dark .side-dot {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+#side-nav.on-dark .side-dot.active,
+[data-theme="dark"] .side-dot.active {
+  background: var(--accent-lavender);
+  box-shadow: 0 0 8px rgba(201, 184, 255, 0.5);
+}
+
 @media (max-width: 1024px) {
   #side-nav {
     display: none;

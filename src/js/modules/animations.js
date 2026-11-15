@@ -61,11 +61,12 @@ export function initParticles() {
  */
 export function initAOS() {
   if (typeof AOS === "undefined") return;
+  window.AOS = AOS;
   AOS.init({
-    duration: 800,
+    duration: 600,
     easing: "ease-out-cubic",
     once: true,
-    offset: 80,
+    offset: 20,
     delay: 0,
   });
 }

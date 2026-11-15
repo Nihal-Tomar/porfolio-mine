@@ -1,4 +1,25 @@
 /* ─── 12. SERVICES SECTION (My Services) ──────────────────────── */
+.services {
+  background-color: var(--bg-services);
+  background-image:
+    radial-gradient(ellipse 70% 30% at 50% 0%, rgba(36, 59, 128, 0.035) 0%, transparent 70%),
+    linear-gradient(to right, var(--grid-line-light) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-light) 1px, transparent 1px);
+  background-size: 100% 100%, 72px 72px, 72px 72px;
+  background-position: center top, center top, center top;
+  padding: 92px 0 88px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .services {
+  background-color: var(--bg-services);
+  background-image:
+    radial-gradient(ellipse 70% 30% at 50% 0%, rgba(79, 110, 219, 0.05) 0%, transparent 70%),
+    linear-gradient(to right, var(--grid-line-dark) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-dark) 1px, transparent 1px);
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -21,11 +42,12 @@
   background: var(--bg-surface);
   border: var(--border-hairline);
   border-radius: var(--radius-card);
-  padding: 32px 28px;
+  padding: 30px 26px 26px;
   box-shadow: var(--shadow-soft);
   transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .service-card:hover {

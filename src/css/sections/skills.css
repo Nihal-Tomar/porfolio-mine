@@ -1,4 +1,23 @@
 /* ─── 9. SKILLS SECTION — Category Card Layout ───────────────── */
+.skills {
+  background-color: var(--bg-skills);
+  background-image:
+    radial-gradient(ellipse 70% 35% at 50% 100%, rgba(36, 59, 128, 0.04) 0%, transparent 70%),
+    linear-gradient(to right, var(--grid-line-light) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-light) 1px, transparent 1px);
+  background-size: 100% 100%, 72px 72px, 72px 72px;
+  background-position: center top, center top, center top;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .skills {
+  background-color: var(--bg-skills);
+  background-image:
+    radial-gradient(ellipse 70% 35% at 50% 100%, rgba(79, 110, 219, 0.06) 0%, transparent 70%),
+    linear-gradient(to right, var(--grid-line-dark) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-dark) 1px, transparent 1px);
+}
 
 /* 3-col × 2-row category grid */
 .skill-categories-grid {
@@ -31,6 +50,7 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
+  height: 100%;
 }
 
 .skill-category-card:hover {

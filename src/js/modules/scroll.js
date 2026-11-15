@@ -3,6 +3,8 @@
  * Handles scroll progress bar, side dot navigator, back-to-top button, and smooth anchor scrolling
  */
 
+import { getActiveSectionId } from "./navigation.js";
+
 /**
  * Top reading / scroll progress bar
  */
@@ -59,27 +61,23 @@ export function initSideNav() {
 
   const dots = nav.querySelectorAll(".side-dot");
 
-  // Show nav after hero passes
+  // Show nav after hero passes, and update active state
   function updateNav() {
     const scrollY = window.scrollY;
     const heroEl = document.getElementById("hero");
-    const heroBottom = heroEl ? heroEl.offsetTop + heroEl.offsetHeight * 0.5 : 300;
+    const heroBottom = heroEl ? heroEl.offsetTop + heroEl.offsetHeight * 0.4 : 250;
 
     nav.classList.toggle("visible", scrollY > heroBottom);
 
-    // Highlight active dot
-    const midY = scrollY + window.innerHeight / 2;
-    let activeId = null;
+    const activeId = getActiveSectionId();
 
-    SECTIONS.forEach(({ id }) => {
-      const sec = document.getElementById(id);
-      if (!sec) return;
-      if (sec.offsetTop <= midY) activeId = id;
-    });
-
+    // Toggle active dot
     dots.forEach((dot) => {
       dot.classList.toggle("active", dot.getAttribute("data-target") === activeId);
     });
+
+    // Check if side-nav is over dark section
+    nav.classList.toggle("on-dark", activeId === "projects");
   }
 
   window.addEventListener("scroll", updateNav, { passive: true });

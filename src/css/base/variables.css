@@ -27,6 +27,25 @@
   --bg-dark-card-hover: #263163;
   /* Navy card hover */
 
+  /* Section-Specific Background Surfaces (Subtle Editorial Rhythm) */
+  --bg-hero: #FAF7F2;
+  --bg-about: #F7F5FA;
+  --bg-skills: #FAF7F2;
+  --bg-projects: #161D3D;
+  --bg-experience: #F5F3F8;
+  --bg-services: #FAF7F2;
+  --bg-contact: #F4F2F9;
+  --bg-footer: #121730;
+
+  /* Grid Line Accents */
+  --grid-line-light: rgba(36, 33, 42, 0.04);
+  --grid-line-dark: rgba(255, 255, 255, 0.035);
+
+  /* Section Dividers */
+  --divider-light: linear-gradient(90deg, transparent 0%, rgba(139, 124, 200, 0.16) 20%, rgba(36, 59, 128, 0.22) 50%, rgba(139, 124, 200, 0.16) 80%, transparent 100%);
+  --divider-dark-entry: linear-gradient(90deg, transparent 0%, rgba(201, 184, 255, 0.25) 25%, rgba(139, 124, 200, 0.45) 50%, rgba(201, 184, 255, 0.25) 75%, transparent 100%);
+  --divider-dark-exit: linear-gradient(90deg, transparent 0%, rgba(36, 59, 128, 0.25) 25%, rgba(139, 124, 200, 0.38) 50%, rgba(36, 59, 128, 0.25) 75%, transparent 100%);
+
   /* Brand & Accent */
   --brand-primary: #243B80;
   /* Royal Blue — primary CTAs, active pills, logo, italic accent */
@@ -82,8 +101,9 @@
 
   /* Layout */
   --container-max: 1280px;
-  --section-pad-desktop: 110px 0;
-  --section-pad-mobile: 72px 0;
+  --section-pad-desktop: 96px 0;
+  --section-pad-mobile: 68px 0;
+  --nav-offset: 88px;
 
   /* Motion */
   --transition-smooth: 220ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -98,6 +118,22 @@
   --bg-mat: #192144;
   --bg-dark-band: #090D1C;
   --bg-dark-card: #151D40;
+
+  --bg-hero: #0D1226;
+  --bg-about: #10162E;
+  --bg-skills: #0D1226;
+  --bg-projects: #090D1C;
+  --bg-experience: #111732;
+  --bg-services: #0D1226;
+  --bg-contact: #10152F;
+  --bg-footer: #070A17;
+
+  --grid-line-light: rgba(255, 255, 255, 0.035);
+  --grid-line-dark: rgba(255, 255, 255, 0.03);
+
+  --divider-light: linear-gradient(90deg, transparent 0%, rgba(201, 184, 255, 0.12) 20%, rgba(142, 168, 255, 0.22) 50%, rgba(201, 184, 255, 0.12) 80%, transparent 100%);
+  --divider-dark-entry: linear-gradient(90deg, transparent 0%, rgba(201, 184, 255, 0.2) 25%, rgba(142, 168, 255, 0.35) 50%, rgba(201, 184, 255, 0.2) 75%, transparent 100%);
+  --divider-dark-exit: linear-gradient(90deg, transparent 0%, rgba(201, 184, 255, 0.18) 25%, rgba(142, 168, 255, 0.3) 50%, rgba(201, 184, 255, 0.18) 75%, transparent 100%);
 
   --brand-primary: #4F6EDB;
   --brand-primary-hover: #3E5BBD;
