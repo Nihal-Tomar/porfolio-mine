@@ -15,6 +15,7 @@ import { initNavbar } from "./modules/navigation.js";
 import { initThemeToggle } from "./modules/theme.js";
 import { initTimeline } from "./modules/timeline.js";
 import { initCounters } from "./modules/counters.js";
+import { initTerminal } from "./modules/terminal.js";
 import { initContactForm, initDownloadCV } from "./modules/contact.js";
 import { initTiltEffect } from "./modules/tilt.js";
 import { initScrollProgress, initSideNav, initBackToTop, initSmoothScroll } from "./modules/scroll.js";
@@ -37,6 +38,7 @@ function initApp() {
   // Content Interactivity
   initTimeline();
   initCounters();
+  initTerminal();
   initTiltEffect();
   initLazyLoading();
   initSectionReveal();

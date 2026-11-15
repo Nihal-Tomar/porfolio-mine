@@ -308,47 +308,130 @@
             </div>
           </div>
         </div>
-        <div class="about-text-col" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
-          <h3 class="about-heading">
-            Crafting Digital Experiences That
-            <span class="italic-emphasis">Matter</span>
-          </h3>
-          <p class="about-desc">
-            I'm a <strong>Full Stack Developer</strong> with a deep passion
-            for building purposeful, high-performance web applications. My
-            journey started with curiosity about how the web works — and
-            evolved into a relentless drive to master it.
-          </p>
-          <p class="about-desc">
-            I specialise in the <strong>MERN stack</strong>, with experience
-            in building RESTful APIs, designing scalable architectures, and
-            crafting intuitive frontends. I believe great software is equal
-            parts logic and artistry.
-          </p>
-          <div class="about-highlights">
-            <div class="highlight-item">
-              <i class="fas fa-check"></i>
-              <span>Clean, maintainable, well-documented code</span>
+        <div class="about-content-col" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+          <!-- TOP AREA: Professional About Content -->
+          <div class="about-profile-content">
+            <h3 class="about-heading">
+              Building Digital Experiences That
+              <span class="italic-emphasis">Matter</span>
+            </h3>
+            <p class="about-desc">
+              I'm <strong>Nihal Singh Tomar</strong>, a Computer Science &amp; Engineering student and Full Stack Developer passionate about building scalable, reliable, and user-focused digital applications.
+            </p>
+            <p class="about-desc">
+              I work across the <strong>MERN stack</strong>, transforming ideas into responsive frontend experiences and robust backend solutions. My approach combines clean architecture, performance-focused development, and thoughtful problem-solving to create software that is both functional and intuitive.
+            </p>
+
+            <!-- Core Expertise -->
+            <div class="about-expertise-block">
+              <h4 class="expertise-heading">Core Expertise</h4>
+              <div class="about-highlights">
+                <div class="highlight-item">
+                  <i class="fas fa-check" aria-hidden="true"></i>
+                  <span>Full Stack Development with the MERN stack.</span>
+                </div>
+                <div class="highlight-item">
+                  <i class="fas fa-check" aria-hidden="true"></i>
+                  <span>Responsive frontend engineering and intuitive UI.</span>
+                </div>
+                <div class="highlight-item">
+                  <i class="fas fa-check" aria-hidden="true"></i>
+                  <span>RESTful APIs and backend development.</span>
+                </div>
+                <div class="highlight-item">
+                  <i class="fas fa-check" aria-hidden="true"></i>
+                  <span>Clean code, scalable architecture, and performance optimization.</span>
+                </div>
+              </div>
             </div>
-            <div class="highlight-item">
-              <i class="fas fa-check"></i>
-              <span>Performance-first development mindset</span>
+
+            <!-- Technology Chips -->
+            <div class="about-tech-chips" aria-label="Core Technologies">
+              <span class="tech-chip">MERN Stack</span>
+              <span class="tech-chip">React.js</span>
+              <span class="tech-chip">Node.js</span>
+              <span class="tech-chip">Express.js</span>
+              <span class="tech-chip">MongoDB</span>
+              <span class="tech-chip">REST APIs</span>
             </div>
-            <div class="highlight-item">
-              <i class="fas fa-check"></i>
-              <span>Collaborative team player & fast learner</span>
-            </div>
-            <div class="highlight-item">
-              <i class="fas fa-check"></i>
-              <span>Driven by curiosity & continuous improvement</span>
+
+            <!-- Action Buttons -->
+            <div class="about-cta">
+              <a href="https://www.linkedin.com/in/nihal-singh-tomar-5385462ba" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-download"></i> My Resume
+              </a>
+              <a href="#contact" class="btn btn-outline">Let's Talk</a>
             </div>
           </div>
-          <div class="about-cta">
-            <a href="https://www.linkedin.com/in/nihal-singh-tomar-5385462ba" class="btn btn-primary" target="_blank">
-              <i class="fas fa-download"></i> My Resume
-            </a>
 
-            <a href="#contact" class="btn btn-outline">Let's Talk</a>
+          <!-- BOTTOM AREA: Developer Status Banner + Interactive Terminal -->
+          <div class="about-terminal-container">
+            <!-- Status Banner -->
+            <div class="developer-status-banner">
+              <div class="status-indicator-wrap">
+                <span class="status-pulse-dot" aria-hidden="true"></span>
+                <i class="fas fa-rocket status-icon" aria-hidden="true"></i>
+              </div>
+              <div class="status-banner-text">
+                <span class="status-banner-title">BUILDING THE FUTURE, ONE PROJECT AT A TIME</span>
+                <p class="status-banner-desc">Focused on scalable applications, clean architecture, and meaningful digital experiences.</p>
+              </div>
+            </div>
+
+            <!-- Interactive Terminal Component -->
+            <div class="interactive-terminal" id="interactiveTerminal" role="region" aria-label="Interactive Developer Terminal">
+              <div class="terminal-titlebar">
+                <div class="terminal-dots" aria-hidden="true">
+                  <span class="term-dot dot-red"></span>
+                  <span class="term-dot dot-yellow"></span>
+                  <span class="term-dot dot-green"></span>
+                </div>
+                <div class="terminal-title">
+                  <i class="fas fa-terminal term-icon" aria-hidden="true"></i>
+                  <span>nihal@portfolio:~</span>
+                </div>
+                <div class="terminal-actions">
+                  <button type="button" class="term-action-btn" id="termClearBtn" title="Clear terminal" aria-label="Clear terminal output">
+                    <i class="fas fa-eraser"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Terminal Output Area -->
+              <div class="terminal-body" id="terminalBody" tabindex="0" role="log" aria-live="polite">
+                <div class="terminal-output" id="terminalOutput"></div>
+                <div class="terminal-input-row">
+                  <span class="terminal-prompt" id="terminalPrompt">nihal@portfolio:~$</span>
+                  <input
+                    type="text"
+                    class="terminal-input"
+                    id="terminalInput"
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                    aria-label="Terminal command prompt"
+                  />
+                  <span class="terminal-cursor" aria-hidden="true"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick-Command Chips -->
+            <div class="terminal-quick-chips" aria-label="Terminal command shortcuts">
+              <span class="quick-chips-label">Quick Commands:</span>
+              <div class="quick-chips-group">
+                <button type="button" class="cmd-chip" data-cmd="help">help</button>
+                <button type="button" class="cmd-chip" data-cmd="about">about</button>
+                <button type="button" class="cmd-chip" data-cmd="skills">skills</button>
+                <button type="button" class="cmd-chip" data-cmd="projects">projects</button>
+                <button type="button" class="cmd-chip" data-cmd="stack">stack</button>
+                <button type="button" class="cmd-chip" data-cmd="game">game</button>
+                <button type="button" class="cmd-chip chip-game" data-cmd="guess">guess</button>
+                <button type="button" class="cmd-chip chip-game" data-cmd="rps">rps</button>
+                <button type="button" class="cmd-chip chip-clear" data-cmd="clear">clear</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
