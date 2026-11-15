@@ -1,47 +1,51 @@
-/* ─── 7. HERO SECTION (Exact Proportions & Viewport Fit) ───────── */
+/* ─── 7. HERO SECTION (Exact Reference Proportions & Viewport Fit) ─── */
 .hero {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 110px 0 54px 0;
-  /* Tightened top & bottom spacing */
+  padding: 105px 0 44px 0;
   position: relative;
   z-index: 1;
   box-sizing: border-box;
+  overflow-x: clip;
 }
 
 .hero-content {
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 40px;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
-  gap: 32px;
+  gap: 40px;
 }
 
-/* Hero Left Column */
+/* ─── Hero Left Column ─────────────────────────────────────────── */
 .hero-greeting {
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent-eyebrow);
+  color: #8B7CC8;
   margin-bottom: 14px;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+[data-theme="dark"] .hero-greeting {
+  color: #B49BFF;
+}
+
 .hero-name {
   font-family: var(--font-serif);
-  font-size: clamp(3.8rem, 6.5vw, 5.8rem);
-  /* Exact bold, commanding editorial scale */
-  line-height: 1.02;
+  font-size: clamp(4.2rem, 7vw, 6.2rem);
+  line-height: 0.98;
   letter-spacing: -0.025em;
+  word-spacing: 0.05em;
   color: #24212A;
   margin-bottom: 0;
 }
@@ -54,12 +58,17 @@
   color: var(--brand-primary);
   font-style: italic;
   font-weight: 400;
+  margin-left: 0.06em;
+}
+
+[data-theme="dark"] .hero-name .italic-emphasis {
+  color: #8EA8FF;
 }
 
 /* Role Subtitle (`I am a MERN Stack Developer`) */
 .hero-typed-wrapper {
   font-family: var(--font-sans);
-  font-size: clamp(1.4rem, 2.3vw, 1.9rem);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
   color: #24212A;
   font-weight: 500;
   margin: 18px 0 16px 0;
@@ -86,18 +95,34 @@
   font-weight: 700;
 }
 
+[data-theme="dark"] .typed-highlight {
+  color: #8EA8FF;
+}
+
+.typed-role {
+  color: #24212A;
+  font-weight: 500;
+}
+
+[data-theme="dark"] .typed-role {
+  color: #F5F7FD;
+}
+
 .typed-cursor-custom {
   color: var(--brand-primary);
   animation: pl-blink 1s infinite;
+  font-weight: 400;
+}
+
+[data-theme="dark"] .typed-cursor-custom {
+  color: #8EA8FF;
 }
 
 @keyframes pl-blink {
-
   0%,
   100% {
     opacity: 1;
   }
-
   50% {
     opacity: 0;
   }
@@ -106,10 +131,10 @@
 /* Bio copy */
 .hero-bio {
   font-family: var(--font-sans);
-  font-size: 17px;
-  line-height: 1.65;
+  font-size: 16.5px;
+  line-height: 1.68;
   color: var(--ink-muted);
-  max-width: 510px;
+  max-width: 520px;
   margin-bottom: 0;
 }
 
@@ -136,7 +161,7 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-top: 28px;
+  margin-top: 26px;
 }
 
 .social-icon {
@@ -144,8 +169,8 @@
   height: 44px;
   border-radius: 50%;
   background: #FFFFFF;
-  border: 1px solid rgba(36, 33, 42, 0.18);
-  box-shadow: 0 2px 8px rgba(36, 33, 42, 0.04);
+  border: 1px solid rgba(36, 33, 42, 0.16);
+  box-shadow: 0 4px 12px rgba(36, 33, 42, 0.04);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -158,77 +183,102 @@
 [data-theme="dark"] .social-icon {
   background: var(--bg-surface);
   color: #F5F7FD;
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.16);
 }
 
 .social-icon:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   border-color: var(--brand-primary);
   color: var(--brand-primary);
-  box-shadow: var(--shadow-float);
+  box-shadow: 0 8px 20px rgba(36, 59, 128, 0.16);
 }
 
-/* ─── EXACT RIGHT-COLUMN ORBITAL PORTRAIT ASSEMBLY ──────────── */
+[data-theme="dark"] .social-icon:hover {
+  border-color: #8EA8FF;
+  color: #8EA8FF;
+  box-shadow: 0 8px 20px rgba(142, 168, 255, 0.22);
+}
+
+/* ─── Hero Right Column: Layered Circular Composition ──────────── */
 .hero-image-wrapper {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 480px;
-  height: 480px;
+  max-width: 520px;
+  height: 520px;
   margin: 0 auto;
 }
 
-/* Layer 1: Ambient Glow Aura */
+/* Layer 1: Ambient Lavender Radial Glow Aura */
 .hero-ambient-glow {
   position: absolute;
-  width: 520px;
-  height: 520px;
+  width: 580px;
+  height: 580px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(201, 184, 255, 0.45) 0%, rgba(250, 247, 242, 0) 70%);
+  background: radial-gradient(circle, rgba(196, 181, 253, 0.88) 0%, rgba(221, 214, 254, 0.58) 40%, rgba(243, 240, 255, 0.2) 65%, transparent 75%);
+  filter: blur(34px);
+  box-shadow: 0 0 95px 32px rgba(196, 181, 253, 0.55);
   pointer-events: none;
   z-index: 1;
 }
 
 [data-theme="dark"] .hero-ambient-glow {
-  background: radial-gradient(circle, rgba(201, 184, 255, 0.25) 0%, rgba(13, 18, 38, 0) 70%);
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.55) 0%, rgba(139, 92, 246, 0.3) 40%, rgba(13, 18, 38, 0) 70%);
+  box-shadow: 0 0 90px 24px rgba(139, 92, 246, 0.35);
 }
 
-/* Layer 2: Wide Pearl Mat Ring (440px × 440px) */
+/* Layer 2: Outer Concentric Contour Ring */
+.hero-contour-ring {
+  position: absolute;
+  width: 485px;
+  height: 485px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(196, 181, 253, 0.85);
+  box-shadow: 0 0 30px rgba(196, 181, 253, 0.4);
+  pointer-events: none;
+  z-index: 2;
+}
+
+[data-theme="dark"] .hero-contour-ring {
+  border-color: rgba(196, 181, 253, 0.4);
+}
+
+/* Layer 3: Wide Pearl Mat Ring (Layered Off-white / Cream Plate) */
 .hero-pearl-mat {
   position: relative;
-  width: 440px;
-  height: 440px;
+  width: 445px;
+  height: 445px;
   border-radius: 50%;
   background: #F6F3EC;
   border: 1px solid rgba(36, 33, 42, 0.08);
-  box-shadow: 0 16px 48px rgba(36, 33, 42, 0.07);
+  box-shadow: 0 20px 50px rgba(36, 33, 42, 0.08), 0 0 50px 8px rgba(196, 181, 253, 0.42);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  z-index: 3;
 }
 
 [data-theme="dark"] .hero-pearl-mat {
   background: #192144;
   border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 50px 8px rgba(139, 92, 246, 0.3);
 }
 
-/* Layer 3: Inner Monochrome Portrait (310px × 310px) */
+/* Layer 4: Inner Monochrome Portrait Container */
 .hero-image-container {
   position: relative;
-  width: 310px;
-  height: 310px;
+  width: 325px;
+  height: 325px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid #24212A;
+  border: 2.5px solid #24212A;
   background: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 3;
+  z-index: 4;
 }
 
 [data-theme="dark"] .hero-image-container {
@@ -240,29 +290,78 @@
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  filter: grayscale(100%) contrast(1.1);
+  filter: grayscale(100%) contrast(1.12);
   display: block;
 }
 
-/* Layer 4: Two Tilted SVG Orbital Ellipses (520px × 520px) */
+/* Layer 5: Dynamic SVG Orbital Ellipses with Continuous Motion */
 .hero-orbit-svg {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 520px;
-  height: 520px;
+  width: 600px;
+  height: 600px;
   pointer-events: none;
-  z-index: 4;
+  z-index: 5;
 }
 
-/* Layer 5: Three Floating Pill Badges */
+.orbit-group {
+  transform-origin: 300px 300px;
+  transform-box: fill-box;
+  will-change: transform;
+}
+
+/* Continuous smooth rotation for orbital rings */
+.orbit-group--lavender {
+  animation: orbit-rotate-ccw 55s linear infinite;
+}
+
+.orbit-group--charcoal-1 {
+  animation: orbit-rotate-cw 45s linear infinite;
+}
+
+.orbit-group--charcoal-2 {
+  animation: orbit-rotate-cw 70s linear infinite;
+}
+
+@keyframes orbit-rotate-cw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-rotate-ccw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+[data-theme="dark"] .orbit-group--lavender ellipse {
+  stroke: #C4B5FD;
+}
+
+[data-theme="dark"] .orbit-group--charcoal-1 ellipse {
+  stroke: rgba(255, 255, 255, 0.45);
+}
+
+[data-theme="dark"] .orbit-group--charcoal-2 ellipse {
+  stroke: rgba(255, 255, 255, 0.28);
+}
+
+/* Layer 6: Three Floating Pill Badges */
 .floating-badge {
   position: absolute;
   background: #FFFFFF;
-  border: 1px solid rgba(36, 33, 42, 0.18);
+  border: 1px solid rgba(36, 33, 42, 0.14);
   border-radius: 9999px;
-  padding: 10px 20px;
+  padding: 9px 18px;
   font-family: var(--font-sans);
   font-size: 13.5px;
   font-weight: 600;
@@ -271,7 +370,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  z-index: 5;
+  z-index: 6;
   white-space: nowrap;
   transition: transform var(--transition-smooth);
 }
@@ -279,77 +378,74 @@
 [data-theme="dark"] .floating-badge {
   background: #141B38;
   color: #FFFFFF;
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.16);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
 }
 
 .floating-badge i {
   color: var(--brand-primary);
-  font-size: 14px;
+  font-size: 13.5px;
 }
 
-/* Exact Position 1: Left / 8 o'clock */
+[data-theme="dark"] .floating-badge i {
+  color: #8EA8FF;
+}
+
+/* Position 1: Left / ~8 o'clock */
 .badge-years {
-  left: -18px;
-  bottom: 28%;
+  left: -12px;
+  bottom: 26%;
   animation: pl-float-2 7s ease-in-out infinite;
 }
 
-/* Exact Position 2: Upper-right edge */
+/* Position 2: Upper-right edge / ~2 o'clock */
 .badge-stack {
-  right: -16px;
-  top: 36%;
+  right: -14px;
+  top: 35%;
   animation: pl-float-1 6s ease-in-out infinite;
 }
 
-/* Exact Position 3: Lower-right edge */
+/* Position 3: Lower-right edge / ~4 o'clock */
 .badge-projects {
-  right: -4px;
-  bottom: 10%;
+  right: 8px;
+  bottom: 12%;
   animation: pl-float-3 6.5s ease-in-out infinite;
 }
 
-
 @keyframes pl-float-1 {
-
   0%,
   100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(-7px);
   }
 }
 
 @keyframes pl-float-2 {
-
   0%,
   100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(6px);
   }
 }
 
 @keyframes pl-float-3 {
-
   0%,
   100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(-5px);
   }
 }
 
-/* Minimalist Scroll Indicator (Anchored cleanly 22px above bottom) */
+/* ─── Minimalist Scroll Indicator ──────────────────────────────── */
 .scroll-indicator {
   position: absolute;
-  bottom: 22px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -383,12 +479,15 @@
   animation: pl-wheel 1.6s infinite;
 }
 
+[data-theme="dark"] .scroll-wheel {
+  background: #8EA8FF;
+}
+
 @keyframes pl-wheel {
   0% {
     transform: translateY(0);
     opacity: 1;
   }
-
   100% {
     transform: translateY(12px);
     opacity: 0;
@@ -397,22 +496,59 @@
 
 .scroll-indicator p {
   font-family: var(--font-sans);
-  font-size: 13px;
-  letter-spacing: 0.1em;
+  font-size: 11px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #24212A;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 [data-theme="dark"] .scroll-indicator p {
   color: #F5F7FD;
 }
 
-/* Responsive Reflow for Hero */
+/* ─── Responsive Adjustments ───────────────────────────────────── */
+@media (max-width: 1200px) {
+  .hero-content {
+    padding: 0 28px;
+    gap: 32px;
+  }
+
+  .hero-image-wrapper {
+    max-width: 480px;
+    height: 480px;
+  }
+
+  .hero-ambient-glow {
+    width: 520px;
+    height: 520px;
+  }
+
+  .hero-contour-ring {
+    width: 440px;
+    height: 440px;
+  }
+
+  .hero-pearl-mat {
+    width: 405px;
+    height: 405px;
+  }
+
+  .hero-image-container {
+    width: 295px;
+    height: 295px;
+  }
+
+  .hero-orbit-svg {
+    width: 540px;
+    height: 540px;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero {
     min-height: auto;
-    padding: 130px 0 70px 0;
+    padding: 120px 0 60px 0;
   }
 
   .hero-content {
@@ -439,28 +575,38 @@
     height: 420px;
   }
 
+  .hero-ambient-glow {
+    width: 460px;
+    height: 460px;
+  }
+
+  .hero-contour-ring {
+    width: 390px;
+    height: 390px;
+  }
+
   .hero-pearl-mat {
-    width: 360px;
-    height: 360px;
+    width: 355px;
+    height: 355px;
   }
 
   .hero-image-container {
-    width: 250px;
-    height: 250px;
+    width: 255px;
+    height: 255px;
   }
 
   .hero-orbit-svg {
-    width: 440px;
-    height: 440px;
+    width: 460px;
+    height: 460px;
   }
 
   .badge-years {
-    left: -10px;
-    bottom: 20%;
+    left: -12px;
+    bottom: 22%;
   }
 
   .badge-stack {
-    right: -10px;
+    right: -12px;
     top: 30%;
   }
 
@@ -471,14 +617,14 @@
 
   .scroll-indicator {
     position: static;
-    margin-top: 48px;
+    margin-top: 44px;
     transform: none;
   }
 }
 
 @media (max-width: 520px) {
   .hero-name {
-    font-size: 2.85rem;
+    font-size: clamp(2.8rem, 11vw, 3.8rem);
   }
 
   .hero-image-wrapper {
@@ -486,14 +632,24 @@
     height: 320px;
   }
 
+  .hero-ambient-glow {
+    width: 340px;
+    height: 340px;
+  }
+
+  .hero-contour-ring {
+    width: 290px;
+    height: 290px;
+  }
+
   .hero-pearl-mat {
-    width: 280px;
-    height: 280px;
+    width: 265px;
+    height: 265px;
   }
 
   .hero-image-container {
-    width: 195px;
-    height: 195px;
+    width: 190px;
+    height: 190px;
   }
 
   .hero-orbit-svg {
@@ -502,7 +658,7 @@
   }
 
   .floating-badge {
-    padding: 7px 12px;
+    padding: 7px 13px;
     font-size: 11.5px;
   }
 
@@ -516,3 +672,9 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .orbit-group,
+  .floating-badge {
+    animation: none !important;
+  }
+}

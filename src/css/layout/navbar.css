@@ -1,4 +1,4 @@
-/* ─── 6. NAVBAR (Exact Floating Pill Architecture) ────────────── */
+/* ─── 6. NAVBAR (Exact Floating Capsule Pill Architecture) ────── */
 .navbar {
   position: fixed;
   top: 20px;
@@ -12,14 +12,15 @@
 .nav-container {
   max-width: 1280px;
   margin: 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: 16px;
 }
 
 /* Wordmark Logo */
 .nav-logo {
+  justify-self: start;
   font-family: var(--font-sans);
   font-size: 22px;
   font-weight: 800;
@@ -28,49 +29,53 @@
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .nav-logo .logo-bracket {
   color: var(--brand-primary);
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
-/* Single Unified Floating White Pill (Center) */
+/* Single Unified Floating Pill (Center) */
 .nav-links {
+  justify-self: center;
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 8px 20px;
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(36, 33, 42, 0.16);
+  gap: 2px;
+  padding: 6px 14px 6px 18px;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(36, 33, 42, 0.12);
   border-radius: var(--radius-pill);
-  box-shadow: 0 8px 28px rgba(36, 33, 42, 0.06);
+  box-shadow: 0 4px 22px rgba(36, 33, 42, 0.06);
+  margin: 0;
 }
 
 [data-theme="dark"] .nav-links {
-  background: rgba(20, 27, 56, 0.9);
-  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(20, 27, 56, 0.92);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .nav-link {
   display: inline-block;
-  padding: 7px 16px;
+  padding: 6px 14px;
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 500;
   color: var(--ink-muted);
   text-decoration: none;
   border-radius: var(--radius-pill);
   transition: all var(--transition-smooth);
+  white-space: nowrap;
 }
 
 .nav-link:hover {
-  color: var(--ink-primary);
-  background: var(--bg-subtle);
+  color: var(--brand-primary);
+  background: rgba(36, 59, 128, 0.06);
 }
 
 .nav-link.active {
@@ -79,17 +84,31 @@
   font-weight: 600;
 }
 
+[data-theme="dark"] .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="dark"] .nav-link:hover {
+  color: #FFFFFF;
+  background: rgba(201, 184, 255, 0.12);
+}
+
+[data-theme="dark"] .nav-link.active {
+  color: #FFFFFF;
+  background: rgba(201, 184, 255, 0.2);
+}
+
 /* Theme Toggle Button INSIDE the Pill */
 .nav-theme-li {
   display: flex;
   align-items: center;
-  margin-left: 8px;
+  margin-left: 6px;
   padding-left: 8px;
   border-left: 1px solid rgba(36, 33, 42, 0.12);
 }
 
 [data-theme="dark"] .nav-theme-li {
-  border-left-color: rgba(255, 255, 255, 0.12);
+  border-left-color: rgba(255, 255, 255, 0.14);
 }
 
 .theme-toggle {
@@ -104,17 +123,26 @@
   justify-content: center;
   cursor: pointer;
   transition: all var(--transition-smooth);
-  font-size: 14px;
+  font-size: 13.5px;
 }
 
 .theme-toggle:hover {
   color: var(--brand-primary);
-  background: var(--bg-subtle);
+  background: rgba(36, 59, 128, 0.06);
   transform: rotate(15deg);
+}
+
+[data-theme="dark"] .theme-toggle {
+  color: #F5F7FD;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Right Nav Actions */
 .nav-actions {
+  justify-self: end;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -122,10 +150,24 @@
 
 /* Standalone Royal Blue Pill CTA */
 .nav-cta {
-  padding: 12px 28px;
-  font-size: 14px;
+  padding: 10px 24px;
+  font-size: 13.5px;
   font-weight: 600;
-  box-shadow: 0 8px 22px rgba(36, 59, 128, 0.25);
+  background: linear-gradient(135deg, #27408F 0%, #1A2B5E 100%);
+  color: #FFFFFF !important;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 8px 22px rgba(36, 59, 128, 0.3);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-smooth);
+}
+
+.nav-cta:hover {
+  background: linear-gradient(135deg, #1F3475 0%, #132047 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(36, 59, 128, 0.4);
 }
 
 /* Hamburger for mobile */
@@ -152,7 +194,25 @@
   transition: all var(--transition-smooth);
 }
 
+[data-theme="dark"] .hamburger {
+  background: var(--bg-surface);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .hamburger span {
+  background: #FFFFFF;
+}
+
 @media (max-width: 960px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .hamburger {
     display: flex;
   }
@@ -160,14 +220,15 @@
   .nav-links {
     position: absolute;
     top: 64px;
-    left: 24px;
-    right: 24px;
+    left: 20px;
+    right: 20px;
     flex-direction: column;
     padding: 20px;
     background: var(--bg-surface);
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-float);
     display: none;
+    gap: 8px;
   }
 
   .nav-links.open {
@@ -178,17 +239,25 @@
     width: 100%;
     text-align: center;
     padding: 12px 0;
+    font-size: 15px;
   }
 
   .nav-theme-li {
     margin-left: 0;
     padding-left: 0;
     border-left: none;
-    margin-top: 10px;
+    border-top: 1px solid rgba(36, 33, 42, 0.1);
+    margin-top: 8px;
+    padding-top: 12px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  [data-theme="dark"] .nav-theme-li {
+    border-top-color: rgba(255, 255, 255, 0.12);
   }
 
   .nav-cta {
     display: none;
   }
 }
-

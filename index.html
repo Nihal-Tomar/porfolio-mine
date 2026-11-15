@@ -179,7 +179,8 @@
         </h1>
         <div class="hero-typed-wrapper">
           <span class="typed-prefix">I am a </span>
-          <span class="typed-highlight"><span id="typed-text">MERN Stack Developer</span></span>
+          <span class="typed-highlight"><span id="typed-highlight">MERN Stack</span></span>
+          <span class="typed-role" id="typed-role">Developer</span>
           <span class="typed-cursor-custom">|</span>
         </div>
         <p class="hero-bio">
@@ -216,25 +217,40 @@
         </div>
       </div>
       <div class="hero-image-wrapper" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-        <!-- Ambient Glow Aura -->
+        <!-- Multi-layer Ambient Lavender Glow Aura -->
         <div class="hero-ambient-glow" aria-hidden="true"></div>
 
-        <!-- Wide Pearl Mat Ring (430px x 430px) -->
+        <!-- Outer Concentric Contour Ring -->
+        <div class="hero-contour-ring" aria-hidden="true"></div>
+
+        <!-- Wide Pearl Mat Ring (Layered Off-white / Cream Plate) -->
         <div class="hero-pearl-mat">
-          <!-- Inner Monochrome Portrait (305px x 305px) -->
+          <!-- Inner Monochrome Portrait (325px) -->
           <div class="hero-image-container">
             <img src="assets/images/profile/ns4.png" alt="Nihal Singh Tomar" class="hero-photo" loading="eager" />
           </div>
         </div>
 
-        <!-- Two Tilted SVG Orbital Ellipses (520px x 520px) -->
-        <svg class="hero-orbit-svg" viewBox="0 0 520 520" width="520" height="520" aria-hidden="true">
-          <!-- Ellipse 1 rotated -28deg (Lavender) -->
-          <ellipse cx="260" cy="260" rx="250" ry="160" fill="none" stroke="rgba(139, 124, 200, 0.6)" stroke-width="1"
-            transform="rotate(-28 260 260)" />
-          <!-- Ellipse 2 rotated +24deg (Charcoal) -->
-          <ellipse cx="260" cy="260" rx="250" ry="160" fill="none" stroke="rgba(36, 33, 42, 0.35)" stroke-width="1"
-            transform="rotate(24 260 260)" />
+        <!-- Dynamic SVG Orbital Ellipses with Continuous Motion -->
+        <svg class="hero-orbit-svg" viewBox="0 0 600 600" width="600" height="600" shape-rendering="geometricPrecision" aria-hidden="true">
+          <!-- Orbit 1: Visible Lavender Orbit Ellipse (Continuous slow counter-clockwise rotation) -->
+          <g class="orbit-group orbit-group--lavender">
+            <ellipse cx="300" cy="300" rx="275" ry="170" fill="none"
+              stroke="#A78BFA" stroke-width="1.4"
+              transform="rotate(-28 300 300)" />
+          </g>
+          <!-- Orbit 2: Charcoal Orbit Ellipse (Continuous slow clockwise rotation) -->
+          <g class="orbit-group orbit-group--charcoal-1">
+            <ellipse cx="300" cy="300" rx="275" ry="170" fill="none"
+              stroke="rgba(36, 33, 42, 0.52)" stroke-width="1.2"
+              transform="rotate(25 300 300)" />
+          </g>
+          <!-- Orbit 3: Subtle Charcoal/Depth Ellipse (Continuous slow clockwise drift) -->
+          <g class="orbit-group orbit-group--charcoal-2">
+            <ellipse cx="300" cy="300" rx="260" ry="180" fill="none"
+              stroke="rgba(36, 33, 42, 0.35)" stroke-width="1.1"
+              transform="rotate(58 300 300)" />
+          </g>
         </svg>
 
         <!-- Three Floating Pill Badges (Strictly Outside Inner Portrait) -->
@@ -1078,10 +1094,6 @@
 
   <!-- ─── FOOTER ────────────────────────────────────────── -->
   <footer class="footer">
-    <!-- Radial glow background blobs -->
-    <div class="footer-glow footer-glow--left" aria-hidden="true"></div>
-    <div class="footer-glow footer-glow--right" aria-hidden="true"></div>
-
     <div class="container">
 
       <!-- CTA Block -->

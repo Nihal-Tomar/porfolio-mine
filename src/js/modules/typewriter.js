@@ -1,59 +1,61 @@
 /**
  * Typewriter Effect Module
- * Pure JavaScript typewriter with natural speed variations
+ * Types tech stack roles with highlighting, matching Reference Image 2
  */
 
 export function initTyped() {
-  const el = document.getElementById("typed-text");
-  if (!el) return;
+  const highlightEl = document.getElementById("typed-highlight") || document.getElementById("typed-text");
+  const roleEl = document.getElementById("typed-role");
+  if (!highlightEl) return;
 
-  const roles = [
-    "Web Developer",
-    "Coder",
-    "MERN Stack Developer",
-    "React Native Developer",
-    "Frontend Developer",
+  const items = [
+    { highlight: "MERN Stack", role: "Developer" },
+    { highlight: "Full Stack", role: "Developer" },
+    { highlight: "Frontend", role: "Developer" },
+    { highlight: "React", role: "Engineer" },
   ];
 
-  const TYPE_SPEED_MIN = 80;   // ms per character (minimum)
-  const TYPE_SPEED_MAX = 120;  // ms per character (maximum)
-  const DELETE_SPEED = 50;     // ms per character while deleting
-  const PAUSE_AFTER = 1200;    // ms pause after full word is typed
-  const PAUSE_BEFORE = 300;    // ms pause before starting to delete
+  const TYPE_SPEED_MIN = 70;
+  const TYPE_SPEED_MAX = 110;
+  const DELETE_SPEED = 45;
+  const PAUSE_AFTER = 1600;
+  const PAUSE_BEFORE = 300;
 
-  let roleIndex = 0;  // which role we are currently showing
-  let charIndex = 0;  // how many characters are currently rendered
+  let itemIndex = 0;
+  let charIndex = items[0].highlight.length; // start with full word typed
   let isDeleting = false;
   let timer = null;
 
   function tick() {
-    const current = roles[roleIndex];
+    const current = items[itemIndex];
 
     if (!isDeleting) {
-      // ── TYPING ──
       charIndex++;
-      el.textContent = current.slice(0, charIndex);
+      highlightEl.textContent = current.highlight.slice(0, charIndex);
+      if (roleEl && roleEl.textContent !== current.role) {
+        roleEl.textContent = current.role;
+      }
 
-      if (charIndex === current.length) {
-        // Finished typing — pause then start deleting
+      if (charIndex === current.highlight.length) {
         isDeleting = true;
         timer = setTimeout(tick, PAUSE_AFTER + PAUSE_BEFORE);
         return;
       }
-      // Random speed per character for a natural feel
+
       const speed = Math.floor(
         Math.random() * (TYPE_SPEED_MAX - TYPE_SPEED_MIN + 1) + TYPE_SPEED_MIN
       );
       timer = setTimeout(tick, speed);
     } else {
-      // ── DELETING ──
       charIndex--;
-      el.textContent = current.slice(0, charIndex);
+      highlightEl.textContent = current.highlight.slice(0, charIndex);
 
       if (charIndex === 0) {
-        // Finished deleting — move to next role
         isDeleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
+        itemIndex = (itemIndex + 1) % items.length;
+        if (roleEl) {
+          roleEl.textContent = items[itemIndex].role;
+        }
         timer = setTimeout(tick, TYPE_SPEED_MIN);
         return;
       }
@@ -61,6 +63,9 @@ export function initTyped() {
     }
   }
 
-  // Kick off with a short initial delay so the page feels settled
-  timer = setTimeout(tick, 600);
+  // Start with MERN Stack settled for 2 seconds before beginning typing loop
+  timer = setTimeout(() => {
+    isDeleting = true;
+    tick();
+  }, 2200);
 }

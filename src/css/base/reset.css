@@ -27,18 +27,6 @@ body {
   position: relative;
 }
 
-/* Warm Champagne Corner Ambient Glows */
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(255, 245, 230, 0.7) 0%, rgba(250, 247, 242, 0) 70%);
-  pointer-events: none;
-  z-index: 0;
-}
 
 /* Crisp 72px × 72px Architectural Square Grid Background */
 body::before {
