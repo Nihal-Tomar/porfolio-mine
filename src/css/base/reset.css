@@ -1,0 +1,105 @@
+/* ─── 2. RESET & BASE STYLES ──────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--ink-primary);
+  overflow-x: hidden;
+  width: 100%;
+  line-height: 1.65;
+  transition: background-color var(--transition-medium), color var(--transition-medium);
+  position: relative;
+}
+
+/* Warm Champagne Corner Ambient Glows */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 245, 230, 0.7) 0%, rgba(250, 247, 242, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Crisp 72px × 72px Architectural Square Grid Background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(36, 33, 42, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(36, 33, 42, 0.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  z-index: 0;
+}
+
+[data-theme="dark"] body::before {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(36, 59, 128, 0.25);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-primary);
+}
+
+::selection {
+  background: var(--brand-primary);
+  color: #FFFFFF;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.section {
+  padding: var(--section-pad-desktop);
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--section-pad-mobile);
+  }
+}
+

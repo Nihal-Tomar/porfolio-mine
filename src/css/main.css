@@ -1,0 +1,30 @@
+/* ══════════════════════════════════════════════════════════════════
+   PORTFOLIO — NIHAL SINGH TOMAR (<NS/>)
+   Main Orchestrator Stylesheet
+   Architecture: Industry-Standard Modular CSS
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ─── 1. BASE STYLES & DESIGN TOKENS ─── */
+@import url('./base/variables.css');
+@import url('./base/reset.css');
+@import url('./base/typography.css');
+
+/* ─── 2. REUSABLE UI COMPONENTS ─── */
+@import url('./components/buttons.css');
+
+/* ─── 3. GLOBAL LAYOUT & CHROME ─── */
+@import url('./layout/chrome.css');
+@import url('./layout/navbar.css');
+@import url('./layout/footer.css');
+
+/* ─── 4. SECTION-SPECIFIC STYLES ─── */
+@import url('./sections/hero.css');
+@import url('./sections/about.css');
+@import url('./sections/skills.css');
+@import url('./sections/projects.css');
+@import url('./sections/experience.css');
+@import url('./sections/services.css');
+@import url('./sections/contact.css');
+
+/* ─── 5. UTILITIES & ANIMATIONS ─── */
+@import url('./utilities/animations.css');

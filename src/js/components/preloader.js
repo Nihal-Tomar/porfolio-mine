@@ -20,7 +20,7 @@
   const pctEl = pl.querySelector('.pl-pct-num') || pl.querySelector('.pl-pct');
   const msgEl = pl.querySelector('.pl-welcome-msg') || pl.querySelector('.pl-msg');
 
-  /* ── Arc Geometry: r=58 in 124x124 SVG, Circumference ≈ 364.42 */
+  /* ── Arc Geometry: r=58 in 124x124 SVG, Circumference ≈ 364.42 ─ */
   const R = 58;
   const CIRC = 2 * Math.PI * R;
   if (arcEl) {
@@ -83,7 +83,6 @@
     if (isExiting) return;
 
     if (currentPct < targetPct) {
-      // Smooth incremental step
       const diff = targetPct - currentPct;
       const step = Math.max(0.5, diff * 0.14);
       currentPct = Math.min(targetPct, currentPct + step);
@@ -102,6 +101,8 @@
   const startTime = performance.now();
   const DURATION = reducedMotion ? 400 : 1200; // ms to reach ~95% naturally
 
+  let windowLoaded = false;
+
   function simulate() {
     const elapsed = performance.now() - startTime;
     const progressRatio = Math.min(1, elapsed / DURATION);
@@ -115,7 +116,6 @@
     }
   }
 
-  let windowLoaded = false;
   simulate();
   animateProgress();
 

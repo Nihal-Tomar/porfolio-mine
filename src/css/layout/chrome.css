@@ -1,0 +1,141 @@
+/* ─── 5. GLOBAL CHROME & NAVIGATION ─────────────────────────── */
+
+/* Top Scroll Progress Bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-primary), var(--accent-lavender));
+  width: 0%;
+  z-index: 10000;
+  transition: width 0.08s ease-out;
+}
+
+/* Side Dot Navigator (Refined exact scale) */
+#side-nav {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-smooth);
+}
+
+#side-nav.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.side-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: #B8B4C0;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all var(--transition-smooth);
+  opacity: 0.7;
+}
+
+.side-dot:hover {
+  opacity: 1;
+  transform: scale(1.4);
+}
+
+.side-dot.active {
+  width: 6px;
+  height: 20px;
+  background: var(--brand-primary);
+  opacity: 1;
+}
+
+@media (max-width: 1024px) {
+  #side-nav {
+    display: none;
+  }
+}
+
+/* Floating Scroll-to-Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  color: var(--brand-primary);
+  border: 1px solid rgba(36, 33, 42, 0.16);
+  box-shadow: var(--shadow-float);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 998;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: all var(--transition-smooth);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: var(--brand-primary);
+  color: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-cta);
+}
+
+/* Custom Cursor */
+.cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--brand-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.cursor-follower {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(36, 59, 128, 0.35);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+@media (max-width: 1024px) {
+
+  .cursor,
+  .cursor-follower {
+    display: none !important;
+  }
+}
+
+#particles-js {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.18;
+}
+

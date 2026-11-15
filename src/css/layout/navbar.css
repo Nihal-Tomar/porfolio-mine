@@ -1,0 +1,194 @@
+/* ─── 6. NAVBAR (Exact Floating Pill Architecture) ────────────── */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 32px;
+  transition: all var(--transition-smooth);
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Wordmark Logo */
+.nav-logo {
+  font-family: var(--font-sans);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--brand-primary) !important;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-logo .logo-bracket {
+  color: var(--brand-primary);
+  opacity: 0.8;
+}
+
+/* Single Unified Floating White Pill (Center) */
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(36, 33, 42, 0.16);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 8px 28px rgba(36, 33, 42, 0.06);
+}
+
+[data-theme="dark"] .nav-links {
+  background: rgba(20, 27, 56, 0.9);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 7px 16px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-smooth);
+}
+
+.nav-link:hover {
+  color: var(--ink-primary);
+  background: var(--bg-subtle);
+}
+
+.nav-link.active {
+  color: var(--brand-primary);
+  background: var(--accent-lavender-soft);
+  font-weight: 600;
+}
+
+/* Theme Toggle Button INSIDE the Pill */
+.nav-theme-li {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  padding-left: 8px;
+  border-left: 1px solid rgba(36, 33, 42, 0.12);
+}
+
+[data-theme="dark"] .nav-theme-li {
+  border-left-color: rgba(255, 255, 255, 0.12);
+}
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--ink-primary);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  font-size: 14px;
+}
+
+.theme-toggle:hover {
+  color: var(--brand-primary);
+  background: var(--bg-subtle);
+  transform: rotate(15deg);
+}
+
+/* Right Nav Actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Standalone Royal Blue Pill CTA */
+.nav-cta {
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 8px 22px rgba(36, 59, 128, 0.25);
+}
+
+/* Hamburger for mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 42px;
+  height: 42px;
+  padding: 12px 10px;
+  background: var(--bg-surface);
+  border: var(--border-hairline);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--ink-primary);
+  border-radius: 2px;
+  transition: all var(--transition-smooth);
+}
+
+@media (max-width: 960px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 64px;
+    left: 24px;
+    right: 24px;
+    flex-direction: column;
+    padding: 20px;
+    background: var(--bg-surface);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-float);
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  .nav-theme-li {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    margin-top: 10px;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+}
+

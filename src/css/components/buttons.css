@@ -1,0 +1,70 @@
+/* ─── 4. BUTTONS & UI CONTROLS ───────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  border: none;
+  outline: none;
+  min-height: 48px;
+}
+
+.btn i {
+  font-size: 0.95rem;
+}
+
+/* Primary Button: Solid Royal Blue */
+.btn-primary {
+  background: var(--brand-primary);
+  color: #FFFFFF !important;
+  box-shadow: var(--shadow-cta);
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  background: var(--brand-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-cta-hover);
+  color: #FFFFFF !important;
+}
+
+/* Secondary Button: Crisp White Pill with Defined Ink Border */
+.btn-outline {
+  background: var(--bg-surface);
+  color: var(--ink-primary) !important;
+  border: var(--border-ink);
+  box-shadow: 0 2px 8px rgba(36, 33, 42, 0.04);
+}
+
+.btn-outline:hover {
+  background: var(--bg-subtle);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-float);
+  color: var(--brand-primary) !important;
+  border-color: var(--brand-primary);
+}
+
+.btn-sm {
+  padding: 9px 18px;
+  font-size: 0.8125rem;
+  min-height: 38px;
+}
+
+.btn-lg {
+  padding: 15px 32px;
+  font-size: 1rem;
+}
+
+.btn-full {
+  width: 100%;
+}
+

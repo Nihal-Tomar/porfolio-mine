@@ -1,0 +1,19 @@
+{
+  "name": "nihal-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Nihal Singh Tomar — Full Stack Developer Portfolio",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "frontend",
+    "mern",
+    "javascript"
+  ],
+  "author": "Nihal Singh Tomar",
+  "license": "MIT"
+}

@@ -1,0 +1,119 @@
+/* ─── 14. FOOTER (Deep Navy Closing Rhythm Band) ──────────────── */
+.footer {
+  background: var(--bg-dark-band);
+  color: #FFFFFF;
+  padding: 80px 0 40px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-cta {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 64px auto;
+}
+
+.footer-cta__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  line-height: 1.1;
+  color: #FFFFFF;
+  margin-bottom: 28px;
+}
+
+.footer-cta__heading .italic-emphasis {
+  color: var(--accent-lavender) !important;
+}
+
+.footer-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  margin-bottom: 48px;
+}
+
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  color: #FFFFFF !important;
+  font-size: 1.5rem;
+}
+
+.footer-logo .logo-bracket {
+  color: var(--accent-lavender);
+}
+
+.footer-tagline-text {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 4px;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-social {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
+.footer-social:hover {
+  background: var(--accent-lavender);
+  color: var(--bg-dark-band);
+  border-color: var(--accent-lavender);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color var(--transition-smooth);
+}
+
+.footer-links a:hover {
+  color: var(--accent-lavender);
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 28px;
+}
+
+.footer-bottom p {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.footer-trust {
+  margin-top: 6px;
+  font-size: 0.75rem !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.heart {
+  color: #EC4899;
+}
+

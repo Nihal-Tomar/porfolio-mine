@@ -15,7 +15,7 @@
   <meta property="og:description"
     content="Full Stack Developer & Problem Solver — building fast, scalable, pixel-perfect web apps with the MERN stack." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="image/ns1.png" />
+  <meta property="og:image" content="assets/images/profile/ns1.png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
@@ -28,8 +28,8 @@
   <title>My, Myself & I | Nihal</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="image/ns1.png" />
-  <link rel="apple-touch-icon" href="image/ns1.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/images/icons/favicon.png" />
 
   <!-- Google Fonts: Instrument Serif + DM Sans + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,10 +47,11 @@
   <!-- Devicons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
-  <!-- Preloader CSS — loaded first so the dark overlay paints before content -->
-  <link rel="stylesheet" href="css/preloader.css" />
+  <!-- Preloader CSS — loaded first so the overlay paints before content -->
+  <link rel="stylesheet" href="src/css/components/preloader.css" />
 
-  <link rel="stylesheet" href="style.css" />
+  <!-- Main Modular Stylesheet -->
+  <link rel="stylesheet" href="src/css/main.css" />
 
   <!-- ── Theme initialisation (MUST be inline & blocking to prevent flicker) ── -->
   <script>
@@ -222,7 +223,7 @@
         <div class="hero-pearl-mat">
           <!-- Inner Monochrome Portrait (305px x 305px) -->
           <div class="hero-image-container">
-            <img src="image/Ns4.png" alt="Nihal Singh Tomar" class="hero-photo" loading="eager" />
+            <img src="assets/images/profile/ns4.png" alt="Nihal Singh Tomar" class="hero-photo" loading="eager" />
           </div>
         </div>
 
@@ -268,7 +269,7 @@
       <div class="about-grid">
         <div class="about-image-col" data-aos="fade-right" data-aos-duration="900">
           <div class="about-image-frame">
-            <img src="image/Ns2.png" alt="Nihal Singh Tomar" class="about-photo" loading="lazy" />
+            <img src="assets/images/profile/ns2.png" alt="Nihal Singh Tomar" class="about-photo" loading="lazy" />
             <div class="about-image-overlay">
               <div class="tech-float">React · Node · Python</div>
             </div>
@@ -457,7 +458,7 @@
         <div class="project-card glass-card featured" data-aos="fade-up" data-aos-delay="50">
           <div class="project-badge"><i class="fas fa-star"></i> Featured</div>
           <div class="project-img-wrapper">
-            <img src="image/apnakartpreview.png" alt="ApnaKart — E-Commerce Platform" class="project-img" />
+            <img src="assets/images/projects/apnakartpreview.png" alt="ApnaKart — E-Commerce Platform" class="project-img" />
             <div class="project-overlay">
               <a href="https://apnakart-pi.vercel.app/" class="overlay-btn" aria-label="Live Demo"><i
                   class="fas fa-external-link-alt"></i></a>
@@ -525,7 +526,7 @@
         <div class="project-card glass-card featured" data-aos="fade-up" data-aos-delay="100">
           <div class="project-badge"><i class="fas fa-star"></i> Featured</div>
           <div class="project-img-wrapper">
-            <img src="image/studentportal.png" alt="Student Manager" class="project-img" />
+            <img src="assets/images/projects/studentportal.png" alt="Student Manager" class="project-img" />
             <div class="project-overlay">
               <a href="https://nihal-tomar.github.io/student-portal/" class="overlay-btn" aria-label="Live Demo"><i
                   class="fas fa-external-link-alt"></i></a>
@@ -557,7 +558,7 @@
         <!-- PROJECT 4 -->
         <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="150">
           <div class="project-img-wrapper">
-            <img src="image/todolist.png" alt="TaskFlow" class="project-img" />
+            <img src="assets/images/projects/todolist.png" alt="TaskFlow" class="project-img" />
             <div class="project-overlay">
               <a href="https://nihal-tomar.github.io/TODO-List/" class="overlay-btn" aria-label="Live Demo"><i
                   class="fas fa-external-link-alt"></i></a>
@@ -589,7 +590,7 @@
         <!-- PROJECT 5 -->
         <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="200">
           <div class="project-img-wrapper">
-            <img src="image/weather.png" alt="Weather App" class="project-img" />
+            <img src="assets/images/projects/weather.png" alt="Weather App" class="project-img" />
             <div class="project-overlay">
               <a href="https://nihal-tomar.github.io/weather/" class="overlay-btn" aria-label="Live Demo"><i
                   class="fas fa-external-link-alt"></i></a>
@@ -1153,14 +1154,16 @@
     }
   </style>
 
-  <!-- Preloader: runs first (defer = after HTML parsed, before DOMContentLoaded) -->
-  <script src="js/preloader.js" defer></script>
+  <!-- Preloader Controller: runs first -->
+  <script src="src/js/components/preloader.js" defer></script>
 
-  <!-- Scripts -->
+  <!-- External Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script src="script.js"></script>
+
+  <!-- Main Application Entry Point -->
+  <script type="module" src="src/js/main.js"></script>
 </body>
 
 </html>

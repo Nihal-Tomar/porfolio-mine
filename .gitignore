@@ -1,0 +1,37 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor & IDE Dirs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# Node / Dependencies / Package managers
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build & Cache Output
+dist/
+build/
+.cache/
+.parcel-cache/
+
+# Environment Configurations
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
