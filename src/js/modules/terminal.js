@@ -44,7 +44,7 @@ const PORTFOLIO_DATA = {
       name: "ApnaKart",
       badge: "⭐ Featured",
       tech: "MERN Stack, Redux, Stripe API",
-      desc: "Full-featured e-commerce platform with product catalogs, shopping cart, authentication, and payment gateway.",
+      desc: "Turns daily grocery shopping into mindful household budgeting—combining fresh produce delivery, pantry expiry tracking, and real-time spend analytics.",
       demo: "https://apnakart-pi.vercel.app/",
       repo: "https://github.com/Nihal-Tomar/apnakart"
     },
