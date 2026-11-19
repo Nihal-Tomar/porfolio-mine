@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <rect width="24" height="24" rx="5" fill="#FAF5FF"/>
+  <path d="M12 2L13.8 8.2L20 10L13.8 11.8L12 18L10.2 11.8L4 10L10.2 8.2L12 2Z" fill="url(#genAiGrad)"/>
+  <path d="M18.5 15.5L19.4 18.6L22.5 19.5L19.4 20.4L18.5 23.5L17.6 20.4L14.5 19.5L17.6 18.6L18.5 15.5Z" fill="#A855F7"/>
+  <defs>
+    <linearGradient id="genAiGrad" x1="4" y1="2" x2="20" y2="18" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#EC4899"/>
+    </linearGradient>
+  </defs>
+</svg>
